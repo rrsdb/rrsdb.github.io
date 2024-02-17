@@ -1,0 +1,243 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+
+function init_modulus_search() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+	search_text = document.getElementById("modulus_search_text").value;
+	
+	if (search_text === "") return;
+	
+	window.location.href="identities-by-modulus.html#mod" + search_text;
+  });
+}
+
+function eqcon_tb(box_id)
+{
+	var element = document.getElementById(box_id);
+	element.style.display = (element.style.display == "block") ? "none" : "block";
+}
+</script>
+<style>
+.modulus_container {
+  margin-left: -5px;
+  padding: 5px;  
+}
+
+.modulus_container h3 {
+  margin: 0px;
+}
+
+.rrsdb_identity {
+}
+
+.modulus_container:target {
+  background: #EEEEEE;
+}
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init_modulus_search()"
+  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+
+  <!-- Header container -->
+  <div style="background-color: #ffcd00; padding: 0px; margin: 0px;
+    border-bottom: 2px solid #000000; width: auto;
+    font-family: monospace; height: 50px;">
+
+    <!-- Placeholder until we have an icon -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <p> Icon goes here.
+          should fit within 200px by 50px box. </p>
+    </div>
+
+    <div style="float: left; margin-left: 10px;
+      line-height: 50px; height: 100%;">
+      <a href="index.html" style="font-size: 20px; margin: 0px;
+	text-decoration: none; color: #2b2b2b;">
+        The Rogers-Ramanujan-Slater Database
+      </a>
+    </div>
+    <div style="float: right; margin-right: 25px;
+      line-height: 50px; height: 100%; word-spacing: 10px;">
+      <p style="font-size: 18px; margin: 0px;">
+       <!-- TODO, maybe have search by or other info here?
+	   <a style="text-decoration: none;" href="">Search</a> <!-->
+	   </p>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->  
+    <div style="flex: 0 0 200px; align-self: flex-start;
+      border-right: 2px solid black; border-bottom: 2px solid black;
+      background: #EEEEEE; border-top: 2xp solid #EEEEEE;
+      margin-top: -2px;">
+      <div class="sidebar_title">
+        <h3>Rogers-Ramanujan type identities</h3>
+      </div>
+      <div class="sidebar_content">
+	    <p style="margin-top: 5px;"> Search by modulus: </p>
+	    <input id="modulus_search_text" style="width:100px;"
+		  type="text" id="modulus_search_text">
+		<input id="modulus_search_button" type="submit" value="Go">
+      </div>
+      <div class="sidebar_title">
+        <h3>Other identities</h3>
+      </div>
+      <div class="sidebar_content">
+        <a href="">Andrews-Gordon</a>
+        <a href="">The triple and quintuple product</a>
+        <a href="">The pentagonal number theorem</a>
+      </div>
+      <div class="sidebar_title">
+        <h3>Definitions</h3>
+      </div>
+      <div class="sidebar_content">
+        <a href="">Partitions</a>
+        <a href="">Bailey pairs</a>
+      </div>
+    </div>
+
+    <!-- Main content container -->
+    <div style="margin: 20px; flex-grow: 1;">
+      
+      <h2> Identities by Modulus </h2>
+	  
+	  <div id="mod2" class="modulus_container">
+		<h3>Mod 2</h3>
+		<div class="rrsdb_identity">
+		  <p> each mod 2 identity goes here, with an id attached</p>
+		</div>
+	  </div>	  
+  
+	  <div id="mod3" class="modulus_container">
+		<h3>Mod 3</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod4" class="modulus_container">
+		<h3>Mod 4</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod5" class="modulus_container">
+		<h3>Mod 5</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod6" class="modulus_container">
+		<h3>Mod 6</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod7" class="modulus_container">
+		<h3>Mod 7</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod8" class="modulus_container">
+		<h3>Mod 8</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod9" class="modulus_container">
+		<h3>Mod 9</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod10" class="modulus_container">
+		<h3>Mod 10</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod11" class="modulus_container">
+		<h3>Mod 11</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod12" class="modulus_container">
+		<h3>Mod 12</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod14" class="modulus_container">
+		<h3>Mod 14</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod15" class="modulus_container">
+		<h3>Mod 15</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod16" class="modulus_container">
+		<h3>Mod 16</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod18" class="modulus_container">
+		<h3>Mod 18</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+	  
+	  <div id="mod20" class="modulus_container">
+		<h3>Mod 20</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+	  
+	  <div id="mod24" class="modulus_container">
+		<h3>Mod 24</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+	  
+	  <div id="mod27" class="modulus_container">
+		<h3>Mod 27</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod32" class="modulus_container">
+		<h3>Mod 32</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+
+	  <div id="mod36" class="modulus_container">
+		<h3>Mod 36</h3>
+		<div class="rrsdb_identity">
+		</div>
+	  </div>
+	  
+    </div>
+  </div>
+
+  <!-- Footer container -->
+  <div style="bottom: 0; left: 0; width: 100%; background: #EEEEEE;
+    border-top: 2px solid black; height: 50px;">
+	</div>
+</body>
+</html>
+
