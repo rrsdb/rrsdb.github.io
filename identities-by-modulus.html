@@ -20,23 +20,6 @@ function eqcon_tb(box_id)
 	element.style.display = (element.style.display == "block") ? "none" : "block";
 }
 </script>
-<style>
-.modulus_container {
-  margin-left: -5px;
-  padding: 5px;  
-}
-
-.modulus_container h3 {
-  margin: 0px;
-}
-
-.rrsdb_identity {
-}
-
-.modulus_container:target {
-  background: #EEEEEE;
-}
-</style>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -46,20 +29,18 @@ function eqcon_tb(box_id)
   <!-- Header container -->
   <div style="background-color: #ffcd00; padding: 0px; margin: 0px;
     border-bottom: 2px solid #000000; width: auto;
-    font-family: monospace; height: 50px;">
+    height: 50px;">
 
-    <!-- Placeholder until we have an icon -->
+    <!-- Placeholder until we have a better logo -->
     <div style="float: left; width: 200px; height: 50px;">
-      <p> Icon goes here.
-          should fit within 200px by 50px box. </p>
+      <img src="logo.png">
     </div>
 
     <div style="float: left; margin-left: 10px;
       line-height: 50px; height: 100%;">
-      <a href="index.html" style="font-size: 20px; margin: 0px;
-	text-decoration: none; color: #2b2b2b;">
-        The Rogers-Ramanujan-Slater Database
-      </a>
+      <h1 id="page_title"><a href="identities-by-modulus.html">
+        Identities by Modulus
+      </a></h1>
     </div>
     <div style="float: right; margin-right: 25px;
       line-height: 50px; height: 100%; word-spacing: 10px;">
@@ -75,21 +56,22 @@ function eqcon_tb(box_id)
   <div style="display: flex">
 
     <!-- Side bar container -->  
-    <div style="flex: 0 0 200px; align-self: flex-start;
+    <div id="sidebar" style="flex: 0 0 200px; align-self: flex-start;
       border-right: 2px solid black; border-bottom: 2px solid black;
       background: #EEEEEE; border-top: 2xp solid #EEEEEE;
       margin-top: -2px;">
       <div class="sidebar_title">
-        <h3>Rogers-Ramanujan type identities</h3>
+        <a href="identities-by-modulus.html">
+		  Rogers-Ramanujan type identities</a>
       </div>
-      <div class="sidebar_content">
-	    <p style="margin-top: 5px;"> Search by modulus: </p>
+      <div class="sidebar_content" style="padding-left: 5px;">
+	    <p> Search by modulus: </p>
 	    <input id="modulus_search_text" style="width:100px;"
 		  type="text" id="modulus_search_text">
 		<input id="modulus_search_button" type="submit" value="Go">
       </div>
       <div class="sidebar_title">
-        <h3>Other identities</h3>
+        <a href=""> Other identities</a>
       </div>
       <div class="sidebar_content">
         <a href="">Andrews-Gordon</a>
@@ -97,137 +79,144 @@ function eqcon_tb(box_id)
         <a href="">The pentagonal number theorem</a>
       </div>
       <div class="sidebar_title">
-        <h3>Definitions</h3>
+        <a href="">Definitions</a>
       </div>
       <div class="sidebar_content">
-        <a href="">Partitions</a>
-        <a href="">Bailey pairs</a>
+        <a href="definitions.html#partitions">Partitions</a>
+        <a href="definitions.html#bailey_pairs">Bailey pairs</a>
       </div>
     </div>
 
     <!-- Main content container -->
     <div style="margin: 20px; flex-grow: 1;">
-      
-      <h2> Identities by Modulus </h2>
 	  
-	  <div id="mod2" class="modulus_container">
+	  <div id="mod2" class="identity_class_container">
 		<h3>Mod 2</h3>
-		<div class="rrsdb_identity">
-		  <p> each mod 2 identity goes here, with an id attached</p>
+		<div class="equation_container">
 		</div>
 	  </div>	  
   
-	  <div id="mod3" class="modulus_container">
+	  <div id="mod3" class="identity_class_container">
 		<h3>Mod 3</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod4" class="modulus_container">
+	  <div id="mod4" class="identity_class_container">
 		<h3>Mod 4</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod5" class="modulus_container">
+	  <div id="mod5" class="identity_class_container">
 		<h3>Mod 5</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
+		  <p>\(\displaystyle \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\)</p>
+		  <div class="eqcon_footer">
+		    <a href="">RRSDB ID: 5.10010</a>
+		  </div>
+		</div>
+		<div class="equation_container">  
+		  <p>\(\displaystyle \prod_{n=1}^\infty \frac{1}{(1-q^{5n-2})(1-q^{5n-3})}\)</p>
+		  <div class="eqcon_footer">
+		    <a href="">RRSDB ID: 5.01100</a>
+		  </div>
 		</div>
 	  </div>
 
-	  <div id="mod6" class="modulus_container">
+	  <div id="mod6" class="identity_class_container">
 		<h3>Mod 6</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod7" class="modulus_container">
+	  <div id="mod7" class="identity_class_container">
 		<h3>Mod 7</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod8" class="modulus_container">
+	  <div id="mod8" class="identity_class_container">
 		<h3>Mod 8</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod9" class="modulus_container">
+	  <div id="mod9" class="identity_class_container">
 		<h3>Mod 9</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod10" class="modulus_container">
+	  <div id="mod10" class="identity_class_container">
 		<h3>Mod 10</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod11" class="modulus_container">
+	  <div id="mod11" class="identity_class_container">
 		<h3>Mod 11</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod12" class="modulus_container">
+	  <div id="mod12" class="identity_class_container">
 		<h3>Mod 12</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod14" class="modulus_container">
+	  <div id="mod14" class="identity_class_container">
 		<h3>Mod 14</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod15" class="modulus_container">
+	  <div id="mod15" class="identity_class_container">
 		<h3>Mod 15</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod16" class="modulus_container">
+	  <div id="mod16" class="identity_class_container">
 		<h3>Mod 16</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod18" class="modulus_container">
+	  <div id="mod18" class="identity_class_container">
 		<h3>Mod 18</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 	  
-	  <div id="mod20" class="modulus_container">
+	  <div id="mod20" class="identity_class_container">
 		<h3>Mod 20</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 	  
-	  <div id="mod24" class="modulus_container">
+	  <div id="mod24" class="identity_class_container">
 		<h3>Mod 24</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 	  
-	  <div id="mod27" class="modulus_container">
+	  <div id="mod27" class="identity_class_container">
 		<h3>Mod 27</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod32" class="modulus_container">
+	  <div id="mod32" class="identity_class_container">
 		<h3>Mod 32</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 
-	  <div id="mod36" class="modulus_container">
+	  <div id="mod36" class="identity_class_container">
 		<h3>Mod 36</h3>
-		<div class="rrsdb_identity">
+		<div class="equation_container">
 		</div>
 	  </div>
 	  
@@ -236,8 +225,10 @@ function eqcon_tb(box_id)
 
   <!-- Footer container -->
   <div style="bottom: 0; left: 0; width: 100%; background: #EEEEEE;
-    border-top: 2px solid black; height: 50px;">
+    border-top: 2px solid black; height:100px; ">
+	  <div style="margin-left: 30px; margin-top: 30px; margin-bottom: 10px;">
+	    <p style="color: #959595;"> Design by Hunter Waldron hpwaldro@mtu.edu </p>
+	  </div>
 	</div>
 </body>
 </html>
-

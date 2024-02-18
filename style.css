@@ -1,10 +1,36 @@
+#page_title {
+  font-size: 1.75em;
+  margin: 0px;
+ }
+ #page_title > a {
+  color: #2b2b2b;
+  text-decoration: none;  
+ }
+.identity_class_container {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.identity_class_container:target {
+  background: #EEEEEE;
+  border: 2px solid black;
+  margin-left: -2px;
+  margin-top: -2px;
+  margin-bottom: 8px;
+}
+.identity_class_container > h3 {
+  margin: 0px;
+}
 .equation_container {
-  margin-left: 20px;
+  margin-left: 15px;
+  padding: 5px;
 }
 .eqcon_footer {
   font-size: 0.8em;
   margin-bottom: 5px;
   margin-left: -5px;
+}
+.eqcon_footer > a:hover {
+  background: #ffcd00;
 }
 .eqcon_infobox {
   width: 100%;
@@ -16,9 +42,11 @@
   background: #EEEEEE;
   display: none;
 }
-.eqcon_button {
+.eqcon_button, .eqcon_footer > a {
   background-color: transparent;
   font-size: 1em;
+  color: black;
+  text-decoration: none;
   border: none;
   padding: 5px;
 }
@@ -26,47 +54,48 @@
   background-color: #ffcd00;
 }
 .sidebar_title {
-  width: calc(100%-10px);
+  width: 100%;
   background-color: #d4d4d4;
   padding: 5px;
+  box-sizing: border-box;
 }
-.sidebar_title h3 {
-  margin: 0px;
+.sidebar_title > a {
   font-size: 1.1em;
+  color: black;	
+  font-weight: bold;
+  text-decoration: none;
+}
+.sidebar_title > a:hover {
+  text-decoration: underline;
 }
 .sidebar_content {
   margin: 5px;
 }
-.sidebar_content a {
+.sidebar_content > a {
   color: black;
   text-decoration: none;
   padding: 5px;
-}
-.sidebar_content > a {
   display: block;
 }
 .sidebar_content > p {
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 .sidebar_content a:hover {
   background-color: #ffcd00;
 }
-
 input {
-  height: 1.5em;	
+  height: 1.5em;
 }
-
 input[type="text"], input[type="text"]:focus {
   border: 0px;
   outline: none;
   border-radius: 0px;
 }
-
 input[type="submit"] {
   background-color: #d4d4d4;
   border: 0px;
 }
-
 input[type="submit"]:hover {
   background-color: #ffcd00;
   border: 0px;
