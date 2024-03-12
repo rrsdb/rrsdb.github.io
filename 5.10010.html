@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rogers&ndash;Ramanujan&ndash;Slater Database</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" 
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+</head>
+<body>
+
+<p>
+<b> 
+<a href="IPS.html">Infinite Product Signature</a>
+</b> 5:10010<br>
+
+<a href="SN.html">Slater Number</a> S.18
+<br>
+
+</p>
+<p>
+<b>Common name</b> the first Rogers&ndash;Ramanujan identity
+</p>
+<p> 
+<b>Product forms</b>
+$$ \Pi(q):=\frac{(q^2,q^3,q^5;q^5)_\infty}{(q;q)_\infty} 
+= \prod_{n=0}^\infty \frac{1}{(1-q^{5n+1})(1-q^{5n+4}) } 
+= \frac{f(-q^2,-q^3)}{f(-q)}
+= i e^{-\pi i \tau/6} \frac{ \eta(5\tau) }{\vartheta_1(\tau \mid 5\tau)}
+= i e^{-\pi i 5\tau/6} \frac{ \vartheta_1(2\tau \mid 5\tau)}{\eta(\tau)}
+.$$
+
+</p>
+<p>
+<b>Series forms</b>
+$$ \Sigma(q):= 
+\sum_{n=0}^\infty \frac{q^{n^2}}{(q;q)_n} 
+=: \sum_{n=0}^\infty r(n) q^n $$ 
+
+$$ = 1+q+q^2+q^3+2 q^4+2 q^5+3 q^6+3 q^7+4 q^8+5 q^9+6 q^{10}+7 q^{11}+9 q^{12}+10
+   q^{13}+12 q^{14}+14 q^{15}+17 q^{16}+19 q^{17}+23 q^{18}+26 q^{19}+31
+   q^{20}+35 q^{21}+41 q^{22}+46 q^{23}+54 q^{24}+61 q^{25}+70 q^{26}+79
+   q^{27}+91 q^{28}+102 q^{29}+117 q^{30}+131 q^{31}+149 q^{32}+167 q^{33}+189
+   q^{34}+211 q^{35}+239 q^{36}+266 q^{37}+299 q^{38}+333 q^{39}+374 q^{40}+415
+   q^{41}+465 q^{42}+515 q^{43}+575 q^{44}+637 q^{45}+709 q^{46}+783 q^{47}+871
+   q^{48}+961 q^{49}+1065 q^{50}+1174 q^{51}+1299 q^{52}+1429 q^{53}+1579
+   q^{54}+1735 q^{55}+1913 q^{56}+2100 q^{57}+2311 q^{58}+2533 q^{59}+2785
+   q^{60}+3049 q^{61}+3345 q^{62}+3659 q^{63}+4010 q^{64}+4380 q^{65}+4794
+   q^{66}+5231 q^{67}+5717 q^{68}+6233 q^{69}+6804 q^{70}+7409 q^{71}+8080
+   q^{72}+8790 q^{73}+9573 q^{74}+10406 q^{75}+11322 q^{76}+12294 q^{77}+13363
+   q^{78}+14498 q^{79}+15742 q^{80}+17066 q^{81}+18512 q^{82}+20050 q^{83}+21732
+   q^{84}+23519 q^{85}+25466 q^{86}+27540 q^{87}+29796 q^{88}+32196
+   q^{89}+O\left(q^{90}\right)$$
+</p>
+
+<p><b>Identity</b> $\Sigma(q) = \Pi(q)$ due to Rogers (1894, p. 328 (2)).
+</p>
+
+<p><b>Bailey pair proof</b> <br>
+Insert 
+<a href="BaileyPairDef.html">Bailey pair</a> 
+<a href="BP-B1.html">B(1)</a>
+<!--$\Big(\alpha_n(a,q), \beta_n(a,q)\Big)$, with $a=1$,-->
+into the
+<a href="pBL.html">p-Bailey lemma</a> and apply the
+<a href="JTP.html">triple product identity</a>. 
+<br>
+See also <a href="BP-TableB.html">Bailey pair Table B</a>.<br>
+
+<!--where 
+\[ \alpha_n(a,q) = \frac{(-1)^n a^n q^{n(3n-1)/2} (1-aq^{2n})}{(1-a)(q;q)_n} \]
+ and
+\[ \beta_n(a,q) = \frac{1}{(q;q)_n} . \]-->
+ 
+</p>
+<p>
+<b> Asymptotic formula for coefficient of $q^n$ </b>
+$$ r(n) \sim \frac{1}{2\cdot 15^{1/4} n^{3/4}} \csc\left( \frac{\pi}{5} \right)
+\exp \left( 2\pi \sqrt{  \frac{n}{15}} \right) $$ 
+
+\[ r(n) \sim \frac{e^{\frac{2 \pi  \sqrt{n}}{\sqrt{15}}}}{4 \sqrt[4]{15}
+   \sqrt{\frac{5}{8}-\frac{\sqrt{5}}{8}} n^{3/4}} \]
+as $n\to\infty$. 
+Due to Lehner (1941, p. 655, Eq. (12.4)).
+</p>
+
+<p><b>Combinatorial interpretations of $r(n)$</b>
+<ul>
+  <li>the number of partitions of $n$ into parts congruent to $\pm 1\pmod{5}$</li> 
+  <li>the number of partitions of $n$ into parts that mutually
+ differ by at least $2$.
+</li>
+</ul>
+More available at <b>OEIS</b>
+<a href="https://oeis.org/A003114">A003114</a> 
+</p>
+
+
+<p>
+<b>References</b>
+<ol>
+  <li> J. Lehner, A partition function connected with the modulus five, Duke
+Math. J. 8 (1941) 631&ndash;655.
+<a href="https://doi.org/10.1215/S0012-7094-41-00854-2">DOI</a>
+</li>
+ <li> L. J. Rogers, Second memoir on the expansion of certain infinite products,
+ Proc. London Math. Soc. (1) 25 (1894) 318&ndash;343.
+<a href="https://doi.org/10.1112/plms/s1-25.1.318">DOI</a>
+</li>
+<li> L. J. Rogers and S. Ramanujan, Proofs of certain identities in
+combinatory analysis, Proc. Cambridge Phil. Soc. XIX (1919) 211&ndash;216.
+ <li> L. J. Slater, Further identities of the Rogers&ndash;Ramanujan type,
+ Proc. London Math. Soc. (2) 54 (1952) 147&ndash;167.
+ <a href="https://doi.org/10.1112/plms/s2-54.2.147">DOI</a> 
+ </li>
+</ol>
+</p>
+</body>
+</html>
+
+
