@@ -55,7 +55,7 @@ function init_modulus_search() {
         <a href=""> Other identities</a>
       </div>
       <div class="sidebar_content">
-		<a href="">Rogers-Ramanujan-Gordon type</a>
+		<a href="">TODO</a>
       </div>
       <div class="sidebar_title">
         <a href="">Definitions and Preliminaries</a>
@@ -69,15 +69,21 @@ function init_modulus_search() {
 		     &bull; \(q\)-binomial coefficient</a>
 		  <a href="q-series.html#q-hypergeometric">
 		     &bull; \(q\)-hypergeometric series</a>
-		  <a href="q-series.html#triple_and_quintuple_product">
-		     &bull; Triple and quintuple product identities</a>
-		  <a href="q-series.html#pentagonal_number_theorem">
-		     &bull; The pentagonal number theorem</a>
+		  <a href="q-series.html#triple_product_and_theta_functions">
+		     &bull; The triple product and Ramanujan's theta functions</a>
+		  <a href="q-series.html#polygonal_number_identities">
+		     &bull; Polygonal number identities</a>
 		</div>
         <a href="partitions.html">Partitions</a>
+		<div>
+		  <a href="partitions.html#unrestricted">
+		     &bull; Unrestricted partitions</a>
+		  <a href="partitions.html#overpartitions">
+		     &bull; Overpartitions</a>
+		</div>
         <a href="bailey_pairs.html">Bailey pairs</a>
 		<div>
-		  <a href="bailey_pairs.html#baileys_lemma">&bull; Bailey's lemma</a>
+		  <a href="bailey_pairs.html#bailey_lemmas">&bull; The Bailey lemmas</a>
 		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
 		</div>
       </div>
@@ -85,10 +91,10 @@ function init_modulus_search() {
 
     <!-- Main content container -->
     <div id="main">
-	  <div class="main_infobox_header">
-	    <h2>The \(q\)-Pochhammer symbol</h2>
-	  </div>
 	  <div class="main_infobox" id="q-Pochhammer">
+	    <div class="main_infobox_header">
+	      <h2>The \(q\)-Pochhammer symbol</h2>
+	    </div>
 	    <p> For a positive integer \(n\), 
 		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n = \prod_{k=0}^{n-1} (1-aq^k)\]
 			\[ (a;q)_{-n} = \prod_{k=1}^n \frac{1}{1-aq^{-k}} \]
@@ -101,16 +107,21 @@ function init_modulus_search() {
 			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n\] </p>
 	  </div>
 
-       <div class="main_infobox_header">
-	    <h2>The \(q\)-binomial coefficient</h2>
-	  </div>
       <div class="main_infobox" id="q-binomial">
+	    <div class="main_infobox_header">
+	      <h2>The \(q\)-binomial coefficient</h2>
+	    </div>
+	    <p> The <b>Gaussian binomial coefficient</b>, or the \(q\)-binomial coefficient,
+		    is a polynomial, defined
+		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}}.\]
+			This is the generating function for all <a href="partitions.html#unrestricted">unrestricted
+			partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.
       </div>
 
-      <div class="main_infobox_header">
-	    <h2>\(q\)-hypergeometric series</h2>
-	  </div>
       <div class="main_infobox" id="q-hypergeometric">
+	    <div class="main_infobox_header">
+	      <h2>\(q\)-hypergeometric series</h2>
+	    </div>
 	    <p> A <b>basic hypergeometric series</b> with base \(q\), also called a \(q\)-hypergeometric series,
 		    is given by
 			\[{ {}_{r}\phi_{s}
@@ -135,13 +146,13 @@ function init_modulus_search() {
 		  </p>
       </div>
 
-      <div class="main_infobox_header">
-	    <h2>The triple and quintuple product identities</h2>
-	  </div>
-      <div class="main_infobox" id="triple_and_quintuple_product">
+      <div class="main_infobox" id="triple_product_and_theta_functions">
+	    <div class="main_infobox_header">
+	      <h2>The triple product and Ramanujan's theta functions</h2>
+	    </div>
 	    <p>Jacobi's <b>triple product identity</b> appears in the literature in many different forms.
-		   A particularly nice form given by Ramanujan for \(\vert ab \vert < 1\) is
-		   \[\sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2} = (-a-b, ab; ab)_\infty.\]
+		   A particularly nice form for \(\vert ab \vert < 1\) is Ramanujan's theta function
+		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2} = (-a-b, ab; ab)_\infty.\]
 		   In the context of Rogers-Ramanujan type identities, we often encounter the triple product
 		   identity in the forms
 		   \[\sum_{n=-\infty}^\infty (-1)^n q^{\frac a2 n^2 - \frac b2 n} = (q^{(a-b)/2},
@@ -155,22 +166,41 @@ function init_modulus_search() {
 			and <a href="q-series.html#square_and_hexagonal_numbers_theorems">Gauss's square
 			numbers and hexagonal numbers theorems</a>.
 		</p>
+		<p> Ramanujan defined three special cases of \(f(a,b)\) as follows:
+		    \[\varphi(q) := f(q,q) = \frac{(-q;-q)_\infty}{(q;-q)_\infty}\]
+			\[f(-q) :=  f(-q, -q^2) = (q;q)_\infty,\]
+			\[\psi(q) := f(q,q^3) = \frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.\]
+		</p>
+		<p> Note that the reciprocals of the three functions above are important as generating functions:
+		    \[\frac{1}{\varphi(-q)} = \frac{(-q;q)_\infty}{(q;q)_\infty} =
+            \sum_{n=0}^\infty \bar{p}(n) q^n,\]
+			\[\frac{1}{f(-q)} = \frac{1}{(q;q)_\infty} = \sum_{n=0}^\infty p(n) q^n ,\]
+			\[\frac{1}{\psi(-q)} = 
+            \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{n=0}^\infty pod(n) q^n,\]
+			where \(p(n)\) is the number of <a href="partitions.html#unrestricted">unrestricted
+			partitions</a> of \(n\), \(\bar{p}(n)\) is the number of
+			<a href="partitions.html#overpartitions">overpartitions</a> of \(n,\) and
+			\(pod(n)\) is the number of partitions of \(n\) in which no odd part is repeated.
+		</p>
       </div>
 
-      <div class="main_infobox_header">
-	    <h2>The pentagonal number theorem</h2>
-	  </div>
-      <div class="main_infobox" id="pentagonal_number_theorem">
+      <div class="main_infobox" id="polygonal_number_identities">
+        <div class="main_infobox_header">
+	      <h2>Polygonal number identities</h2>
+	    </div>
+	    <p> Euler's pentagonal number theorem is
+		    \[f(-q) = (q;q)_\infty = \sum_{n=-\infty}^\infty (-1)^n q^{n(3n-1)/2}.\]
+		</p>
+		<p> Gauss's square number and hexagonal number theorems are, respectively 
+		    \[\varphi(-q) = \frac{(q;q)_\infty}{(-q;q)_\infty} = \sum_{n=-\infty}^\infty (-1)^n q^{n^2}\]
+			\[\psi(-q) = \frac{(q^2;q^2)_\infty}{(-q;q^2)_\infty}
+			= \sum_{n=-\infty}^\infty (-1)^n q^{2n^2-n}.\]
       </div>
 
-      <div class="main_infobox_header">
-	    <h2>The square and hexagonal numbers theorems</h2>
-	  </div>
-      <div class="main_infobox" id="square_and_hexagonal_numbers_theorems">
-      </div>
-
-	  <div class="main_infobox_header">
-	    <h2>References</h2>
+      <div class="main_infobox">
+	    <div class="main_infobox_header">
+	      <h2>References</h2>
+	    </div>
 	  </div>
     </div>
   </div>

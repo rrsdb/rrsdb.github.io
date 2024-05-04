@@ -3,7 +3,6 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-
 function init_modulus_search() {
   document.getElementById("modulus_search_button").addEventListener("click", function() {
 	search_text = document.getElementById("modulus_search_text").value;
@@ -13,12 +12,6 @@ function init_modulus_search() {
 	window.location.href="identities-by-modulus.html#mod" + search_text;
   });
 }
-
-function eqcon_tb(box_id)
-{
-	var element = document.getElementById(box_id);
-	element.style.display = (element.style.display == "block") ? "none" : "block";
-}
 </script>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -27,27 +20,18 @@ function eqcon_tb(box_id)
   style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
 
   <!-- Header container -->
-  <div style="background-color: #ffcd00; padding: 0px; margin: 0px;
-    border-bottom: 2px solid #000000; width: auto;
-    height: 50px;">
+  <div id="header">
 
     <!-- Placeholder until we have a better logo -->
     <div style="float: left; width: 200px; height: 50px;">
-      <img src="logo.png">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+	    href="index.html"><img src="logo.png"></a>
     </div>
 
-    <div style="float: left; margin-left: 10px;
-      line-height: 50px; height: 100%;">
+    <div style="line-height: 50px; height: 100%;">
       <h1 id="page_title"><a href="identities-by-modulus.html">
-        Identities by Modulus
+        Identities by modulus
       </a></h1>
-    </div>
-    <div style="float: right; margin-right: 25px;
-      line-height: 50px; height: 100%; word-spacing: 10px;">
-      <p style="font-size: 18px; margin: 0px;">
-       <!-- TODO, maybe have search by or other info here?
-	   <a style="text-decoration: none;" href="">Search</a> <!-->
-	   </p>
     </div>
   </div>
 
@@ -56,10 +40,7 @@ function eqcon_tb(box_id)
   <div style="display: flex">
 
     <!-- Side bar container -->  
-    <div id="sidebar" style="flex: 0 0 200px; align-self: flex-start;
-      border-right: 2px solid black; border-bottom: 2px solid black;
-      background: #EEEEEE; border-top: 2xp solid #EEEEEE;
-      margin-top: -2px;">
+    <div id="sidebar">
       <div class="sidebar_title">
         <a href="identities-by-modulus.html">
 		  Rogers-Ramanujan type identities</a>
@@ -74,22 +55,43 @@ function eqcon_tb(box_id)
         <a href=""> Other identities</a>
       </div>
       <div class="sidebar_content">
-        <a href="">Andrews-Gordon</a>
-        <a href="">The triple and quintuple product</a>
-        <a href="">The pentagonal number theorem</a>
+		<a href="">TODO</a>
       </div>
       <div class="sidebar_title">
-        <a href="">Definitions</a>
+        <a href="">Definitions and Preliminaries</a>
       </div>
       <div class="sidebar_content">
-        <a href="definitions.html#partitions">Partitions</a>
-        <a href="definitions.html#bailey_pairs">Bailey pairs</a>
+	    <a href="q-series.html">\(q\)-series</a>
+		<div>
+		  <a href="q-series.html#q-Pochhammer">
+		     &bull; \(q\)-Pochhammer symbol</a>
+		  <a href="q-series.html#q-binomial">
+		     &bull; \(q\)-binomial coefficient</a>
+		  <a href="q-series.html#q-hypergeometric">
+		     &bull; \(q\)-hypergeometric series</a>
+		  <a href="q-series.html#triple_product_and_theta_functions">
+		     &bull; The triple product and Ramanujan's theta functions</a>
+		  <a href="q-series.html#polygonal_number_identities">
+		     &bull; Polygonal number identities</a>
+		</div>
+        <a href="partitions.html">Partitions</a>
+		<div>
+		  <a href="partitions.html#unrestricted">
+		     &bull; Unrestricted partitions</a>
+		  <a href="partitions.html#overpartitions">
+		     &bull; Overpartitions</a>
+		</div>
+        <a href="bailey_pairs.html">Bailey pairs</a>
+		<div>
+		  <a href="bailey_pairs.html#bailey_lemmas">&bull; The Bailey lemmas</a>
+		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
+		</div>
       </div>
     </div>
 
+
     <!-- Main content container -->
-    <div style="margin: 20px; flex-grow: 1;">
-	  
+    <div id="main">
 	  <div id="mod2" class="identity_class_container">
 		<h3>Mod 2</h3>
 		<div class="equation_container">
@@ -220,15 +222,27 @@ function eqcon_tb(box_id)
 		</div>
 	  </div>
 	  
+      <div class="main_infobox">
+	    <div class="main_infobox_header">
+	      <h2>References</h2>
+	    </div>
+	  </div>
     </div>
   </div>
 
   <!-- Footer container -->
-  <div style="bottom: 0; left: 0; width: 100%; background: #EEEEEE;
-    border-top: 2px solid black; height:100px; ">
-	  <div style="margin-left: 30px; margin-top: 30px; margin-bottom: 10px;">
-	    <p style="color: #959595;"> Design by Hunter Waldron hpwaldro@mtu.edu </p>
-	  </div>
+  <div id="footer">
+	<div style="margin: auto; width: 50%;">
+	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+		  The Rogers-Ramanujan-Slater Data Base <br>
+		  <a href="index.html">Home</a>
+		  &mdash;
+		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+		  &mdash;
+		  <a href="contact.html">Contact</a> <br>
+		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+		</p>
 	</div>
+  </div>
 </body>
 </html>
