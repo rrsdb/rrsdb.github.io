@@ -1,0 +1,146 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+function init_modulus_search() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+	search_text = document.getElementById("modulus_search_text").value;
+	
+	if (search_text === "") return;
+	
+	window.location.href="identities-by-modulus.html#mod" + search_text;
+  });
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init_modulus_search()"
+  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+
+  <!-- Header container -->
+  <div id="header">
+
+    <!-- Placeholder until we have a better logo -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+	    href="index.html"><img src="logo.png"></a>
+    </div>
+
+    <div style="line-height: 50px; height: 100%;">
+      <h1 id="page_title"><a href="partitions.html">
+        Partitions
+      </a></h1>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->  
+    <div id="sidebar">
+      <div class="sidebar_title">
+        <a href="identities-by-modulus.html">
+		  Rogers-Ramanujan type identities</a>
+      </div>
+      <div class="sidebar_content" style="padding-left: 5px;">
+	    <p> Search by modulus: </p>
+	    <input id="modulus_search_text" style="width:100px;"
+		  type="text" id="modulus_search_text">
+		<input id="modulus_search_button" type="submit" value="Go">
+      </div>
+      <div class="sidebar_title">
+        <a href=""> Other identities</a>
+      </div>
+      <div class="sidebar_content">
+		<a href="">Rogers-Ramanujan-Gordon type</a>
+      </div>
+      <div class="sidebar_title">
+        <a href="">Definitions and Preliminaries</a>
+      </div>
+      <div class="sidebar_content">
+	    <a href="q-series.html">\(q\)-series</a>
+		<div>
+		  <a href="q-series.html#q-Pochhammer">
+		     &bull; \(q\)-Pochhammer symbol</a>
+		  <a href="q-series.html#q-binomial">
+		     &bull; \(q\)-binomial coefficient</a>
+		  <a href="q-series.html#q-hypergeometric">
+		     &bull; \(q\)-hypergeometric series</a>
+		  <a href="q-series.html#triple_and_quintuple_product">
+		     &bull; Triple and quintuple product identities</a>
+		  <a href="q-series.html#pentagonal_number_theorem">
+		     &bull; The pentagonal number theorem</a>
+		</div>
+        <a href="partitions.html">Partitions</a>
+        <a href="bailey_pairs.html">Bailey pairs</a>
+		<div>
+		  <a href="bailey_pairs.html#baileys_lemma">&bull; Bailey's lemma</a>
+		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
+		</div>
+      </div>
+    </div>
+
+    <!-- Main content container -->
+    <div id="main">
+	  <div class="main_infobox" id="partitions">
+		<p>A <b>partition</b> of a positive integer \(n\) is a representation of \(n\) as a sum of positive
+		   integers where the order of the summands is not taken into account. Each summand is
+           called a <b>part</b> of the partition.
+		   Usually, a convention is adopted wherein the parts are
+		   written in weakly decreasing (or sometimes weakly increasing) order. For example, the five Partitions
+		   of 4 are
+		   \[4,\; 3+1,\; 2+2,\; 2+1+1,\; 1+1+1+1.\]
+		</p>
+		<p>To emphasize that the parts are to be kept separate from each other the five partitions of 4
+		  are often written as
+		  \[(4),\;(3,1),\; (2,2),\; (2,1,1),\; (1,1,1,1),\]
+		  or, if there is no chance of confusion, as
+		  \[4,\; 31,\; 22,\; 211,\; 1111,\]
+		  or employing superscripts to indicate repetitions:
+		  \[4,\; 3 1\; ,2^2,\; 2 1^22,\; 1^24.\]
+		</p>
+		<p>The number of parts in a partition \(\lambda\) is called the <b>length</b>,
+		   and may be denoted \(\ell(\lambda)\). The <b>size</b> or weight of a partition
+	        \(\lambda\) is denoted \(\vert \lambda \vert\), and the sum 
+           is the sum of the parts, i.e. the number being partitioned.
+	    </p>
+		<p>The number of times \(i\) appears as a part in the partition \(\lambda\)
+		   is the multiplicity of \(i\) in \(\lambda\) and may be denoted \(m_i(\lambda)\)
+           (or simply \(m_i\) if there is no chance of confusion).
+		  The multiplicity-superscript representation of a partition is
+		  \[ \lambda = \langle 1^{m_1}2^{m_2}3^{m_3}\cdots \rangle, \]
+		  where \(m_i\) is often ommited if \(m_i=1\) and \(i^{m_i}\) is ommited if \(m_i=0\).
+        </p>
+		<p> Notice that the sequence of multiplicities \(m_1, m_2, m_3, \dots\) completely determines
+		    any partition \(\lambda\), with
+			\[ \ell(\lambda) = \sum_{i \geq 0} m_i \]
+			and 
+			\[ \vert \lambda \vert = \sum_{i \geq 0} i\, m_i. \]
+		</p>
+	  </div>
+	  
+	  <div class="main_infobox_header">
+	    <h2>References</h2>
+	  </div>
+    </div>
+  </div>
+
+  <!-- Footer container -->
+  <div id="footer">
+	<div style="margin: auto; width: 50%;">
+	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+		  The Rogers-Ramanujan-Slater Data Base <br>
+		  <a href="index.html">Home</a>
+		  &mdash;
+		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+		  &mdash;
+		  <a href="contact.html">Contact</a> <br>
+		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+		</p>
+	</div>
+  </div>
+</body>
+</html>

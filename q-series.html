@@ -1,0 +1,193 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+function init_modulus_search() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+	search_text = document.getElementById("modulus_search_text").value;
+	
+	if (search_text === "") return;
+	
+	window.location.href="identities-by-modulus.html#mod" + search_text;
+  });
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init_modulus_search()"
+  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+
+  <!-- Header container -->
+  <div id="header">
+
+    <!-- Placeholder until we have a better logo -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+	    href="index.html"><img src="logo.png"></a>
+    </div>
+
+    <div style="line-height: 50px; height: 100%;">
+      <h1 id="page_title"><a href="q-series.html">
+        \(q\)-series
+      </a></h1>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->  
+    <div id="sidebar">
+      <div class="sidebar_title">
+        <a href="identities-by-modulus.html">
+		  Rogers-Ramanujan type identities</a>
+      </div>
+      <div class="sidebar_content" style="padding-left: 5px;">
+	    <p> Search by modulus: </p>
+	    <input id="modulus_search_text" style="width:100px;"
+		  type="text" id="modulus_search_text">
+		<input id="modulus_search_button" type="submit" value="Go">
+      </div>
+      <div class="sidebar_title">
+        <a href=""> Other identities</a>
+      </div>
+      <div class="sidebar_content">
+		<a href="">Rogers-Ramanujan-Gordon type</a>
+      </div>
+      <div class="sidebar_title">
+        <a href="">Definitions and Preliminaries</a>
+      </div>
+      <div class="sidebar_content">
+	    <a href="q-series.html">\(q\)-series</a>
+		<div>
+		  <a href="q-series.html#q-Pochhammer">
+		     &bull; \(q\)-Pochhammer symbol</a>
+		  <a href="q-series.html#q-binomial">
+		     &bull; \(q\)-binomial coefficient</a>
+		  <a href="q-series.html#q-hypergeometric">
+		     &bull; \(q\)-hypergeometric series</a>
+		  <a href="q-series.html#triple_and_quintuple_product">
+		     &bull; Triple and quintuple product identities</a>
+		  <a href="q-series.html#pentagonal_number_theorem">
+		     &bull; The pentagonal number theorem</a>
+		</div>
+        <a href="partitions.html">Partitions</a>
+        <a href="bailey_pairs.html">Bailey pairs</a>
+		<div>
+		  <a href="bailey_pairs.html#baileys_lemma">&bull; Bailey's lemma</a>
+		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
+		</div>
+      </div>
+    </div>
+
+    <!-- Main content container -->
+    <div id="main">
+	  <div class="main_infobox_header">
+	    <h2>The \(q\)-Pochhammer symbol</h2>
+	  </div>
+	  <div class="main_infobox" id="q-Pochhammer">
+	    <p> For a positive integer \(n\), 
+		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n = \prod_{k=0}^{n-1} (1-aq^k)\]
+			\[ (a;q)_{-n} = \prod_{k=1}^n \frac{1}{1-aq^{-k}} \]
+			with \((a;q)_n = 1\) if \(n=0\). For complex \(\vert q \vert < 1\),
+			\[(a;q)_\infty = \prod_{k=0}^\infty (1-aq^k) \]
+			and for real \(n\),
+			\[(a;q)_n = \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
+			For real \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\), the product of \(q\)-Pochhammer
+			symbols is written
+			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n\] </p>
+	  </div>
+
+       <div class="main_infobox_header">
+	    <h2>The \(q\)-binomial coefficient</h2>
+	  </div>
+      <div class="main_infobox" id="q-binomial">
+      </div>
+
+      <div class="main_infobox_header">
+	    <h2>\(q\)-hypergeometric series</h2>
+	  </div>
+      <div class="main_infobox" id="q-hypergeometric">
+	    <p> A <b>basic hypergeometric series</b> with base \(q\), also called a \(q\)-hypergeometric series,
+		    is given by
+			\[{ {}_{r}\phi_{s}
+            \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
+            {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
+            = \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(q;q)_k (b_1, b_2, \dots, b_s;q)_k}
+            z^k \left( (-1)^k q^{k(k-1)/2} \right)^{1+s-r}, \]
+			where \(r\) and \(s\) are nonnegative integers.
+	    </p>
+		<p> A basic hypergeometric series is <b>balanced</b> (or Saalschützian in the older literature)
+		    if \(r=s+1\) and \(a_1 a_2 \cdots a_{s+1} = q b_1 b_2\cdots b_s\), and <b>well-poised</b>
+			if \(r=s+1\) and there exists a permutation of the numerator parameters so that
+			\(a_1 q = a_2 b_1 = \cdots = a_{s+1} b_s\). A well-poised hypergeometric series
+			<b>very well-poised</b> if additionally \(a_2 = -a_3 = q\sqrt{a}\).
+		</p>
+		<p> The <b>bilateral basic hypergeometric series</b> with base \(q\) is
+		    \[{ {}_{r}\psi_{s} \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
+            {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
+            = \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k}
+            z^k \left( (-1)^k q^{k(k-1)/2} \right)^{s-r},\]
+			where \(r\) and \(s\) are nonnegative integers.
+		  </p>
+      </div>
+
+      <div class="main_infobox_header">
+	    <h2>The triple and quintuple product identities</h2>
+	  </div>
+      <div class="main_infobox" id="triple_and_quintuple_product">
+	    <p>Jacobi's <b>triple product identity</b> appears in the literature in many different forms.
+		   A particularly nice form given by Ramanujan for \(\vert ab \vert < 1\) is
+		   \[\sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2} = (-a-b, ab; ab)_\infty.\]
+		   In the context of Rogers-Ramanujan type identities, we often encounter the triple product
+		   identity in the forms
+		   \[\sum_{n=-\infty}^\infty (-1)^n q^{\frac a2 n^2 - \frac b2 n} = (q^{(a-b)/2},
+           q^{(a+b)/2}, q^a; q^a)_\infty\]
+		   \[\sum_{n=-\infty}^\infty q^{\frac a2 n^2 - \frac b2 n} = (-q^{(a-b)/2},
+           -q^{(a+b)/2}, q^a; q^a)_\infty\]
+		   for positive integers \(a > b\), where \(\vert q \rvert < 1\).
+		</p>
+		<p> Important special cases of Jacobi's triple product include
+		    <a href="q-series.html#pentagonal_number_theorem">Euler's pentagonal number theorem</a>
+			and <a href="q-series.html#square_and_hexagonal_numbers_theorems">Gauss's square
+			numbers and hexagonal numbers theorems</a>.
+		</p>
+      </div>
+
+      <div class="main_infobox_header">
+	    <h2>The pentagonal number theorem</h2>
+	  </div>
+      <div class="main_infobox" id="pentagonal_number_theorem">
+      </div>
+
+      <div class="main_infobox_header">
+	    <h2>The square and hexagonal numbers theorems</h2>
+	  </div>
+      <div class="main_infobox" id="square_and_hexagonal_numbers_theorems">
+      </div>
+
+	  <div class="main_infobox_header">
+	    <h2>References</h2>
+	  </div>
+    </div>
+  </div>
+
+  <!-- Footer container -->
+  <div id="footer">
+	<div style="margin: auto; width: 50%;">
+	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+		  The Rogers-Ramanujan-Slater Data Base <br>
+		  <a href="index.html">Home</a>
+		  &mdash;
+		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+		  &mdash;
+		  <a href="contact.html">Contact</a> <br>
+		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+		</p>
+	</div>
+  </div>
+</body>
+</html>

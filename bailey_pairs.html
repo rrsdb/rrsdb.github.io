@@ -1,0 +1,130 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+function init_modulus_search() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+	search_text = document.getElementById("modulus_search_text").value;
+	
+	if (search_text === "") return;
+	
+	window.location.href="identities-by-modulus.html#mod" + search_text;
+  });
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init_modulus_search()"
+  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+
+  <!-- Header container -->
+  <div id="header">
+
+    <!-- Placeholder until we have a better logo -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+	    href="index.html"><img src="logo.png"></a>
+    </div>
+
+    <div style="line-height: 50px; height: 100%;">
+      <h1 id="page_title"><a href="bailey_pairs.html">
+        Bailey pairs
+      </a></h1>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->  
+    <div id="sidebar">
+      <div class="sidebar_title">
+        <a href="identities-by-modulus.html">
+		  Rogers-Ramanujan type identities</a>
+      </div>
+      <div class="sidebar_content" style="padding-left: 5px;">
+	    <p> Search by modulus: </p>
+	    <input id="modulus_search_text" style="width:100px;"
+		  type="text" id="modulus_search_text">
+		<input id="modulus_search_button" type="submit" value="Go">
+      </div>
+      <div class="sidebar_title">
+        <a href=""> Other identities</a>
+      </div>
+      <div class="sidebar_content">
+		<a href="">Rogers-Ramanujan-Gordon type</a>
+      </div>
+      <div class="sidebar_title">
+        <a href="">Definitions and Preliminaries</a>
+      </div>
+      <div class="sidebar_content">
+	    <a href="q-series.html">\(q\)-series</a>
+		<div>
+		  <a href="q-series.html#q-Pochhammer">
+		     &bull; \(q\)-Pochhammer symbol</a>
+		  <a href="q-series.html#q-binomial">
+		     &bull; \(q\)-binomial coefficient</a>
+		  <a href="q-series.html#q-hypergeometric">
+		     &bull; \(q\)-hypergeometric series</a>
+		  <a href="q-series.html#triple_and_quintuple_product">
+		     &bull; Triple and quintuple product identities</a>
+		  <a href="q-series.html#pentagonal_number_theorem">
+		     &bull; The pentagonal number theorem</a>
+		</div>
+        <a href="partitions.html">Partitions</a>
+        <a href="bailey_pairs.html">Bailey pairs</a>
+		<div>
+		  <a href="bailey_pairs.html#baileys_lemma">&bull; Bailey's lemma</a>
+		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
+		</div>
+      </div>
+    </div>
+
+    <!-- Main content container -->
+    <div id="main">
+
+	  <div class="main_infobox" id="bailey_pairs">
+	    <p>A pair of sequences of functions \((\alpha_n(a,q),\beta_n(a,q))\)
+		   form a Bailey pair relative to \(a\) if
+		   \[ \beta_n(a, q) = \sum_{r=0}^n \frac{\alpha_r(a,q)}{(q;q)_{n-r}(aq;q)_{n+r}} \]
+		   holds for all integers \(n \geq 0\).
+		</p>
+		<p>An alternative form, often useful for computations, is given by
+		   \[\beta_n(a,q) = \frac{1}{(q;q)_n (aq;q)_n}
+           \sum_{r=0}^n \frac{(q^{-n};q)_r}{(aq^{n+1};q)_r} (-1)^r q^{nr -r(r-1)/2}
+           \alpha_r(a,q).\]
+		   One could also invert and express \(\alpha_n\) in terms of \(\beta\):
+		   \[\alpha_n (a,q) = \frac{1-aq^{2n}}{1-a} \sum_{j=0}^n 
+           \frac{ (a;q)_{n+j} (-1)^{n-j} q^{(n-j)(n-j-1)/2}}{(q;q)_{n-j}} \beta_j(a,q).\]
+		   The preceeding is equivalent to
+		   \[\alpha_n (a,q) = (-1)^n q^{n(n-1)/2} \frac{(1-aq^{2n})}{1-a} 
+           \frac{(a;q)_n}{(q;q)_n} \sum_{j=0}^n (aq^n;q)_j (q^{-n};q)_j q^j
+           \beta_j(a,q).\]
+		</p>
+	  </div>
+	  
+	  <div class="main_infobox_header">
+	    <h2>References</h2>
+	  </div>
+    </div>
+  </div>
+
+  <!-- Footer container -->
+  <div id="footer">
+	<div style="margin: auto; width: 50%;">
+	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+		  The Rogers-Ramanujan-Slater Data Base <br>
+		  <a href="index.html">Home</a>
+		  &mdash;
+		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+		  &mdash;
+		  <a href="contact.html">Contact</a> <br>
+		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+		</p>
+	</div>
+  </div>
+</body>
+</html>
