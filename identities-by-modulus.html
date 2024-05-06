@@ -3,17 +3,48 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
+
+/* Rudimentary error checking for searching by modulus. */
+function check_modulus() {
+  var url = window.location.href;
+  
+  if (!url.includes('#')) return;
+  
+  var modulus_text = url.substring(url.lastIndexOf('#')+4);
+  var valid_moduli = [2,3,4,5,6,7,8,9,10,11,12,14,15,16,18,20,24,27,32,36];
+  var message = document.getElementById("modulus_error_message");
+
+  if (!valid_moduli.includes(parseInt(modulus_text))) {
+    message.style.display = "block";
+    message.innerText = "Search error: the modulus " + modulus_text +
+      " does not appear on this list. Make sure you are entering a positive integer value.";
+  } else {
+    message.style.display = "none";
+  }
+}
+
 function init_modulus_search() {
   document.getElementById("modulus_search_button").addEventListener("click", function() {
-	search_text = document.getElementById("modulus_search_text").value;
+	var search_text = document.getElementById("modulus_search_text").value.trim();
 	
 	if (search_text === "") return;
 	
-	window.location.href="identities-by-modulus.html#mod" + search_text;
+	window.location.href= "identities-by-modulus.html#mod" + search_text;
+    check_modulus();
   });
+
+  check_modulus();
 }
 </script>
 <link rel="stylesheet" href="style.css">
+<style>
+.product_form_container {padding: 5px 0px 5px 5px; margin-bottom: 2px;}
+.product_form_container:hover {}
+.product_form_container:target {border: 2px solid black; padding: 3px 0px 3px 3px; background: #EEEEEE;}
+.product_form_container > p:first-child {margin: 0px; font-size: 0.8em;}
+.product_form_container a {color: black !important; text-decoration: none !important;}
+.product_form_container a:hover {background: #ffcd00;}
+</style>
 </head>
 
 <body onload="init_modulus_search()"
@@ -89,139 +120,219 @@ function init_modulus_search() {
       </div>
     </div>
 
-
     <!-- Main content container -->
     <div id="main">
-	  <div id="mod2" class="identity_class_container">
+
+      <div class="main_infobox">
+        <p>This page is a catalog of known Rogers-Ramanujan-Slater identities, sorted by their
+           product representations. Use the search bar on the left to jump to a particular modulus.
+           To see the series representations of a given product,
+           click on the <a href="">RRSDB ID.</a>
+        </p>
+        <p>For help with notation, see the definition of the
+           <a href="q-series.html#q-Pochhammer">\(q\)-Pochhammer symbol</a>
+           and of <a href="q-series.html#triple_product_and_theta_functions">
+           Ramanujan's theta functions</a>.
+        </p>
+      </div>
+
+      <p id="modulus_error_message" style="color: red; display: none;">TEST</p>
+
+	  <div id="mod2" class="main_infobox">
 		<h3>Mod 2</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,-q)}{f(-q)}\)</p>
 		</div>
-	  </div>	  
-  
-	  <div id="mod3" class="identity_class_container">
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,-q)}{\psi(-q)}\)</p>
+		</div>
+	  </div>
+
+	  <div id="mod3" class="main_infobox">
 		<h3>Mod 3</h3>
-		<div class="equation_container">
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q)}{\varphi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q)}{\varphi(-q^2)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,q^2)}{f(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,q^2)}{\psi(q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,q^2)}{f(-q)}\)</p>
 		</div>
 	  </div>
 
-	  <div id="mod4" class="identity_class_container">
+	  <div id="mod4" class="main_infobox">
 		<h3>Mod 4</h3>
-		<div class="equation_container">
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,-q^3)}{f(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q^2, -q^2)}{\psi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,-q^3)}{\varphi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,q^3)}{f(-q^2)}\)</p>
+		</div>
+        
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,q^3)}{\psi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,-q^3)}{\psi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q,q^3)}{\psi(-q)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,q^3)}{\varphi(-q^2)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(q,-q^3)}{\varphi(-q^2)}\)</p>
+		</div>
+        <div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+          <p>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q^2)}\)</p>
 		</div>
 	  </div>
 
-	  <div id="mod5" class="identity_class_container">
+	  <div id="mod5" class="main_infobox">
 		<h3>Mod 5</h3>
-		<div class="equation_container">
-		  <p>\(\displaystyle \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\)</p>
-		  <div class="eqcon_footer">
-		    <a href="">RRSDB ID: 5.10010</a>
-		  </div>
+		<div class="product_form_container" id="2.172668750849664">
+          <p><b>RRSDB ID</b> <a href="2.172668750849664.html">2.172668750849664</a></p>
+		  <p>\(\displaystyle G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
+             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\)</p>
 		</div>
-		<div class="equation_container">  
-		  <p>\(\displaystyle \prod_{n=1}^\infty \frac{1}{(1-q^{5n-2})(1-q^{5n-3})}\)</p>
-		  <div class="eqcon_footer">
-		    <a href="">RRSDB ID: 5.01100</a>
-		  </div>
+		<div class="product_form_container">
+          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
+		  <p>\(\displaystyle H(q) = \frac{f(-q,-q^4)}{f(-q)} = \frac{1}{(q^2, q^3; q^5)_\infty} =
+             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-2})(1-q^{5n-3})}\)</p>
 		</div>
 	  </div>
 
-	  <div id="mod6" class="identity_class_container">
+	  <div id="mod6" class="main_infobox">
 		<h3>Mod 6</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod7" class="identity_class_container">
+	  <div id="mod7" class="main_infobox">
 		<h3>Mod 7</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod8" class="identity_class_container">
+	  <div id="mod8" class="main_infobox">
 		<h3>Mod 8</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod9" class="identity_class_container">
+	  <div id="mod9" class="main_infobox">
 		<h3>Mod 9</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod10" class="identity_class_container">
+	  <div id="mod10" class="main_infobox">
 		<h3>Mod 10</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod11" class="identity_class_container">
+	  <div id="mod11" class="main_infobox">
 		<h3>Mod 11</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod12" class="identity_class_container">
+	  <div id="mod12" class="main_infobox">
 		<h3>Mod 12</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod14" class="identity_class_container">
+	  <div id="mod14" class="main_infobox">
 		<h3>Mod 14</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod15" class="identity_class_container">
+	  <div id="mod15" class="main_infobox">
 		<h3>Mod 15</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod16" class="identity_class_container">
+	  <div id="mod16" class="main_infobox">
 		<h3>Mod 16</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod18" class="identity_class_container">
+	  <div id="mod7" class="main_infobox">
 		<h3>Mod 18</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
-	  
-	  <div id="mod20" class="identity_class_container">
+
+	  <div id="mod20" class="main_infobox">
 		<h3>Mod 20</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
-	  
-	  <div id="mod24" class="identity_class_container">
+
+	  <div id="mod24" class="main_infobox">
 		<h3>Mod 24</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
-	  
-	  <div id="mod27" class="identity_class_container">
+
+	  <div id="mod27" class="main_infobox">
 		<h3>Mod 27</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod32" class="identity_class_container">
+	  <div id="mod32" class="main_infobox">
 		<h3>Mod 32</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
 
-	  <div id="mod36" class="identity_class_container">
+	  <div id="mod36" class="main_infobox">
 		<h3>Mod 36</h3>
-		<div class="equation_container">
+		<div class="product_form_container">
 		</div>
 	  </div>
-	  
+
       <div class="main_infobox">
 	    <div class="main_infobox_header">
 	      <h2>References</h2>
