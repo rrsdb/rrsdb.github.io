@@ -120,7 +120,7 @@ function init_modulus_search() {
 			\[(a;q)_\infty = \prod_{k=0}^\infty (1-aq^k) \]
 			and for real \(n\),
 			\[(a;q)_n = \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
-			For real \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\), the product of \(q\)-Pochhammer
+			For positive integers \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\), the product of \(q\)-Pochhammer
 			symbols is written
 			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n\] </p>
 	  </div>
@@ -130,9 +130,10 @@ function init_modulus_search() {
 	      <h2>The \(q\)-binomial coefficient</h2>
 	    </div>
 	    <p> The <b>Gaussian binomial coefficient</b>, or the \(q\)-binomial coefficient,
-		    is a polynomial, defined
-		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}}.\]
-			This is the generating function for all <a href="partitions.html#unrestricted">unrestricted
+		    is a polynomial, defined for integers \( 0 \leq k \leq n \)
+		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] and \( 0 \)
+		    otherwise.  
+	***Needs to be made more precise:  This is the generating function for all <a href="partitions.html#unrestricted">
 			partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.
       </div>
 
