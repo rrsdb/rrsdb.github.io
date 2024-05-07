@@ -1,0 +1,79 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+function init_modulus_search() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+  var search_text = document.getElementById("modulus_search_text").value.trim();
+
+  if (search_text === "") return;
+
+  window.location.href= "identities-by-modulus.html#mod" + search_text;
+  });
+}
+
+function load_html_file(container_name, file_name) {
+  xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    container = document.getElementById(container_name);
+    container.innerHTML = this.responseText;
+  }
+
+  xhttp.open("GET", file_name, true);
+  xhttp.send();
+}
+</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body onload="load_html_file('sidebar', 'sidebar.html')"
+style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+
+  <!-- Header container -->
+  <div id="header">
+
+    <!-- Placeholder until we have a better logo -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+         href="index.html"><img src="../logo.png"></a>
+    </div>
+
+    <!-- Article title -->
+    <div style="line-height: 50px; height: 100%;">
+      <a id="page_title" href="index.html">The Rogers&ndash;Ramanujan&ndash;Slater data base</a>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->  
+    <div id="sidebar"></div>
+
+    <!-- Main content container -->
+    <div id="main">
+      <div class="main_infobox"><p> Test page </p>
+	  </div>
+    </div>
+
+  </div>
+
+  <!-- Footer container -->
+  <div id="footer">
+	<div style="margin: auto; width: 50%;">
+	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+		  The Rogers-Ramanujan-Slater Data Base <br>
+		  <a href="index.html">Home</a>
+		  &mdash;
+		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+		  &mdash;
+		  <a href="contact.html">Contact</a> <br>
+		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+		</p>
+	</div>
+  </div>
+</body>
+</html>
