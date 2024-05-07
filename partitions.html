@@ -5,11 +5,11 @@
 <script>
 function init_modulus_search() {
   document.getElementById("modulus_search_button").addEventListener("click", function() {
-	search_text = document.getElementById("modulus_search_text").value;
-	
-	if (search_text === "") return;
-	
-	window.location.href="identities-by-modulus.html#mod" + search_text;
+  var search_text = document.getElementById("modulus_search_text").value.trim();
+
+  if (search_text === "") return;
+
+  window.location.href= "identities-by-modulus.html#mod" + search_text;
   });
 }
 </script>
@@ -17,7 +17,7 @@ function init_modulus_search() {
 </head>
 
 <body onload="init_modulus_search()"
-  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+      style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
 
   <!-- Header container -->
   <div id="header">
@@ -25,13 +25,12 @@ function init_modulus_search() {
     <!-- Placeholder until we have a better logo -->
     <div style="float: left; width: 200px; height: 50px;">
       <a title="The Rogers-Ramanujan-Slater Data Base."
-	    href="index.html"><img src="logo.png"></a>
+         href="index.html"><img src="logo.png"></a>
     </div>
 
+    <!-- Article title -->
     <div style="line-height: 50px; height: 100%;">
-      <h1 id="page_title"><a href="partitions.html">
-        Partitions
-      </a></h1>
+      <a id="page_title" href="partitions.html">Partitions</a>
     </div>
   </div>
 
@@ -41,51 +40,70 @@ function init_modulus_search() {
 
     <!-- Side bar container -->  
     <div id="sidebar">
-      <div class="sidebar_title">
-        <a href="identities-by-modulus.html">
-		  Rogers-Ramanujan type identities</a>
+      <div class="sidebar_title_container">
+        <a class="sidebar_title_text" href="identities-by-modulus.html">
+           Rogers&ndash;Ramanujan type identities</a>
       </div>
-      <div class="sidebar_content" style="padding-left: 5px;">
-	    <p> Search by modulus: </p>
-	    <input id="modulus_search_text" style="width:100px;"
-		  type="text" id="modulus_search_text">
-		<input id="modulus_search_button" type="submit" value="Go">
+      <div class="sidebar_content_container" style="padding-left: 5px;">
+        <p style="margin: 5px 0px;"> Search by modulus: </p>
+        <input id="modulus_search_text" style="width:100px;"
+               type="text" id="modulus_search_text">
+        <input id="modulus_search_button" type="submit" value="Go">
       </div>
-      <div class="sidebar_title">
-        <a href=""> Other identities</a>
+      <div class="sidebar_title_container">
+        <p class="sidebar_title_text"> Other identities</p>
       </div>
-      <div class="sidebar_content">
-		<a href="">TODO</a>
+      <div class="sidebar_content_container">
+        <a href="">TODO</a>
       </div>
-      <div class="sidebar_title">
-        <a href="">Definitions and Preliminaries</a>
+      <div class="sidebar_title_container">
+        <p class="sidebar_title_text">Definitions and Preliminaries</a>
       </div>
-      <div class="sidebar_content">
-	    <a href="q-series.html">\(q\)-series</a>
-		<div>
-		  <a href="q-series.html#q-Pochhammer">
-		     &bull; \(q\)-Pochhammer symbol</a>
-		  <a href="q-series.html#q-binomial">
-		     &bull; \(q\)-binomial coefficient</a>
-		  <a href="q-series.html#q-hypergeometric">
-		     &bull; \(q\)-hypergeometric series</a>
-		  <a href="q-series.html#triple_product_and_theta_functions">
-		     &bull; The triple product and Ramanujan's theta functions</a>
-		  <a href="q-series.html#polygonal_number_identities">
-		     &bull; Polygonal number identities</a>
+      <div class="sidebar_content_container">
+        <div class="sidebar_content_dropdown">
+          <a href="q-series.html">\(q\)-series</a>
+          <div class="sidebar_submenu">
+            <a href="q-series.html#q-Pochhammer">
+               &bull; \(q\)-Pochhammer symbol</a>
+            <a href="q-series.html#q-binomial">
+               &bull; \(q\)-binomial coefficient</a>
+            <a href="q-series.html#q-hypergeometric">
+               &bull; \(q\)-hypergeometric series</a>
+            <a href="q-series.html#triple_product_and_theta_functions">
+               &bull; The triple product and Ramanujan's theta functions</a>
+            <a href="q-series.html#quintuple_product">
+               &bull; The quintuple product</a>
+            <a href="q-series.html#polygonal_number_identities">
+               &bull; Polygonal number identities</a>
+          </div>
 		</div>
-        <a href="partitions.html">Partitions</a>
-		<div>
-		  <a href="partitions.html#unrestricted">
-		     &bull; Unrestricted partitions</a>
-		  <a href="partitions.html#overpartitions">
-		     &bull; Overpartitions</a>
-		</div>
-        <a href="bailey_pairs.html">Bailey pairs</a>
-		<div>
-		  <a href="bailey_pairs.html#bailey_lemmas">&bull; The Bailey lemmas</a>
-		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
-		</div>
+        <div class="sidebar_content_dropdown">
+          <a href="partitions.html">Partitions</a>
+          <div class="sidebar_submenu">
+            <a href="partitions.html#unrestricted">
+               &bull; Unrestricted partitions</a>
+            <a href="partitions.html#overpartitions">
+               &bull; Overpartitions</a>
+          </div>
+        </div>
+        <div class="sidebar_content_dropdown">
+          <a href="bailey_pairs.html">Bailey pairs</a>
+          <div class="sidebar_submenu">
+            <a href="bailey_pairs.html#strong_Bailey_lemma">
+               &bull; The strong Bailey lemma</a>
+            <div class="sidebar_submenu">
+              <a href="bailey_pairs.html#1st_op_Bailey_lemma">
+                 &bull; The 1st op-Bailey lemma</a>
+              <a href="bailey_pairs.html#2nd_op_Bailey_lemma">
+                 &bull; The 2nd op-Bailey lemma</a>
+              <a href="bailey_pairs.html#p_Bailey_lemma">
+                 &bull; The p-Bailey lemma</a>
+              <a href="bailey_pairs.html#pod_Bailey_lemma">
+                &bull; The pod-Bailey lemma</a>
+            </div>
+            <a href="bailey_pairs.html#tables">&bull; Tables</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -110,7 +128,8 @@ function init_modulus_search() {
 		  or, if there is no chance of confusion, as
 		  \[4,\; 31,\; 22,\; 211,\; 1111,\]
 		  or employing superscripts to indicate repetitions:
-		  \[4,\; 3 1\; ,2^2,\; 2 1^2,\; 1^4.\]
+          \[4,\; 3 1\; ,2^2,\; 2 1^2,\; 1^4.\]
+
 		</p>
 		<p>The number of parts in a partition \(\lambda\) is called the <b>length</b>,
 		   and may be denoted \(\ell(\lambda)\). The <b>size</b> or weight of a partition

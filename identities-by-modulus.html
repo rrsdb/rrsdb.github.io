@@ -9,8 +9,10 @@ function check_modulus() {
   var url = window.location.href;
   
   if (!url.includes('#')) return;
-  
+
   var modulus_text = url.substring(url.lastIndexOf('#')+4);
+
+  /* Update this list if any new moduli are added. */
   var valid_moduli = [2,3,4,5,6,7,8,9,10,11,12,14,15,16,18,20,24,27,32,36];
   var message = document.getElementById("modulus_error_message");
 
@@ -25,30 +27,46 @@ function check_modulus() {
 
 function init_modulus_search() {
   document.getElementById("modulus_search_button").addEventListener("click", function() {
-	var search_text = document.getElementById("modulus_search_text").value.trim();
-	
-	if (search_text === "") return;
-	
-	window.location.href= "identities-by-modulus.html#mod" + search_text;
-    check_modulus();
+  var search_text = document.getElementById("modulus_search_text").value.trim();
+
+  if (search_text === "") return;
+
+  window.location.href= "identities-by-modulus.html#mod" + search_text;
+  check_modulus();
   });
 
   check_modulus();
 }
 </script>
-<link rel="stylesheet" href="style.css">
 <style>
-.product_form_container {padding: 5px 0px 5px 5px; margin-bottom: 2px;}
-.product_form_container:hover {}
+/****************************
+ Style for just this document
+ ****************************/
+
+.main_infobox > .product_form_container > a {
+  color: black;
+  text-decoration: none;
+}
+
+.main_infobox > .product_form_container > a:hover {
+  color: #009dc3;
+}
+
+.product_form_container {
+  padding: 5px 0px 5px 5px;
+  margin-bottom: 2px;
+  height: 4em;
+  color: black !important;
+}
+
 .product_form_container:target {border: 2px solid black; padding: 3px 0px 3px 3px; background: #EEEEEE;}
-.product_form_container > p:first-child {margin: 0px; font-size: 0.8em;}
-.product_form_container a {color: black !important; text-decoration: none !important;}
-.product_form_container a:hover {background: #ffcd00;}
+
 </style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="init_modulus_search()"
-  style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+      style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
 
   <!-- Header container -->
   <div id="header">
@@ -56,13 +74,12 @@ function init_modulus_search() {
     <!-- Placeholder until we have a better logo -->
     <div style="float: left; width: 200px; height: 50px;">
       <a title="The Rogers-Ramanujan-Slater Data Base."
-	    href="index.html"><img src="logo.png"></a>
+         href="index.html"><img src="logo.png"></a>
     </div>
 
+    <!-- Article title -->
     <div style="line-height: 50px; height: 100%;">
-      <h1 id="page_title"><a href="identities-by-modulus.html">
-        Identities by modulus
-      </a></h1>
+      <a id="page_title" href="partitions.html">Identities by their product representations</a>
     </div>
   </div>
 
@@ -72,51 +89,70 @@ function init_modulus_search() {
 
     <!-- Side bar container -->  
     <div id="sidebar">
-      <div class="sidebar_title">
-        <a href="identities-by-modulus.html">
-		  Rogers-Ramanujan type identities</a>
+      <div class="sidebar_title_container">
+        <a class="sidebar_title_text" href="identities-by-modulus.html">
+           Rogers&ndash;Ramanujan type identities</a>
       </div>
-      <div class="sidebar_content" style="padding-left: 5px;">
-	    <p> Search by modulus: </p>
-	    <input id="modulus_search_text" style="width:100px;"
-		  type="text" id="modulus_search_text">
-		<input id="modulus_search_button" type="submit" value="Go">
+      <div class="sidebar_content_container" style="padding-left: 5px;">
+        <p style="margin: 5px 0px;">Search by modulus: </p>
+        <input id="modulus_search_text" style="width:100px;"
+               type="text" id="modulus_search_text">
+        <input id="modulus_search_button" type="submit" value="Go">
       </div>
-      <div class="sidebar_title">
-        <a href=""> Other identities</a>
+      <div class="sidebar_title_container">
+        <p class="sidebar_title_text">Other identities</p>
       </div>
-      <div class="sidebar_content">
-		<a href="">TODO</a>
+      <div class="sidebar_content_container">
+        <a href="">TODO</a>
       </div>
-      <div class="sidebar_title">
-        <a href="">Definitions and Preliminaries</a>
+      <div class="sidebar_title_container">
+        <p class="sidebar_title_text">Definitions and Preliminaries</a>
       </div>
-      <div class="sidebar_content">
-	    <a href="q-series.html">\(q\)-series</a>
-		<div>
-		  <a href="q-series.html#q-Pochhammer">
-		     &bull; \(q\)-Pochhammer symbol</a>
-		  <a href="q-series.html#q-binomial">
-		     &bull; \(q\)-binomial coefficient</a>
-		  <a href="q-series.html#q-hypergeometric">
-		     &bull; \(q\)-hypergeometric series</a>
-		  <a href="q-series.html#triple_product_and_theta_functions">
-		     &bull; The triple product and Ramanujan's theta functions</a>
-		  <a href="q-series.html#polygonal_number_identities">
-		     &bull; Polygonal number identities</a>
+      <div class="sidebar_content_container">
+        <div class="sidebar_content_dropdown">
+          <a href="q-series.html">\(q\)-series</a>
+          <div class="sidebar_submenu">
+            <a href="q-series.html#q-Pochhammer">
+               &bull; \(q\)-Pochhammer symbol</a>
+            <a href="q-series.html#q-binomial">
+               &bull; \(q\)-binomial coefficient</a>
+            <a href="q-series.html#q-hypergeometric">
+               &bull; \(q\)-hypergeometric series</a>
+            <a href="q-series.html#triple_product_and_theta_functions">
+               &bull; The triple product and Ramanujan's theta functions</a>
+            <a href="q-series.html#quintuple_product">
+               &bull; The quintuple product</a>
+            <a href="q-series.html#polygonal_number_identities">
+               &bull; Polygonal number identities</a>
+          </div>
 		</div>
-        <a href="partitions.html">Partitions</a>
-		<div>
-		  <a href="partitions.html#unrestricted">
-		     &bull; Unrestricted partitions</a>
-		  <a href="partitions.html#overpartitions">
-		     &bull; Overpartitions</a>
-		</div>
-        <a href="bailey_pairs.html">Bailey pairs</a>
-		<div>
-		  <a href="bailey_pairs.html#bailey_lemmas">&bull; The Bailey lemmas</a>
-		  <a href="bailey_pairs.html#tables">&bull; Tables</a>
-		</div>
+        <div class="sidebar_content_dropdown">
+          <a href="partitions.html">Partitions</a>
+          <div class="sidebar_submenu">
+            <a href="partitions.html#unrestricted">
+               &bull; Unrestricted partitions</a>
+            <a href="partitions.html#overpartitions">
+               &bull; Overpartitions</a>
+          </div>
+        </div>
+        <div class="sidebar_content_dropdown">
+          <a href="bailey_pairs.html">Bailey pairs</a>
+          <div class="sidebar_submenu">
+            <a href="bailey_pairs.html#strong_Bailey_lemma">
+               &bull; The strong Bailey lemma</a>
+            <div class="sidebar_submenu">
+              <a href="bailey_pairs.html#1st_op_Bailey_lemma">
+                 &bull; The 1st op-Bailey lemma</a>
+              <a href="bailey_pairs.html#2nd_op_Bailey_lemma">
+                 &bull; The 2nd op-Bailey lemma</a>
+              <a href="bailey_pairs.html#p_Bailey_lemma">
+                 &bull; The p-Bailey lemma</a>
+              <a href="bailey_pairs.html#pod_Bailey_lemma">
+                &bull; The pod-Bailey lemma</a>
+            </div>
+            <a href="bailey_pairs.html#tables">&bull; Tables</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -126,8 +162,7 @@ function init_modulus_search() {
       <div class="main_infobox">
         <p>This page is a catalog of known Rogers-Ramanujan-Slater identities, sorted by their
            product representations. Use the search bar on the left to jump to a particular modulus.
-           To see the series representations of a given product,
-           click on the <a href="">RRSDB ID.</a>
+           Click on any product to see the series representations.
         </p>
         <p>For help with notation, see the definition of the
            <a href="q-series.html#q-Pochhammer">\(q\)-Pochhammer symbol</a>
@@ -136,104 +171,85 @@ function init_modulus_search() {
         </p>
       </div>
 
-      <p id="modulus_error_message" style="color: red; display: none;">TEST</p>
+      <p id="modulus_error_message" style="color: red; display: none;"></p>
 
 	  <div id="mod2" class="main_infobox">
 		<h3>Mod 2</h3>
 		<div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,-q)}{f(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,-q)}{f(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,-q)}{\psi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,-q)}{\psi(-q)}\)</a>
 		</div>
 	  </div>
 
 	  <div id="mod3" class="main_infobox">
 		<h3>Mod 3</h3>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q)}{\varphi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q)}{\varphi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q)}{\varphi(-q^2)}\)</p>
+          <a>\(\displaystyle \frac{f(-q)}{\varphi(-q^2)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,q^2)}{f(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(q,q^2)}{f(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,q^2)}{\psi(q)}\)</p>
+          <a>\(\displaystyle \frac{f(q,q^2)}{\psi(q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,q^2)}{f(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,q^2)}{f(-q)}\)</a>
 		</div>
 	  </div>
 
 	  <div id="mod4" class="main_infobox">
 		<h3>Mod 4</h3>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,-q^3)}{f(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,-q^3)}{f(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q^2, -q^2)}{\psi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q^2, -q^2)}{\psi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,-q^3)}{\varphi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,-q^3)}{\varphi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,q^3)}{f(-q^2)}\)</p>
-		</div>
-        
-        <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,q^3)}{\psi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(q,q^3)}{f(-q^2)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,-q^3)}{\psi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(q,q^3)}{\psi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q,q^3)}{\psi(-q)}\)</p>
+          <a>\(\displaystyle \frac{f(q,-q^3)}{\psi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,q^3)}{\varphi(-q^2)}\)</p>
+          <a>\(\displaystyle \frac{f(-q,q^3)}{\psi(-q)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(q,-q^3)}{\varphi(-q^2)}\)</p>
+          <a>\(\displaystyle \frac{f(q,q^3)}{\varphi(-q^2)}\)</a>
 		</div>
         <div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-          <p>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q^2)}\)</p>
+          <a>\(\displaystyle \frac{f(q,-q^3)}{\varphi(-q^2)}\)</a>
+		</div>
+        <div class="product_form_container">
+          <a>\(\displaystyle \frac{f(-q^2,-q^2)}{\varphi(-q^2)}\)</a>
 		</div>
 	  </div>
 
 	  <div id="mod5" class="main_infobox">
 		<h3>Mod 5</h3>
 		<div class="product_form_container" id="2.172668750849664">
-          <p><b>RRSDB ID</b> <a href="2.172668750849664.html">2.172668750849664</a></p>
-		  <p>\(\displaystyle G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
-             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\)</p>
+		  <a href="identities/2.172668750849664.html">
+             \(\displaystyle G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
+             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\)</a>
 		</div>
 		<div class="product_form_container">
-          <p><b>RRSDB ID</b> <a href="">TODO</a></p>
-		  <p>\(\displaystyle H(q) = \frac{f(-q,-q^4)}{f(-q)} = \frac{1}{(q^2, q^3; q^5)_\infty} =
-             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-2})(1-q^{5n-3})}\)</p>
+		  <a>
+             \(\displaystyle H(q) = \frac{f(-q,-q^4)}{f(-q)} = \frac{1}{(q^2, q^3; q^5)_\infty} =
+             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-2})(1-q^{5n-3})}\)</a>
 		</div>
 	  </div>
 
