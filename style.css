@@ -26,6 +26,9 @@ body {
 #page_title:hover {
  text-decoration: underline;
 }
+#header > div{
+  overflow: hidden;
+}
 
 /*********************
  Style for the sidebar
@@ -115,11 +118,11 @@ a.sidebar_title_text:hover {
   margin: 20px;
   flex-grow: 1;
 }
-.main_infobox p > a {
+.main_infobox p > a, .main_infobox_header a {
   color: #009dc3;
   text-decoration: none;
 }
-.main_infobox p > a:hover {
+.main_infobox p > a:hover, .main_infobox_header a:hover {
   text-decoration: underline;
 }
 .main_infobox {
@@ -157,5 +160,19 @@ a.sidebar_title_text:hover {
   text-decoration: none;
 }
 #footer a:hover {
+  text-decoration: underline;
+}
+
+/***************************
+ Style for identity articles
+ ***************************/
+
+.identity_container {}
+
+.identity_container a {
+  color: #009dc3;
+  text-decoration: none;
+}
+.identity_container a:hover {
   text-decoration: underline;
 }
