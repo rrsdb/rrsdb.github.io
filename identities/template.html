@@ -1,0 +1,98 @@
+<html>
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+function rrsdb_page_init() {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    var container = document.getElementById("sidebar");
+    container.innerHTML = this.responseText;
+    
+    document.getElementById("modulus_search_button").addEventListener("click", function() {
+      var search_text = document.getElementById("modulus_search_text").value.trim();
+
+      if (search_text === "") return;
+
+      window.location.href= "identities-by-modulus.html#mod" + search_text;
+    });
+  }
+
+  xhttp.open("GET", "sidebar.html", true);
+  xhttp.send();
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="rrsdb_page_init()">
+
+  <!-- Header container -->
+  <div id="header">
+
+    <!-- Logo -->
+    <div style="float: left; width: 200px; height: 50px;">
+      <a title="The Rogers-Ramanujan-Slater Data Base."
+         href="index.html"><img src="logo.png"></a>
+    </div>
+
+    <!-- Article title -->
+    <div style="line-height: 50px; height: 100%;">
+      <a id="page_title" href="index.html">
+         Rogers&ndash;Ramanujan type identities</a>
+    </div>
+  </div>
+
+  <!-- Container for the side bar and main content. Allows them to
+       appear side by side properly. -->
+  <div style="display: flex">
+
+    <!-- Side bar container -->
+    <div id="sidebar"></div>
+
+    <!-- Main content container -->
+    <div id="main">
+      <div class="main_infobox">
+        <div class="main_infobox_header">
+          <h2><a href="../product-signature.html">Product signature</a> 5:10001 representations</h2>
+        </div>
+        <p>\[ G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
+             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\]
+        <div class="main_infobox_header">
+          <h2>Series representations</h2>
+        </div>
+        <div class="identity_container">
+          <p><b>Common name: </b> The first Rogers-Ramanujan identity.
+             <b><a href="../slater-number.html">Slater number:</a> 18.</b></p>
+          <p>\[\sum_{n=0}^\infty \frac{q^{n^2}}{(q;q)_n}\]</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
+             Insert Bailey pair <a href="../bailey_pairs#tables">B(1)</a>
+             into the <a href="../bailey_pairs#p_Bailey_lemma">p-Bailey lemma</a>
+             and apply the <a href="../q-series.html#triple_product_and_theta_functions">
+             triple product identity.</a></p>
+          <p><b>Asymptotics formula: </b></p>
+          <p><b>Combinatorial interpretation:</b> The \(q^n\) coefficient counts
+                the number of <a href="../partitions.html">partitions</a>
+                of \(n\) into parts that mutually differ by at least 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer container -->
+  <div id="footer">
+    <div style="margin: auto; width: 50%;">
+      <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
+         The Rogers-Ramanujan-Slater Data Base <br>
+         <a href="index.html">Home</a>
+         &mdash;
+         <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+         &mdash;
+         <a href="contact.html">Contact</a> <br>
+         Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+      </p>
+    </div>
+  </div>
+</body>
+</html>
