@@ -3,26 +3,35 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-function init_modulus_search() {
-  document.getElementById("modulus_search_button").addEventListener("click", function() {
-  var search_text = document.getElementById("modulus_search_text").value.trim();
+function rrsdb_page_init() {
+  var xhttp = new XMLHttpRequest();
 
-  if (search_text === "") return;
+  xhttp.onreadystatechange = function() {
+    var container = document.getElementById("sidebar");
+    container.innerHTML = this.responseText;
+    
+    document.getElementById("modulus_search_button").addEventListener("click", function() {
+      var search_text = document.getElementById("modulus_search_text").value.trim();
 
-  window.location.href= "identities-by-modulus.html#mod" + search_text;
-  });
+      if (search_text === "") return;
+
+      window.location.href= "identities-by-modulus.html#mod" + search_text;
+    });
+  }
+
+  xhttp.open("GET", "sidebar.html", true);
+  xhttp.send();
 }
 </script>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="init_modulus_search()"
-      style="margin: 0px; padding: 0px; font-family: Arial; color: black;">
+<body onload="rrsdb_page_init()">
 
   <!-- Header container -->
   <div id="header">
 
-    <!-- Placeholder until we have a better logo -->
+    <!-- Logo -->
     <div style="float: left; width: 200px; height: 50px;">
       <a title="The Rogers-Ramanujan-Slater Data Base."
          href="index.html"><img src="logo.png"></a>
@@ -30,7 +39,7 @@ function init_modulus_search() {
 
     <!-- Article title -->
     <div style="line-height: 50px; height: 100%;">
-      <a id="page_title" href="partitions.html">Partitions</a>
+      <a id="page_title" href="index.html">The Rogers&ndash;Ramanujan&ndash;Slater data base</a>
     </div>
   </div>
 
@@ -38,74 +47,8 @@ function init_modulus_search() {
        appear side by side properly. -->
   <div style="display: flex">
 
-    <!-- Side bar container -->  
-    <div id="sidebar">
-      <div class="sidebar_title_container">
-        <a class="sidebar_title_text" href="identities-by-modulus.html">
-           Rogers&ndash;Ramanujan type identities</a>
-      </div>
-      <div class="sidebar_content_container" style="padding-left: 5px;">
-        <p style="margin: 5px 0px;"> Search by modulus: </p>
-        <input id="modulus_search_text" style="width:100px;"
-               type="text" id="modulus_search_text">
-        <input id="modulus_search_button" type="submit" value="Go">
-      </div>
-      <div class="sidebar_title_container">
-        <p class="sidebar_title_text"> Other identities</p>
-      </div>
-      <div class="sidebar_content_container">
-        <a href="">TODO</a>
-      </div>
-      <div class="sidebar_title_container">
-        <p class="sidebar_title_text">Definitions and Preliminaries</a>
-      </div>
-      <div class="sidebar_content_container">
-        <div class="sidebar_content_dropdown">
-          <a href="q-series.html">\(q\)-series</a>
-          <div class="sidebar_submenu">
-            <a href="q-series.html#q-Pochhammer">
-               &bull; \(q\)-Pochhammer symbol</a>
-            <a href="q-series.html#q-binomial">
-               &bull; \(q\)-binomial coefficient</a>
-            <a href="q-series.html#q-hypergeometric">
-               &bull; \(q\)-hypergeometric series</a>
-            <a href="q-series.html#triple_product_and_theta_functions">
-               &bull; The triple product and Ramanujan's theta functions</a>
-            <a href="q-series.html#quintuple_product">
-               &bull; The quintuple product</a>
-            <a href="q-series.html#polygonal_number_identities">
-               &bull; Polygonal number identities</a>
-          </div>
-		</div>
-        <div class="sidebar_content_dropdown">
-          <a href="partitions.html">Partitions</a>
-          <div class="sidebar_submenu">
-            <a href="partitions.html#unrestricted">
-               &bull; Integer partitions</a>
-            <a href="partitions.html#overpartitions">
-               &bull; Overpartitions</a>
-          </div>
-        </div>
-        <div class="sidebar_content_dropdown">
-          <a href="bailey_pairs.html">Bailey pairs</a>
-          <div class="sidebar_submenu">
-            <a href="bailey_pairs.html#strong_Bailey_lemma">
-               &bull; The strong Bailey lemma</a>
-            <div class="sidebar_submenu">
-              <a href="bailey_pairs.html#1st_op_Bailey_lemma">
-                 &bull; The 1st op-Bailey lemma</a>
-              <a href="bailey_pairs.html#2nd_op_Bailey_lemma">
-                 &bull; The 2nd op-Bailey lemma</a>
-              <a href="bailey_pairs.html#p_Bailey_lemma">
-                 &bull; The p-Bailey lemma</a>
-              <a href="bailey_pairs.html#pod_Bailey_lemma">
-                &bull; The pod-Bailey lemma</a>
-            </div>
-            <a href="bailey_pairs.html#tables">&bull; Tables</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Side bar container -->
+    <div id="sidebar"></div>
 
     <!-- Main content container -->
     <div id="main">
@@ -114,9 +57,7 @@ function init_modulus_search() {
 		  <h2> Integer partitions </h2>
 		</div>
 		<p>A <b>partition</b> of a positive integer \(n\) is a representation of \(n\) as a sum of positive
-		   integers where the order of the summands is not taken into account 
-	<!--		(Sometimes a partition
-           is called <b>unrestricted</b> to emphisize there are no other restrictions).-->
+		   integers where the order of the summands is not taken into account.
 		   Each summand is called a <b>part</b> of the partition.
 		   Usually, a convention is adopted wherein the parts are
 		   written in weakly decreasing (or sometimes weakly increasing) order. For example, the five Partitions

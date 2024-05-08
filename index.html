@@ -3,11 +3,11 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-function rrsdb_load(container_name, file_name) {
-  xhttp = new XMLHttpRequest();
+function rrsdb_page_init() {
+  var xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function() {
-    container = document.getElementById(container_name);
+    var container = document.getElementById("sidebar");
     container.innerHTML = this.responseText;
     
     document.getElementById("modulus_search_button").addEventListener("click", function() {
@@ -19,12 +19,8 @@ function rrsdb_load(container_name, file_name) {
     });
   }
 
-  xhttp.open("GET", file_name, true);
+  xhttp.open("GET", "sidebar.html", true);
   xhttp.send();
-}
-
-function rrsdb_page_init() {
-  rrsdb_load("sidebar", "sidebar.html");
 }
 </script>
 <link rel="stylesheet" href="style.css">
