@@ -53,7 +53,10 @@ function rrsdb_page_init() {
     <!-- Main content container -->
     <div id="main">
 
-	  <div class="main_infobox" id="bailey_pairs">
+	  <div class="main_infobox" id="definition">
+	    <div class="main_infobox_header">
+		  <h2>Definition</h2>
+		</div>
 	    <p>A pair of sequences of functions \((\alpha_n(a,q),\beta_n(a,q))\)
 		   form a <b>Bailey pair relative to \(a\)</b> if
 		   \[ \beta_n(a, q) = \sum_{r=0}^n \frac{\alpha_r(a,q)}{(q;q)_{n-r}(aq;q)_{n+r}} \]
@@ -71,6 +74,72 @@ function rrsdb_page_init() {
            \frac{(a;q)_n}{(q;q)_n} \sum_{j=0}^n (aq^n;q)_j (q^{-n};q)_j q^j
            \beta_j(a,q).\]
 		</p>
+      </div>
+
+	  <div class="main_infobox" id="strong_Bailey_lemma">
+	    <div class="main_infobox_header">
+		  <h2>The strong Bailey lemma</h2>
+		</div>
+	  </div>
+
+	  <div class="main_infobox" id="1st_op_Bailey_lemma">
+	    <div class="main_infobox_header">
+		  <h3>The first op-Bailey lemma</h2>
+		</div>
+        <p> The <b>first op-Bailey lemma</b> is a limiting case
+            (\(\rho_2, n\to\infty, \rho_1 =-{1},\) with \(a\) specialized) 
+            of the <a href="bailey_pairs.html#strong_Bailey_lemma">
+            strong Bailey lemma</a> and is so named because the infinite product 
+            prefactor on the righthand side has the generating function for the number of 
+            <a href="partitions.html#overpartitions">overpartitions</a> of \(n\), \(\overline{p}(n).\)
+        </p>
+        <p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) form a <a href="bailey_pair.html#definition">
+            Bailey pair</a> relative to \(a=1\), then
+            \[\sum_{n=0}^\infty q^{n(n+1)/2} (-1;q)_n \beta_n(1,q) = 
+            2\frac{(-q;q)_\infty}{(q;q)_\infty}
+            \sum_{r=0}^\infty \frac{ q^{r(r+1)/2}}{1+q^r} \alpha_r(1,q).\]
+            If \(a\) is unspecialized,
+            \[\sum_{n=0}^\infty a^n q^{n(n+1)/2} (-1;q)_n \beta_n(a,q) =
+            \frac{(-aq;q)_\infty}
+            {(aq;q)_\infty} \sum_{r=0}^\infty 
+            \frac{a^r q^{r(r+1)/2} (-1;q)_r}{ (-aq;q)_r } \alpha_r(a,q),\]
+            Notice here that the prefactor on the right hand side is
+            \[\frac{(-aq;q)_\infty}{(aq;q)_\infty} = \sum_{n=0}^\infty \sum_{m=0}^\infty 
+            \overline{p}(n,m) a^m q^n,\]
+            where \(\overline{p}(n,m)\) denotes the number of overpartitions of \(n\) with length \(m\).
+        </p>
+	  </div>
+
+	  <div class="main_infobox" id="2nd_op_Bailey_lemma">
+	    <div class="main_infobox_header">
+		  <h3>The second op-Bailey lemma</h2>
+		</div>
+        <p> The second op-Bailey lemma is the limiting case
+            (\(\rho_2, n\to\infty\), \(\rho_1 = -q\), and \(a=q\) of the
+            <a href="bailey_pairs.html#strong_Bailey_lemma"> strong Bailey lemma</a>,
+            and is so named because the infinite product 
+            prefactor on the righthand side is the generating function for the number of 
+            <a href="partitions.html#overpartitions">overpartitions</a> of \(n\), \(\overline{p}(n).\)
+        </p>
+        <p>If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\)
+           form a <a href="bailey_pair.html#definition">
+           Bailey pair</a> relative to \(a=q\), then
+           \[\frac{1}{1-q}\sum_{n=0}^\infty q^{n(n+1)/2} (-q;q)_n \beta_n(q,q) = 
+           \frac{(-q;q)_\infty}{(q;q)_\infty}
+           \sum_{r=0}^\infty  q^{r(r+1)/2} \alpha_r(q,q).\]
+        </p>
+	  </div>
+
+	  <div class="main_infobox" id="p_Bailey_lemma">
+	    <div class="main_infobox_header">
+		  <h3>The p-Bailey lemma</h2>
+		</div>
+	  </div>
+
+	  <div class="main_infobox" id="pod_Bailey_lemma">
+	    <div class="main_infobox_header">
+		  <h3>The pod-Bailey lemma</h2>
+		</div>
 	  </div>
 
       <div class="main_infobox">
