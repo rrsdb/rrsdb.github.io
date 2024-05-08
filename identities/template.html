@@ -15,15 +15,15 @@ function rrsdb_page_init() {
 
       if (search_text === "") return;
 
-      window.location.href= "identities-by-modulus.html#mod" + search_text;
+      window.location.href= "../identities-by-modulus.html#mod" + search_text;
     });
   }
 
-  xhttp.open("GET", "sidebar.html", true);
+  xhttp.open("GET", "../sidebar.html", true);
   xhttp.send();
 }
 </script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body onload="rrsdb_page_init()">
