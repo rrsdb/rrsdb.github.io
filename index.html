@@ -9,20 +9,18 @@ function rrsdb_load(container_name, file_name) {
   xhttp.onreadystatechange = function() {
     container = document.getElementById(container_name);
     container.innerHTML = this.responseText;
+    
+    document.getElementById("modulus_search_button").addEventListener("click", function() {
+      var search_text = document.getElementById("modulus_search_text").value.trim();
+
+      if (search_text === "") return;
+
+      window.location.href= "identities-by-modulus.html#mod" + search_text;
+    });
   }
 
   xhttp.open("GET", file_name, true);
   xhttp.send();
-}
-
-function rrsdb_product_search_init() {
-  document.getElementById("modulus_search_button").addEventListener("click", function() {
-    var search_text = document.getElementById("modulus_search_text").value.trim();
-
-    if (search_text === "") return;
-
-    window.location.href= "identities-by-modulus.html#mod" + search_text;
-  });
 }
 
 function rrsdb_page_init() {
