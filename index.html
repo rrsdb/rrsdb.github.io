@@ -15,9 +15,7 @@ function rrsdb_load(container_name, file_name) {
   xhttp.send();
 }
 
-function rrsdb_page_init() {
-  rrsdb_load("sidebar", "sidebar.html");
-  
+function rrsdb_product_search_init() {
   document.getElementById("modulus_search_button").addEventListener("click", function() {
     var search_text = document.getElementById("modulus_search_text").value.trim();
 
@@ -25,6 +23,10 @@ function rrsdb_page_init() {
 
     window.location.href= "identities-by-modulus.html#mod" + search_text;
   });
+}
+
+function rrsdb_page_init() {
+  rrsdb_load("sidebar", "sidebar.html");
 }
 </script>
 <link rel="stylesheet" href="style.css">
