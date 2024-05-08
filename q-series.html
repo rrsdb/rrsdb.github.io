@@ -57,12 +57,12 @@ function rrsdb_page_init() {
 	      <h2>The \(q\)-Pochhammer symbol</h2>
 	    </div>
 	    <p> For a positive integer \(n\), 
-		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n = \prod_{k=0}^{n-1} (1-aq^k)\]
-			\[ (a;q)_{-n} = \prod_{k=1}^n \frac{1}{1-aq^{-k}} \]
-			with \((a;q)_n = 1\) if \(n=0\). For complex \(\vert q \vert < 1\),
-			\[(a;q)_\infty = \prod_{k=0}^\infty (1-aq^k) \]
+		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n := \prod_{k=0}^{n-1} (1-aq^k)\]
+			\[ (a;q)_{-n} := \prod_{k=1}^n \frac{1}{1-aq^{-k}} \]
+			with \((a;q)_0 = 1\). For complex \(\vert q \vert < 1\),
+			\[(a;q)_\infty := \prod_{k=0}^\infty (1-aq^k) \]
 			and for real \(n\),
-			\[(a;q)_n = \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
+			\[(a;q)_n := \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
 			For positive integers \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\),
             the product of \(q\)-Pochhammer symbols is written
 			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n\] </p>
@@ -75,12 +75,12 @@ function rrsdb_page_init() {
 	    <p> The <b>Gaussian polynomial</b>, or the \(q\)-<b>binomial coefficient</b>, is given by
 		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] when
 		    \( 0 \leq k \leq n \) and \( 0 \)
-		    otherwise.    A nonzero $q$-binomial coefficient is a polynomial of degree \( k(n-k) \).
+		    otherwise.    A nonzero \(q\)-binomial coefficient is a polynomial of degree \( k(n-k) \).
 	<!--***Needs to be made more precise:  This is the generating function for all <a href="partitions.html#integer_partitions">
     		partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.</p> -->
 	\[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q = \sum_{j = 0}^{k(n-k)} p_{k,n-k}(j) q^j, \]
-		    where \( p_{k,n-k} (j) \) denotes the number of partitions of $j$ of length at most $k$ and parts no
-		    greater than $n-k$.
+		    where \( p_{k,n-k} (j) \) denotes the number of partitions of \(j\) of length at most \(k\) and parts no
+		    greater than \(n-k\).
       </div>
 
       <div class="main_infobox" id="q-hypergeometric">
@@ -92,7 +92,7 @@ function rrsdb_page_init() {
 			\[{ {}_{r}\phi_{s}
             \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
             {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
-            = \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(q;q)_k (b_1, b_2, \dots, b_s;q)_k}
+            := \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(q;q)_k (b_1, b_2, \dots, b_s;q)_k}
             z^k \left( (-1)^k q^{k(k-1)/2} \right)^{1+s-r}, \]
 			where \(r\) and \(s\) are nonnegative integers.
 	    </p>
@@ -105,7 +105,7 @@ function rrsdb_page_init() {
 		<p> The <b>bilateral basic hypergeometric series</b> with base \(q\) is
 		    \[{ {}_{r}\psi_{s} \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
             {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
-            = \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k}
+            := \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k}
             z^k \left( (-1)^k q^{k(k-1)/2} \right)^{s-r},\]
 			where \(r\) and \(s\) are nonnegative integers.
 		  </p>
