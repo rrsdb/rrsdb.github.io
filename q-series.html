@@ -72,12 +72,15 @@ function rrsdb_page_init() {
 	    <div class="main_infobox_header">
 	      <h2>The \(q\)-binomial coefficient</h2>
 	    </div>
-	    <p> The <b>Gaussian binomial coefficient</b>, or the \(q\)-binomial coefficient,
-		    is a polynomial, defined for integers \( 0 \leq k \leq n \)
-		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] and \( 0 \)
-		    otherwise.  
-	***Needs to be made more precise:  This is the generating function for all <a href="partitions.html#integer_partitions">
-    		partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.</p>
+	    <p> The <b>Gaussian polynomial</b>, or the \(q\)-<b>binomial coefficient</b>, is given by
+		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  = \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] when
+		    \( 0 \leq k \leq n \) and \( 0 \)
+		    otherwise.    A nonzero $q$-binomial coefficient is a polynomial of degree \( k(n-k) \).
+	<!--***Needs to be made more precise:  This is the generating function for all <a href="partitions.html#integer_partitions">
+    		partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.</p> -->
+	\[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q = \sum_{j = 0}^{k(n-k)} p_{k,n-k}(j) q^j, \]
+		    where \( p_{k,n-k} (j) \) denotes the number of partitions of $j$ of length at most $k$ and parts no
+		    greater than $n-k$.
       </div>
 
       <div class="main_infobox" id="q-hypergeometric">
