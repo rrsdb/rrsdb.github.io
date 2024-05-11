@@ -55,28 +55,57 @@ function rrsdb_page_init() {
     <div id="main">
       <div class="main_infobox">
         <div class="main_infobox_header">
-          <h2><a href="../product-signature.html">Product signature</a> 5:10001 representations</h2>
+          <h2><a href="../product-signature.html">Product signature</a> 5:10001</h2>
         </div>
-        <p>\[ G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
-             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\]
+
+        <div class="identity_container">
+          <p>\[ G(q) = \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
+               \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\]
+          <div id="series_expansion_container">
+            <p><b>Series expansion</b> with the first <input id="series_expansion_input_box"
+               type="text" value="20"> <input id="series_expansion_button"
+               type="submit" value="Go"> terms:</p>
+            <p id="series_expansion">\[1+q+q^2+q^3+2q^4+2q^5+3q^6+3q^7+4q^8+5q^9+6+6q^{10}+7q^{11}+9q^{12}
+               +10q^{13}+12q^{14}+14q^{15}+17q^{16}+19q^{17}+23q^{18}+26q^{19}\cdots\]</p>
+          </div>
+          <p><b>Combinatorial interpretation:</b> Let \(r(n)\) be the coefficient of \(q^n\) in
+             the series expansion. Then \(r(n)\) is the number of
+             <a href="../partitions.html#integer_partitions">partitions</a> of \(n\) with parts
+             congruent to \(\pm 1\) modulo \(5\).</p>
+        </div>
+      </div>
+      <div class="main_infobox">
         <div class="main_infobox_header">
-          <h2>Series representations</h2>
+          <h2>Representations as series</h2>
         </div>
         <div class="identity_container">
-          <p><b>Common name: </b> The first Rogers-Ramanujan identity.
-             <b><a href="../slater-number.html">Slater number:</a> 18.</b></p>
           <p>\[\sum_{n=0}^\infty \frac{q^{n^2}}{(q;q)_n}\]</p>
+          <p><b>Common name: </b> The first Rogers-Ramanujan identity.
+             <b><a href="../slater-number.html">Slater number:</a></b> 18.</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             Insert Bailey pair <a href="../bailey_pairs#tables">B(1)</a>
-             into the <a href="../bailey_pairs#p_Bailey_lemma">p-Bailey lemma</a>
+             Insert Bailey pair <a href="../bailey_pairs.html#tables">B(1)</a>
+             into the <a href="../bailey_pairs.html#p_Bailey_lemma">p-Bailey lemma</a>
              and apply the <a href="../q-series.html#triple_product_and_theta_functions">
              triple product identity.</a></p>
           <p><b>Asymptotics formula: </b></p>
-          <p><b>Combinatorial interpretation:</b> The \(q^n\) coefficient counts
+          <p><b>Combinatorial interpretation:</b> \(r(n)\) counts
                 the number of <a href="../partitions.html">partitions</a>
                 of \(n\) into parts that mutually differ by at least 2.</p>
         </div>
+        <div class="identity_container">
+          <p>\[\sum_{n=0}^\infty \frac{q^{n(n+1)}(-q;q)_{n+1}}{(q^2;q^2)_n}\]</p>
+          <p><b>Common name: </b>N/A
+             <b><a href="../slater-number.html">Slater number:</a></b> N/A</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b></p>
+          <p><b>Asymptotics formula: </b></p>
+          <p><b>Combinatorial interpretation:</b></p>
+        </div>
       </div>
+      <div class="main_infobox">
+	    <div class="main_infobox_header">
+	      <h2>References</h2>
+	    </div>
+	  </div>
     </div>
   </div>
 
