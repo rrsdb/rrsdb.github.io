@@ -118,11 +118,11 @@ a.sidebar_title_text:hover {
   margin: 20px;
   flex-grow: 1;
 }
-.main_infobox p > a, .main_infobox_header a {
+.main_infobox p > a, .main_infobox > h1 > a {
   color: #009dc3;
   text-decoration: none;
 }
-.main_infobox p > a:hover, .main_infobox_header a:hover {
+.main_infobox p > a:hover, .main_infobox > h1 > a:hover {
   text-decoration: underline;
 }
 .main_infobox {
@@ -194,4 +194,13 @@ a.sidebar_title_text:hover {
   border: 1px solid black;
   outline: none;
   border-radius: 0px;
+}
+
+.identity_container {
+  margin-bottom: 2em;
+  margin-left: 10px;
+}
+
+.identity_container h2 {
+  margin-left: -10px;
 }
