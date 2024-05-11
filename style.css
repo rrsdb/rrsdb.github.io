@@ -176,3 +176,22 @@ a.sidebar_title_text:hover {
 .identity_container a:hover {
   text-decoration: underline;
 }
+
+#series_expansion_input_box {
+  height: 1.5em;
+  width: 5em;
+}
+#series_expansion_button {
+  height: 1.5em;
+  background-color: #d4d4d4;
+  border: 0px;
+}
+#series_expansion_button:hover {    
+  background-color: #ffcd00;
+  border: 0px;
+}
+#series_expansion_input_box, #series_expansion_input_box:focus {
+  border: 1px solid black;
+  outline: none;
+  border-radius: 0px;
+}
