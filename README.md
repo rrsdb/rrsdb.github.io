@@ -53,7 +53,7 @@ some other article:
   .
   <div class="main_infobox">
     <h2>small header</h2>
-    <p> ... for example, see <a href="article.html#arbitrary_name_here">for more</a>.
+    <p> ... for example, see <a href="article.html#arbitrary_name_here">for more</a>.</p>
   </div>
   .
   .
