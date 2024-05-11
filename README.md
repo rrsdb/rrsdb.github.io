@@ -63,15 +63,17 @@ some other article:
 * Use ``<h1>`` only for the title of the page, and ``<h2>`` for all other headers.
 * Each reference should be in a unique ``<p>`` tag. Make the references links if possible. For example,
 ```html
-<div class="main">
+<div id="main">
   .
   .
   .
-  <h2>References</h2>
-  <p>reference 1</p>
-  <p><a href="journal url">reference 2</a></p>
+  <div class=main_infobox">
+    <h2>References</h2>
+    <p>reference 1</p>
+    <p><a href="journal url">reference 2</a></p>
   .
   .
   .
+  </div>
 </div>
 ```
