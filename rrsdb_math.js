@@ -3,8 +3,8 @@ function rrsdb_product(terms, poly1, poly2)
 {
   var coefficients = new Array(terms).fill(0);
 
-  for (power = 0; power < terms; ++power) {
-    for (index = 0; index <= power; ++index) {
+  for (var power = 0; power < terms; ++power) {
+    for (var index = 0; index <= power; ++index) {
       coefficients[power] += poly1[index] * poly2[power - index];
     }
   }
@@ -77,15 +77,29 @@ function rrsdb_expand_q_pochhammer_product(terms, modulus, power_list)
 
 function rrsdb_series_expand_simple(modulus, power_list)
 {
-  var html = "1";
-  var terms = parseInt(document.getElementById("series_expansion_input_box").value);
+  var terms_text_input = document.getElementById("series_expansion_input_box").value.trim();
 
-  // TODO sanity check terms
+  // Check that the input is a non-negative integer
+  for (var index = 0; index < terms_text_input.length; ++index) {
+    if (!("0123456789".includes(terms_text_input[index]))) {
+      document.getElementById("series_expansion").innerHTML =
+        "<span style='color: red;'>Please enter a positive integer</span>";
+      return;
+    }
+  }
 
+  var terms = parseInt(terms_text_input);
   var coefficients = rrsdb_expand_q_pochhammer_product(terms, modulus, power_list);
 
+  if (terms == 0) {
+    document.getElementById("series_expansion").innerHTML = "0";
+    return;
+  }
+
+  var html = "1";
+
   if (terms > 1) {
-    html += " + " +  (coefficients[1] == 1 ? "" : coefficients[index].toString()) + "q";
+    html += " + " +  (coefficients[1] == 1 ? "" : coefficients[1].toString()) + "q";
 
     for (var index = 2; index < terms; ++index) {
       html += " + " + (coefficients[index] == 1 ? "" : coefficients[index].toString()) + "q<sup>" + index.toString() + "</sup>";
