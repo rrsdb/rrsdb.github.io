@@ -1,103 +1,92 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="../sidebar.js"></script>
-<link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article for infinite product with signature 5:(1,0,0,1,0)</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="../rrsdb_math.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
 </head>
- 
+
 <body onload="rrsdb_page_init()">
-
-  <!-- Header container -->
-  <div id="header">
-
-    <!-- Logo -->
+  <header>
     <a id="logo_container" href="../index.html"></a>
-
-    <!-- Article title -->
     <div style="line-height: 50px; height: 100%;">
-      <a id="page_title" href="index.html">
+      <a id="page_title" href="../identities-by-modulus.html">
          Rogers&ndash;Ramanujan type identities</a>
     </div>
-  </div>
+  </header>
 
-  <!-- Container for the side bar and main content. Allows them to
-       appear side by side properly. -->
   <div style="display: flex">
-
-    <!-- Side bar container -->
     <div id="sidebar"></div>
 
-    <!-- Main content container -->
     <div id="main">
       <div class="main_infobox">
-        <h1>Article for infinite product with
-            <a href="../product-signature.html">signature</a> 5:(1,0,0,1,0)</h1>
+        <h1>Article for infinite product with <a href="../product-signature.html">
+            signature</a> SIGNATURE HERE</h1>
+        <figure id="identity_graph">
+          <img src="graphs/GRAPH_FILENAME_HERE.jpeg">
+          <figcaption>Graph of \(F(q)\).</figcaption>
+        </figure>
         <div class="identity_container">
-          <p>\[ G(q) := \sum_{n=0}^\infty r(n)q^n :=
-             \frac{f(-q^2,-q^3)}{f(-q)} = \frac{1}{(q, q^4; q^5)_\infty} =
-             \prod_{n=1}^\infty \frac{1}{(1-q^{5n-1})(1-q^{5n-4})}\]
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := PRODUCT\;REPRESENTATIONS\;HERE\]
           <h2>Combinatorial interpretation of product</h2>
-          <p>\(r(n)\) is the number of
-             <a href="../partitions.html#integer_partitions">partitions</a> of \(n\) with parts
-             congruent to \(\pm 1\) modulo \(5\).</p>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) with CONGRUENCES HERE.</p>
+          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
+          <p>\(\displaystyle r(n) \sim FORMULA\;HERE\) as \( n\to\infty. \)</p>
           <div id="series_expansion_container">
             <h2>Power series expansion</h2>
             <p>First <input id="series_expansion_input_box"
-               type="text" value="20"> <input id="series_expansion_button"
+               type="text" value="10"> <input id="series_expansion_button"
                type="submit" value="Go"> terms:</p>
-            <p id="series_expansion">\[1+q+q^2+q^3+2q^4+2q^5+3q^6+3q^7+4q^8+5q^9+6q^{10}+7q^{11}+9q^{12}
-               +10q^{13}+12q^{14}+14q^{15}+17q^{16}+19q^{17}+23q^{18}+26q^{19}\cdots\]</p>
+            <p id="series_expansion"></p>
           </div>
-          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
-          <p>\(\displaystyle r(n) \sim \frac{e^{\frac{2 \pi  \sqrt{n}}{\sqrt{15}}}}{4 \sqrt[4]{15}
-             \sqrt{\frac{5}{8}-\frac{\sqrt{5}}{8}} n^{3/4}}\) as \( n\to\infty. \)</p>
         </div>
         <div class=" identity_container">
           <h2>\(q\)-series representations</h2>
-          <p>\(\displaystyle G(q) = \sum_{n=0}^\infty \frac{q^{n^2}}{(q;q)_n}\)</p>
-          <p><b>Common name: </b> The first Rogers-Ramanujan identity.
+          <p>\(\displaystyle F(q) = Q\;SERIES\;HERE\)</p>
+          <p><b>Common name: </b> NAME HERE, OR DELETE THIS LINE</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             Insert Bailey pair <a href="../bailey_pairs.html#tables">B(1)</a>
-             into the <a href="../bailey_pairs.html#p_Bailey_lemma">p-Bailey lemma</a>
-             and apply the <a href="../q-series.html#triple_product_and_theta_functions">
-             triple product identity.</a></p>
+             PROOF HERE OR DELETE THIS LINE</p>
           <p><b>Combinatorial interpretations:</b></p>
           <ul>
-            <li><p>\(r(n)\) counts the number of <a href="../partitions.html">partitions</a>
-                   of \(n\) into parts that mutually differ by at least 2.</p></li>
-            <li><p>\(r(n)\) counts the number of partitions of \(n\) with one successive
-                <a href="../partitions.html#Durfee_square">Durfee square</a>.</p></li>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
           </ul>
-          <p><b>History:</b> Appears on <a href="../slater-numbers.html">Slater's list</a>
-             with Slater number 18.
-        </div>
-        <div class=" identity_container">
-          <p>\(\displaystyle G(q) = \sum_{n=0}^\infty \frac{q^{n(n+1)}(-q;q)_{n+1}}{(q^2;q^2)_n}\)</p>
-          <p><b>Common name: </b>N/A
-          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b></p>
-          <p><b>Combinatorial interpretation:</b></p>
+          <p><b>History:</b></p>
+          <ul>
+            <li><p>1st fact here.</p></li>
+            <li><p>2nd fact here.</p></li>
+          </ul>
         </div>
       </div>
+
       <div class="main_infobox">
 	    <h2>References</h2>
+          <ol id="references">
+            <li><p>Ref 1 here</p></li>
+            <li><p>Ref 2 here</p></li>
+          </ol>
 	  </div>
+
     </div>
   </div>
 
-  <!-- Footer container -->
-  <div id="footer">
-    <div style="margin: auto; width: 50%;">
-      <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
-         The Rogers-Ramanujan-Slater Data Base <br>
-         <a href="index.html">Home</a>
-         &mdash;
-         <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
-         &mdash;
-         <a href="contact.html">Contact</a> <br>
-         Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
-      </p>
-    </div>
-  </div>
+  <footer>
+    <p>
+       The Rogers&mdash;Ramanujan&mdash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+    </p>
+  </footer>
 </body>
 </html>
