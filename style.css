@@ -2,17 +2,17 @@ body {
   font-family: Arial;
   margin: 0px;
   padding: 0px;
+  background: white;
 }
 
-/********************
- Style for the header
- ********************/
- 
-#header {
+/************************
+ Style for the header bar
+ ************************/
+
+header {
   background-color: #ffcd00;
   padding: 0px;
   margin: 0px;
-  /* border-bottom: 2px solid #000000; Experiment. */
   width: 100%;
   height: 50px;
 }
@@ -23,7 +23,7 @@ body {
   background-image: url(logo.png);
 }
 #logo_container:hover {
-  background-image: url(logo-hover.png);
+  background-color: #fcdf65;
 }
 #page_title {
   font-size: 1.75em;
@@ -125,7 +125,7 @@ a.sidebar_title_text:hover {
   min-height: calc(100vh - 0px - 70px - 100px);
   margin: 0px auto 0px auto;
   flex-grow: 1;
-  max-width: 1500px; /* Experimental. */
+  max-width: 1250px; /* Experimental. */
   background: white;
   padding: 10px;
 }
@@ -154,25 +154,30 @@ a.sidebar_title_text:hover {
 }
 .main_infobox_header {}
 
+#references li {
+  margin-bottom: 10px;
+}
+
 /********************
  Style for the footer
  ********************/
 
-#footer {
-  height: 80px;
+footer {
+  color: #959595;
+  text-align: center;
+  line-height: 1.75em;
+  min-height: 100px;
   width: 100%;
   background: #EEEEEE;
-  /*border-top: 2px solid black; Experiment. */
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#footer  a {
+footer p {margin: 0px;}
+footer  a {
   color: #959595;
   text-decoration: none;
 }
-#footer a:hover {
-  text-decoration: underline;
-}
+footer a:hover {text-decoration: underline;}
 
 /***************************
  Style for identity articles
@@ -205,4 +210,14 @@ a.sidebar_title_text:hover {
   border: 1px solid black;
   outline: none;
   border-radius: 0px;
+}
+#identity_graph {
+  float: right;
+}
+#identity_graph img {
+  height: 250px;
+  width: 250px;    
+}
+#identity_graph figcaption {
+  text-align: center;
 }
