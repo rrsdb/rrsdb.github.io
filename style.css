@@ -47,8 +47,8 @@ body {
 #sidebar {
   flex: 0 0 200px;
   align-self: flex-start;
-  /*border-right: 2px solid black;
-  border-bottom: 2px solid black; Experiment. */
+  border-right: 4px solid #d4d4d4;
+  border-bottom: 4px solid #d4d4d4;
   background: #EEEEEE;
 }
 .sidebar_title_container {
@@ -126,7 +126,7 @@ a.sidebar_title_text:hover {
   margin: 0px auto 0px auto;
   flex-grow: 1;
   max-width: 1500px; /* Experimental. */
-  background: #EEEEEE;
+  background: white;
   padding: 10px;
 }
 .main_infobox p > a, .main_infobox > h1 > a {
