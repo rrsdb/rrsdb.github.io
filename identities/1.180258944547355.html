@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article for infinite product with signature SIGNATURE HERE</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="../rrsdb_math.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body onload="rrsdb_page_init(); rrsdb_series_expand_simple(14, [0, -1, 1, 0, 0, -1, 1, -1, 0, 0, 1, -1, 0, 0]);">
+  <header>
+    <a id="logo_container" href="../index.html"></a>
+    <div style="line-height: 50px; height: 100%;">
+      <a id="page_title" href="../identities-by-modulus.html">
+         Rogers&ndash;Ramanujan type identities</a>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <div class="main_infobox">
+        <h1>Article for infinite product with <a href="../product-signature.html">
+            signature</a> 14:(0, 1, -1, 0, 0, 1, -1, 1, 0, 0, -1, 1, 0, 0)</h1>
+        <figure id="identity_graph">
+          <img src="graphs/GRAPH_FILENAME_HERE.jpeg">
+          <figcaption>Graph of \(F(q)\).</figcaption>
+        </figure>
+        <div class="identity_container">
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q^3,-q^4)}{f(-q^2)}\]
+          <h2>Combinatorial interpretation of product</h2>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) with CONGRUENCES HERE.</p>
+          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
+          <p>\(\displaystyle (-1)^n r(n) \sim \frac{\sqrt[4]{\frac{11}{21}} e^{\sqrt{\frac{11}{42}} \pi  \sqrt{n}} \sin \left(\frac{\pi
+   }{14}\right) \csc ^2\left(\frac{\pi }{7}\right)}{4\ 2^{3/4} n^{3/4}} \) as \( n\to\infty. \)</p>
+          <div id="series_expansion_container">
+            <h2>Power series expansion</h2>
+            <p>First <input id="series_expansion_input_box"
+               type="text" value="10"> <input id="series_expansion_button"
+               type="submit" value="Go" onclick="rrsdb_series_expand_simple(14, [0, -1, 1, 0, 0, -1, 1, -1, 0, 0, 1, -1, 0, 0])"> terms:</p>
+            <p id="series_expansion"></p>
+          </div>
+        </div>
+        <h2>\(q\)-series representations</h2>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{2n^2}}{(q^2;q^2)_n (-q;q)_{2n}}    \)</p>
+          <p><b>Common name:</b> First Rogers&ndash;Selberg Identity</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
+             Insert G(1) into p-Bailey lemma and apply the triple product identity.</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>History:</b></p>
+          <ul>
+            <li><p>Due to Rogers (1894)</p></li>
+            <li><p>Independently rediscovered by Selberg()</p></li>
+            <li><p>Alternate proof given by Dyson() in his first published paper </p></li>
+          </ul>
+        </div>        
+
+      <div class="main_infobox">
+        <h2>References</h2>
+          <ul id="references">
+            <li><p>Ref 1 here</p></li>
+            <li><p>Ref 2 here</p></li>
+          </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&mdash;Ramanujan&mdash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+    </p>
+  </footer>
+</body>
+</html>
