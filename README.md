@@ -4,9 +4,10 @@
 
 * ``style.css`` contains style common to all pages (some special pages also contain custom style), including colors, margin sizes, font sizes, and so forth. Changes here effect **every article's appearance**, but not the html structure.
 * ``sidebar.html`` and ``sidebar.js`` contain respectively the html structure of the sidebar and the javascript code to load the sidebar. Changes made to sidebar.html **effect every article**.
+* ``rrsdb_math.js`` contains the code for power series expansion.
 
 ## Rogers-Ramanujan type identity articles
-To write a Rogers-Ramanujan type identity article, start by copying the file [identities/template.html](https://rrsdb.github.io/identities/template.html). Change nothing from the part you copy (unless you know what you are doing), and add additional html as needed.
+To write a Rogers-Ramanujan type identity article, start by copying the file [identities/template.html](https://rrsdb.github.io/identities/template.html).
 
 ### Rules that should be followed
 * All added html should be **inside** the ``div`` tag with the id ``main``.
@@ -28,9 +29,10 @@ To write a Rogers-Ramanujan type identity article, start by copying the file [id
 <p>Example <span style="color: blue">text</span> here</p>
 ```
 * All commits should have at least some description. If we ever need to revert to an older version, this will help track where the issue was introduced.
+* Use ``<h1>`` only for the title of the page, and ``<h2>`` for all other headers.
 
-### The html structure
-* Large sections of the article all go in a ``div`` with the class ``main_infobox``. If you give the ``div`` an id ``arbitrary_name_here``, you can link to it like ``<a href="article.html#arbitrary_name_here">`` and the contents of the ``div`` will be highlighted with a darkened background whenever the page is reached using this link. Only do this if you give such a link **elsewhere**, otherwise this serves no purpose. Also, make sure every id is unique! For example:
+### Useful facts about the html structure
+* Large sections of article all go in a ``div`` with the class ``main_infobox``. If you give the ``div`` an id ``arbitrary_name_here``, you can link to it like ``<a href="article.html#arbitrary_name_here">`` and the contents of the ``div`` will be highlighted with a darkened background whenever the page is reached using this link. Only do this if you give such a link **elsewhere**, otherwise this serves no purpose. Also, make sure every id is unique! For example:
 
 Your article ``article.html``:
 ```html
@@ -60,22 +62,5 @@ some other article:
   .
   .
   .
-</div>
-```
-* Use ``<h1>`` only for the title of the page, and ``<h2>`` for all other headers.
-* Each reference should be in a unique ``<p>`` tag. Make the references links if possible. For example,
-```html
-<div id="main">
-  .
-  .
-  .
-  <div class="main_infobox">
-    <h2>References</h2>
-    <p>reference 1</p>
-    <p><a href="journal url">reference 2</a></p>
-  .
-  .
-  .
-  </div>
 </div>
 ```
