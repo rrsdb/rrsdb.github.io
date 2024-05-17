@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.png">
 </head>
 
-<body onload="rrsdb_page_init(); rrsdb_series_expand_simple(5, [-1,0,0,-1,0]);">
+<body onload="rrsdb_page_init(); rrsdb_series_expand_simple(6, [-2,-1,0,-1,-2,0]);">
   <header>
     <a id="logo_container" href="../index.html"></a>
     <div style="line-height: 50px; height: 100%;">
@@ -28,33 +28,35 @@
     <div id="main">
       <div class="main_infobox">
         <h1>Article for infinite product with <a href="../product-signature.html">
-            signature</a> SIGNATURE HERE</h1>
+            signature</a> 6:(2,1,0,1,2,0)</h1>
         <figure id="identity_graph">
-          <img src="graphs/GRAPH_FILENAME_HERE.jpeg">
+          <img src="graphs/g6.196022072919206.jpg">
           <figcaption>Graph of \(F(q)\).</figcaption>
         </figure>
         <div class="identity_container">
-          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := PRODUCT\;REPRESENTATIONS\;HERE\]
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(q,q^2)}{f(-q)} = \frac{\phi(-q^3)}{\phi(-q)} = 
+            \frac{1}{(q,q^5;q^6)_\infty^2} (q^2,q^4;q^6)_\infty \]
           <h2>Combinatorial interpretation of product</h2>
           <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
              of \(n\) with CONGRUENCES HERE.</p>
           <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
-          <p>\(\displaystyle r(n) \sim FORMULA\;HERE\) as \( n\to\infty. \)</p>
+          <p>\(\displaystyle r(n) \sim \frac{e^{\sqrt{\frac{2}{3}} \pi  \sqrt{n}}}{2 \sqrt[4]{2} 3^{3/4} n^{3/4}}\) 
+            as \( n\to\infty. \)</p>
           <div id="series_expansion_container">
             <h2>Power series expansion</h2>
             <p>First <input id="series_expansion_input_box"
                type="text" value="10"> <input id="series_expansion_button"
-               type="submit" value="Go" onclick="rrsdb_series_expand_simple(5, [-1,0,0,-1,0])"> terms:</p>
+               type="submit" value="Go" onclick="rrsdb_series_expand_simple(6, [-2,-1,0,-1,-2,0])"> terms:</p>
             <p id="series_expansion"></p>
           </div>
         </div>
         <h2>\(q\)-series representations</h2>
 
         <div class="identity_container">
-          <p>\(\displaystyle F(q) = Q\;SERIES\;HERE\)</p>
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n^2} (-1;q)_n}{(q;q)_n (q;q^2)_n} \)</p>
           <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             PROOF HERE OR DELETE THIS LINE</p>
+             Insert Bailey pair H(1)(corrected) into the p-Bailey lemma, and apply the triple product identity.</p>
           <p><b>Combinatorial interpretations:</b></p>
           <ul>
             <li><p>1st interpretation here.</p></li>
@@ -62,16 +64,16 @@
           </ul>
           <p><b>History:</b></p>
           <ul>
-            <li><p>1st fact here.</p></li>
-            <li><p>2nd fact here.</p></li>
+            <li><p>Due to Ramanujan in his lost notebook (Andrews and Berndt 2009, p. 85, Entry 4.2.8). </p></li>
+            <li><p>First publication in Slater, Eq. (6), contains a misprint.</p></li>
           </ul>
         </div>
         
         <div class="identity_container">
-          <p>\(\displaystyle F(q) = OTHER\;FORM\;HERE\;OR\;DELETE\;DIV\)</p>
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n^2} (-q;q)_n}{(q;q)_n (q;q^2)_{n+1}} \)</p>
           <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             PROOF HERE OR DELETE THIS LINE</p>
+             Placeholder: insert a Bailey pair (not in Slater) into op2-Bailey lemma. </p>
           <p><b>Combinatorial interpretations:</b></p>
           <ul>
             <li><p>1st interpretation here.</p></li>
@@ -88,10 +90,13 @@
 
       <div class="main_infobox">
         <h2>References</h2>
-          <ol id="references">
-            <li><p>Ref 1 here</p></li>
-            <li><p>Ref 2 here</p></li>
-          </ol>
+          <ul id="references">
+            <li><p>G. E. Andrews and B. C. Berndt, Ramanujan's Lost Notebook, Part II, Springer, 2009.</p></li>
+            <li><p>L. J. Slater, A new proof of Rogers's transformations of infinite series, Proc. London Math. Soc. (2) 53 (1951) 
+              460–475 <a href="https://doi.org/10.1112/plms/s2-53.6.460">DOI</a></p></li>
+            <li><p>L. J. Slater, Further identities of the Rogers–Ramanujan type, Proc. London Math. Soc. (2) 54 (1952) 147–167 
+              <a href="https://doi.org/10.1112/plms/s2-54.2.147>DOI</a>  </p></li>
+          </ul>
       </div>
 
     </div>
