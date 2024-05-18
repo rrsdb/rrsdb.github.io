@@ -41,8 +41,9 @@
   function rrsdb_check_modulus()
   {
     if (window.location.hash.substring(0,4) == "#mod") {
+      var message = document.getElementById("modulus_error_message");
+
       if (!valid_moduli.includes(window.location.hash.substring(4))) {
-        var message = document.getElementById("modulus_error_message");
 
         message.style.display = "block";
         message.innerText = "Search error: the modulus " + window.location.hash.substring(4) +
