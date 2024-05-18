@@ -33,7 +33,7 @@ header {
   font-weight: bold;
   padding-left: 10px;
 }
-#page_title:hover {
+a#page_title:hover {
  text-decoration: underline;
 }
 #header > div{

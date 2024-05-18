@@ -1,107 +1,99 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
+  <meta charset="UTF-8">
+  <title>Identities by their product representations</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+  <script>
 
-/* Rudimentary error checking for searching by modulus. */
-function rrsdb_check_modulus() {
-  var url = window.location.href;
+  // Custom version for this page. Must change if sidebar.js is changed.
+  function rrsdb_page_init() {
+    var xhttp = new XMLHttpRequest();
+
+    rrsdb_check_modulus();
+
+    xhttp.onreadystatechange = function() {
+      var container = document.getElementById("sidebar");
+      container.innerHTML = this.responseText;
+      
+      document.getElementById("modulus_search_button").addEventListener("click", function() {
+        var search_text = document.getElementById("modulus_search_text").value.trim();
   
-  if (!url.includes('#')) return;
-
-  var modulus_text = url.substring(url.lastIndexOf('#')+4);
-
-  /* Update this list if any new moduli are added. */
-  var valid_moduli = [2,3,4,5,6,7,8,9,10,11,12,14,15,16,18,20,24,27,32,36];
-  var message = document.getElementById("modulus_error_message");
-
-  if (!valid_moduli.includes(parseInt(modulus_text))) {
-    message.style.display = "block";
-    message.innerText = "Search error: the modulus " + modulus_text +
-      " does not appear on this list. Make sure you are entering a positive integer value.";
-  } else {
-    message.style.display = "none";
-  }
-}
-
-function rrsdb_page_init() {
-  var xhttp = new XMLHttpRequest();
-
-  rrsdb_check_modulus();
-
-  xhttp.onreadystatechange = function() {
-    var container = document.getElementById("sidebar");
-    container.innerHTML = this.responseText;
-    
-    document.getElementById("modulus_search_button").addEventListener("click", function() {
-      var search_text = document.getElementById("modulus_search_text").value.trim();
-
-      if (search_text === "") return;
-
-      window.location.href= "identities-by-modulus.html#mod" + search_text;
-      rrsdb_check_modulus();
-    });
+        if (search_text === "") return;
+  
+        window.location.href= "../identities-by-modulus.html#mod" + search_text;
+        rrsdb_check_modulus();
+      });
+    }
+  
+    xhttp.open("GET", "../sidebar.html", true);
+    xhttp.send();
   }
 
-  xhttp.open("GET", "sidebar.html", true);
-  xhttp.send();
-}
-</script>
-<link rel="stylesheet" href="style.css">
-<style>
-/****************************
- Style for just this document
- ****************************/
+  // Update this list if any new moduli are added.
+  const valid_moduli = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+                        "14", "15", "16", "18", "20", "24", "27", "32", "36"];
 
-.main_infobox > .product_form_container > a {
-  color: black;
-  text-decoration: none;
-}
+  // Rudimentary error checking for searching by modulus.
+  function rrsdb_check_modulus()
+  {
+    if (window.location.hash.substring(0,4) == "#mod") {
+      if (!valid_moduli.includes(window.location.hash.substring(4))) {
+        var message = document.getElementById("modulus_error_message");
 
-.main_infobox > .product_form_container > a:hover {
-  color: #009dc3;
-}
+        message.style.display = "block";
+        message.innerText = "Search error: the modulus " + window.location.hash.substring(4) +
+          " does not appear on this list. Make sure you are entering a positive integer value.";
+      } else {
+        message.style.display = "none";
+      }
+    }
+  }
+  </script>
+  <style>
+  /****************************
+   Style for just this document
+   ****************************/
+  
+  .main_infobox > .product_form_container > a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .main_infobox > .product_form_container > a:hover {
+    color: #009dc3;
+  }
+  
+  .product_form_container {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 2px;
+    height: 4em;
+    color: black !important;
+  }
 
-.product_form_container {
-  padding: 5px 0px 5px 5px;
-  margin-bottom: 2px;
-  height: 4em;
-  color: black !important;
-}
-
-.product_form_container:target {border: 2px solid black; padding: 3px 0px 3px 3px; background: #EEEEEE;}
-</style>
+  .product_form_container:target {border: 2px solid black; padding: 3px 0px 3px 3px; background: #EEEEEE;}
+  </style>
 </head>
 
-<body onload="rrsdb_page_init()">
-
-  <!-- Header container -->
-  <div id="header">
-
-    <!-- Logo -->
-    <div style="float: left; width: 200px; height: 50px;">
-      <a title="The Rogers-Ramanujan-Slater Data Base."
-         href="index.html"><img src="logo.png"></a>
-    </div>
-
-    <!-- Article title -->
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="logo_container" href="index.html"></a>
     <div style="line-height: 50px; height: 100%;">
-      <a id="page_title" href="identities-by-modulus.html">Rogers&ndash;Ramanujan identities by product representation</a>
+      <a id="page_title" href="identities-by-modulus.html">
+         Rogers&mdash;Ramanujan type identities</a>
     </div>
-  </div>
+  </header>
 
-  <!-- Container for the side bar and main content. Allows them to
-       appear side by side properly. -->
   <div style="display: flex">
-
-    <!-- Side bar container -->
     <div id="sidebar"></div>
 
-    <!-- Main content container -->
     <div id="main">
 
       <div class="main_infobox">
+        <h1>Identities by their product representations</h1>
         <p>This page is a catalog of known Rogers-Ramanujan-Slater identities, sorted by their
            product representations. Use the search bar on the left to jump to a particular modulus.
            Click on any product to see the series representations.
@@ -299,19 +291,16 @@ function rrsdb_page_init() {
     </div>
   </div>
 
-  <!-- Footer container -->
-  <div id="footer">
-	<div style="margin: auto; width: 50%;">
-	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
-		  The Rogers-Ramanujan-Slater Data Base <br>
-		  <a href="index.html">Home</a>
-		  &mdash;
-		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
-		  &mdash;
-		  <a href="contact.html">Contact</a> <br>
-		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
-		</p>
-	</div>
-  </div>
+  <footer>
+    <p>
+       The Rogers&mdash;Ramanujan&mdash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+    </p>
+  </footer>
 </body>
 </html>

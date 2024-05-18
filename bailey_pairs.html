@@ -1,58 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-function rrsdb_page_init() {
-  var xhttp = new XMLHttpRequest();
-
-  xhttp.onreadystatechange = function() {
-    var container = document.getElementById("sidebar");
-    container.innerHTML = this.responseText;
-    
-    document.getElementById("modulus_search_button").addEventListener("click", function() {
-      var search_text = document.getElementById("modulus_search_text").value.trim();
-
-      if (search_text === "") return;
-
-      window.location.href= "identities-by-modulus.html#mod" + search_text;
-    });
-  }
-
-  xhttp.open("GET", "sidebar.html", true);
-  xhttp.send();
-}
-</script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Bailey Pairs</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
 </head>
 
-<body onload="rrsdb_page_init()">
-
-  <!-- Header container -->
-  <div id="header">
-
-    <!-- Logo -->
-    <div style="float: left; width: 200px; height: 50px;">
-      <a title="The Rogers-Ramanujan-Slater Data Base."
-         href="index.html"><img src="logo.png"></a>
-    </div>
-
-    <!-- Article title -->
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="logo_container" href="index.html"></a>
     <div style="line-height: 50px; height: 100%;">
-      <a id="page_title" href="bailey_pairs.html">Bailey Pairs</a>
+      <p id="page_title">
+         Definitions and Preliminaries</p>
     </div>
-  </div>
+  </header>
 
-  <!-- Container for the side bar and main content. Allows them to
-       appear side by side properly. -->
   <div style="display: flex">
-
-    <!-- Side bar container -->
     <div id="sidebar"></div>
 
-    <!-- Main content container -->
     <div id="main">
 
+      <h1>Bailey Pairs</h1>
 	  <div class="main_infobox" id="definition">
 	    <div class="main_infobox_header">
 		  <h2>Definition</h2>
@@ -150,19 +122,16 @@ function rrsdb_page_init() {
     </div>
   </div>
 
-  <!-- Footer container -->
-  <div id="footer">
-	<div style="margin: auto; width: 50%;">
-	    <p style="color: #959595; line-height:1.5em; margin: 0px; text-align: center;">
-		  The Rogers-Ramanujan-Slater Data Base <br>
-		  <a href="index.html">Home</a>
-		  &mdash;
-		  <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
-		  &mdash;
-		  <a href="contact.html">Contact</a> <br>
-		  Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
-		</p>
-	</div>
-  </div>
+  <footer>
+    <p>
+       The Rogers&mdash;Ramanujan&mdash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron (hpwaldro@mtu.edu), 2024
+    </p>
+  </footer>
 </body>
 </html>
