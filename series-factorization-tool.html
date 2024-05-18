@@ -20,20 +20,32 @@
   
     return divisors;
   }
-  
+
   function rrsdb_factor_series()
   {
-    const coefficients_raw = document.getElementById("power_series_factorization_input_box").value;
+    var coefficients_raw = document.getElementById("power_series_factorization_input_box").innerHTML;
     var coefficients = [];
+
+    // TODO add input sanity checks
 
     for (const entry of coefficients_raw.split(',')) {
       coefficients.push(parseInt(entry, 10));
     }
 
+    if (coefficients[0] != 1) {
+      document.getElementById("power_series_factorization_output").innerHTML
+          = "<span style='color: red'>The constant coefficient must equal 1.</span>";
+      return;
+    }
+
+    if (coefficients.length == 1) {
+      document.getElementById("power_series_factorization_output").innerHTML = "1"
+    }
+
     var power_list = [coefficients[1]];
-  
+
     for (var power_index = 2; power_index < coefficients.length; ++power_index) {
-      var power = 0;
+      let power = 0;
   
       for (var inner_index = 1; inner_index <= power_index; ++inner_index) {
         const divisors = rrsdb_get_divisors(inner_index);
@@ -44,14 +56,38 @@
           power -= coefficients[power_index - inner_index] * divisor * power_list[divisor - 1];
         }
       }
-  
+
       power /= power_index;
       power += coefficients[power_index];
       power_list.push(power);
     }
-    document.getElementById("power_series_factorization_output").innerHTML = "Powers: " + power_list.toString();
+
+    var html = "";
+
+    for (var index = 0; index < power_list.length; ++index) {
+      if (power_list[index] == 0) continue;
+
+      html += "(1-q<sup>" + (index + 1).toString() + "</sup>)<sup>" +
+              (power_list[index] < 0 ? "" : "-") + "<b>" + 
+              Math.abs(power_list[index].toString()) + "</b></sup>";
+    }
+
+    document.getElementById("power_series_factorization_output").innerHTML = html;
   }
   </script>
+  <style>
+  #power_series_factorization_input_box {
+    display: inline-block;
+    outline: 2px solid transparent;
+    background: #e3ecfa;
+    min-height: 4em;
+    min-width: 500px;
+    padding: 5px;
+  }
+  #power_series_factorization_input_box:focus-visible {
+    outline: 2px solid #a3aebf;
+  }
+  </style>
 </head>
 
 <body onload="rrsdb_page_init();">
@@ -69,15 +105,17 @@
     <div id="main">
 
       <h1>Power series factorization tool</h1>
-	  <p>This tool attempts to factor a truncated power series in the form
+	  <p>This tool factors a truncated power series in the form
          \[ 1 + \sum_{n=1}^T r(n)q^n  = \prod_{n=1}^T (1-q^n)^{-a_n}.\]
          where equality holds for the coefficients only up to \(q^T\).
          This is useful for finding patterns in order to conjecture identities of the form
          \[ 1 + \sum_{n=1}^\infty r(n)q^n  = \prod_{n=1}^\infty (1-q^n)^{-a_n}.\]</p>
-      <p> Enter the series coefficients as a comma-separated list of integers: </p>
-      <p> <input type="text", id="power_series_factorization_input_box" value="1,"> 
-          <input id="power_series_factorization_button" type="submit" value="Go"
-          onclick="rrsdb_factor_series()">
+      <p> Enter the series coefficients as a comma-separated list \(1, r(1), r(2), \dots, r(T)\) of integers \(r(n)\).</p>
+      <p>
+         <span id="power_series_factorization_input_box"
+               contenteditable="true">1, 1, 2, 3, 5, 7, 11</span></p>
+         <p><input id="power_series_factorization_button" type="submit" value="Factorize"
+         onclick="rrsdb_factor_series()"></p>
       <p id="power_series_factorization_output"></p>
     </div>
   </div>
