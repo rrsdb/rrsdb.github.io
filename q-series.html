@@ -25,9 +25,7 @@
     <div id="main">
       <h1>\(q\)-series</h1>
 	  <div class="main_infobox" id="q-Pochhammer">
-	    <div class="main_infobox_header">
-	      <h2>The \(q\)-Pochhammer symbol</h2>
-	    </div>
+	    <h2>The \(q\)-Pochhammer symbol</h2>
 	    <p> For a positive integer \(n\), 
 		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n := \prod_{k=0}^{n-1} (1-aq^k)\]
 			\[ (a;q)_{-n} := \prod_{k=1}^n \frac{1}{1-aq^{-k}} \]
@@ -37,28 +35,24 @@
 			\[(a;q)_n := \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
 			For positive integers \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\),
             the product of \(q\)-Pochhammer symbols is written
-			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n.\] </p>
+			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n\] </p>
 	  </div>
 
       <div class="main_infobox" id="q-binomial">
-	    <div class="main_infobox_header">
-	      <h2>The \(q\)-binomial coefficient</h2>
-	    </div>
+	    <h2>The \(q\)-binomial coefficient</h2>
 	    <p> The <b>Gaussian polynomial</b>, or the \(q\)-<b>binomial coefficient</b>, is given by
 		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  := \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] when
 		    \( 0 \leq k \leq n \) and \( 0 \)
 		    otherwise.    A nonzero \(q\)-binomial coefficient is a polynomial of degree \( k(n-k) \).
 	<!--***Needs to be made more precise:  This is the generating function for all <a href="partitions.html#integer_partitions">
     		partitions</a> with largest part at most \(n-k\), and at most \(k\) parts.</p> -->
-	\[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q = \sum_{j = 0}^{k(n-k)} p_{k,n-k}(j) q^j, \]
+	        \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q = \sum_{j = 0}^{k(n-k)} p_{k,n-k}(j) q^j, \]
 		    where \( p_{k,n-k} (j) \) denotes the number of partitions of \(j\) of length at most \(k\) and parts no
 		    greater than \(n-k\).
       </div>
 
       <div class="main_infobox" id="q-hypergeometric">
-	    <div class="main_infobox_header">
-	      <h2>\(q\)-hypergeometric series</h2>
-	    </div>
+	    <h2>\(q\)-hypergeometric series</h2>
 	    <p> A <b>basic hypergeometric series</b> with base \(q\), also called a \(q\)-hypergeometric series,
 		    is given by
 			\[{ {}_{r}\phi_{s}
@@ -83,13 +77,9 @@
 		  </p>
       </div>
 
-      <div class="main_infobox" id="triple_product_and_theta_functions">
-	    <div class="main_infobox_header">
-	      <h2>The triple product identity and Ramanujan's theta functions</h2>
-	    </div>
+      <div class="main_infobox" id="triple_product">
+        <h2>The triple product identity</h2>
 	    <p>Jacobi's <b>triple product identity</b> appears in the literature in many different forms.
-		   A particularly nice form for \(\vert ab \vert < 1\) is Ramanujan's theta function
-		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2} = (-a-b, ab; ab)_\infty.\]
 		   In the context of Rogers-Ramanujan type identities, we often encounter the triple product
 		   identity in the forms
 		   \[\sum_{n=-\infty}^\infty (-1)^n q^{\frac a2 n^2 - \frac b2 n} = (q^{(a-b)/2},
@@ -98,11 +88,22 @@
            -q^{(a+b)/2}, q^a; q^a)_\infty\]
 		   for positive integers \(a > b\), where \(\vert q \rvert < 1\).
 		</p>
-		<p> Important special cases of Jacobi's triple product include
-		    <a href="q-series.html#pentagonal_number_theorem">Euler's pentagonal number theorem</a>
-			and <a href="q-series.html#square_and_hexagonal_numbers_theorems">Gauss's square
-			numbers and hexagonal numbers theorems</a>.
-		</p>
+      </div>
+
+      <div class="main_infobox" id="quintuple_product">
+	    <h2>The quintuple product identity</h2>
+        The <b>quintuple product identity</b> is
+        \[(z^{-1},zq,q; q)_\infty (z^{-2}q, z^2q; q^2)_\infty
+          =\sum_{n=-\infty}^\infty q^{n(3n+1)/2} ( z^{3n} - z^{-3n-1}). \]
+      </div>
+
+      <div class="main_infobox" id="theta_functions">
+	    <h2>Ramanujan's theta functions</h2>
+        <p>Ramanujan's <b>theta function</b> is given by the infinite series
+		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2}.\]
+           Using the <a href="#triple_product">triple product identity</a>, we can also write
+           \[f(a,b) = (-a-b, ab; ab)_\infty.\]
+        </p>
 		<p> Ramanujan defined three special cases of \(f(a,b)\) as follows:
 		    \[\varphi(q) := f(q,q) = \frac{(-q;-q)_\infty}{(q;-q)_\infty}\]
 			\[f(-q) :=  f(-q, -q^2) = (q;q)_\infty,\]
@@ -121,16 +122,8 @@
 		</p>
       </div>
 
-      <div class="main_infobox" id="quintuple_product">
-        <div class="main_infobox_header">
-	      <h2>The quintuple product identity</h2>
-	    </div>
-      </div>
-
       <div class="main_infobox" id="polygonal_number_identities">
-        <div class="main_infobox_header">
-	      <h2>Polygonal number identities</h2>
-	    </div>
+	    <h2>Polygonal number identities</h2>
 	    <p> Euler's pentagonal number theorem is
 		    \[f(-q) = (q;q)_\infty = \sum_{n=-\infty}^\infty (-1)^n q^{n(3n-1)/2}.\]
 		</p>
@@ -141,9 +134,7 @@
       </div>
 
       <div class="main_infobox">
-	    <div class="main_infobox_header">
-	      <h2>References</h2>
-	    </div>
+	    <h2>References</h2>
 	  </div>
     </div>
   </div>
