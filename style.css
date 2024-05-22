@@ -122,10 +122,10 @@ a.sidebar_title_text:hover {
      Must be updated any time the relevant values change. This
      ensures the footer is never in the middle of the page for
      shorter articles. */
-  min-height: calc(100vh - 0px - 70px - 100px);
+  min-height: calc(100vh - 190px);
   margin: 0px auto 0px auto;
   flex-grow: 1;
-  max-width: 1250px; /* Experimental. */
+  max-width: 1250px;
   background: white;
   padding: 10px;
 }
@@ -156,6 +156,25 @@ a.sidebar_title_text:hover {
 
 #references li {
   margin-bottom: 10px;
+}
+
+#main input[type=text] {
+  height: 1.5em;
+  width: 5em;
+}
+#main input[type=submit] {
+  height: 1.5em;
+  background-color: #d4d4d4;
+  border: 0px;
+}
+#main input[type=submit]:hover {    
+  background-color: #ffcd00;
+  border: 0px;
+}
+#main input[type=text], #main input[type=text]:focus {
+  border: 1px solid black;
+  outline: none;
+  border-radius: 0px;
 }
 
 /********************
@@ -192,24 +211,6 @@ footer a:hover {text-decoration: underline;}
 }
 .identity_container a:hover {
   text-decoration: underline;
-}
-#series_expansion_input_box {
-  height: 1.5em;
-  width: 5em;
-}
-#series_expansion_button {
-  height: 1.5em;
-  background-color: #d4d4d4;
-  border: 0px;
-}
-#series_expansion_button:hover {    
-  background-color: #ffcd00;
-  border: 0px;
-}
-#series_expansion_input_box, #series_expansion_input_box:focus {
-  border: 1px solid black;
-  outline: none;
-  border-radius: 0px;
 }
 #identity_graph {
   float: right;
