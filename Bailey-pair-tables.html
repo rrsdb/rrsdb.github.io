@@ -8,6 +8,26 @@
   <script src="sidebar.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
+  <style>
+  /****************************
+   Style for just this document
+   ****************************/
+  .main_infobox table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0px;
+  }
+  .main_infobox tr:nth-child(odd) {
+    background: #ededed;
+  }
+  .main_infobox th, .main_infobox td {
+    padding: 10px;
+  }
+  .main_infobox td:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  </style>
 </head>
 
 <body onload="rrsdb_page_init();">
@@ -25,13 +45,21 @@
     <div id="main">
       <h1>Bailey pair tables</h1>
 	  <div class="main_infobox">
-
-
-
-
-
-
-
+  
+        <h2>Table A</h2>
+        <table>
+          <tr><th>Name</th><th>\(\beta_n\)</th> <th>\(\alpha_{3n-1}\)</th>
+            <th>\(\alpha_{3n}\)</th> <th>\(\alpha_{3n+1}\)</th><th>\(x\)</th></tr>
+          <tr>
+            <td>A(1)</td>
+            <td>\(1/(q;q)_{2n}\)</td>
+            <td>\(-q^{6n^2-5n+1}\)</td>
+            <td>\(q^{6n^2-n} + q^{6n^2+n}\)</td>
+            <td>\(-q^{5n^2-5n+1}\)</td>
+            <td>\(q\)</td>
+          </tr>
+        </table>
+  
       </div>
 
       <div class="main_infobox">
