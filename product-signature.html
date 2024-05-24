@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Product signatures</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <script>
+  function rrsdb_product_signature_typeset()
+  {
+    var input_modulus = document.getElementById("product_input_modulus");
+    var input_powers = document.getElementById("product_input_powers");
+    var output_signature = document.getElementById("product_output_signature");
+    var output_latex_rendered = document.getElementById("product_output_latex_rendered");
+    var output_latex_raw = document.getElementById("product_output_latex_raw");
+
+    const error_message =  "<span style='color: red'>Your input was unable to be interpreted. "
+        + "Please ensure that the modulus entered is "
+        + "a positive integer, and the powers are a comma separated list of integers, equal in quantity "
+        + "to the modulus and with no trailing comma.</span>";
+
+    var modulus = parseInt(input_modulus.value, 10);
+    var powers = [];
+
+    if (isNaN(modulus) || input_powers.value.includes(".") || modulus < 1) {
+      output_signature.innerHTML = error_message;
+      return;
+    }
+
+    for (var power of input_powers.value.split(',')) {
+      var power_numeric = parseInt(power, 10);
+
+      if (isNaN(power_numeric)) {
+        output_signature.innerHTML = error_message;
+        return;
+      }
+    
+      powers.push(power_numeric);
+    }
+
+    if (powers.length != modulus) {
+      output_signature.innerHTML = error_message;
+      return;
+    }
+
+    var numerator = "";
+    var denominator = "";
+
+    var used_powers = [0];
+
+    for (var index = 0; index < modulus; ++index) {
+      if (used_powers.includes(powers[index])) continue;
+
+      used_powers.push(powers[index]);
+
+      var contribution = "(q^{" + (index == 0 ? "" : (index + 1)).toString() + "}";
+
+      for (var sub_index = index + 1; sub_index < modulus; ++sub_index) {
+        if (powers[sub_index] == powers[index]) {
+          contribution += ",q^{" + (sub_index + 1).toString() + "}";
+        }
+      }
+      
+      contribution += "; q^{" + (modulus != 1 ? modulus.toString() : "") + "})_\\infty";
+      
+      if (Math.abs(powers[index]) != 1) contribution += "^" + Math.abs(powers[index]).toString();
+
+      if (powers[index] < 0) {
+        numerator += contribution;
+      } else {
+        denominator += contribution;
+      }
+    }
+
+    if (denominator != "") {
+      output_latex_raw.innerHTML = "\\frac{";
+    } else {
+      output_latex_raw.innerHTML = "";
+    }
+
+    if (numerator == "") {
+      output_latex_raw.innerHTML += "1";
+    } else {
+      output_latex_raw.innerHTML += numerator;
+    }
+
+    if (denominator != "") {
+      output_latex_raw.innerHTML += "}{" + denominator + "}";
+    }
+
+    output_latex_rendered.innerHTML = "<b>Product:</b><br><br> \\(\\displaystyle"
+      + output_latex_raw.innerHTML + "\\)";
+    output_latex_raw.innerHTML = "<b>LaTex:</b><br><br>" + output_latex_raw.innerHTML;
+    MathJax.typeset();
+  }
+  </script>
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="logo_container" href="index.html"></a>
+    <div style="line-height: 50px; height: 100%;">
+      <p id="page_title">
+         Rogers&mdash;Ramanujan type identities</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <h1>Product signatures</h1>
+      <div class="main_infobox">
+        <p> Add definition here. </p>
+      </div>
+      <div class="main_infobox">
+        <h2>Typesetting tool</h2>
+        <p>This tool will typeset a product of
+           <a href="q-series.html#q-Pochhammer.html"</p>\(q\)-Pochhammer</a> symbols
+           in LaTex from a given product signature.
+        </p>
+        <p>Modulus: <input type="text" id="product_input_modulus" style="width: 2em"> Powers:
+           <input id="product_input_powers" type="text" style="width: 500px">
+           <input type="submit" value="Go" onclick="rrsdb_product_signature_typeset()")></p>
+        <p id="product_output_signature"></p>
+        <p id="product_output_latex_rendered"></p>
+        <p id="product_output_latex_raw"></p>
+      </div>
+
+      <div class="main_infobox">
+        <div class="main_infobox_header">
+          <h2>References</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&mdash;Ramanujan&mdash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>
