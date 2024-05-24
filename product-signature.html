@@ -25,6 +25,8 @@
     var modulus = parseInt(input_modulus.value, 10);
     var powers = [];
 
+    document.getElementById("product_output_container").style.display = "block";
+
     if (isNaN(modulus) || input_powers.value.includes(".") || modulus < 1) {
       output_signature.innerHTML = error_message;
       return;
@@ -66,7 +68,7 @@
       
       contribution += "; q^{" + (modulus != 1 ? modulus.toString() : "") + "})_\\infty";
       
-      if (Math.abs(powers[index]) != 1) contribution += "^" + Math.abs(powers[index]).toString();
+      if (Math.abs(powers[index]) != 1) contribution += "^{" + Math.abs(powers[index]).toString() + "}";
 
       if (powers[index] < 0) {
         numerator += contribution;
@@ -91,9 +93,14 @@
       output_latex_raw.innerHTML += "}{" + denominator + "}";
     }
 
-    output_latex_rendered.innerHTML = "<b>Product:</b><br><br> \\(\\displaystyle"
-      + output_latex_raw.innerHTML + "\\)";
-    output_latex_raw.innerHTML = "<b>LaTex:</b><br><br>" + output_latex_raw.innerHTML;
+    output_signature.innerHTML = modulus.toString() + ":(" + powers[0].toString();
+    
+    for (var index = 1; index < modulus; ++index) {
+      output_signature.innerHTML += "," + powers[index].toString();
+    }
+
+    output_signature.innerHTML += ")";
+    output_latex_rendered.innerHTML = "\\(\\displaystyle" + output_latex_raw.innerHTML + "\\)";
     MathJax.typeset();
   }
   </script>
@@ -125,9 +132,14 @@
         <p>Modulus: <input type="text" id="product_input_modulus" style="width: 2em"> Powers:
            <input id="product_input_powers" type="text" style="width: 500px">
            <input type="submit" value="Go" onclick="rrsdb_product_signature_typeset()")></p>
-        <p id="product_output_signature"></p>
-        <p id="product_output_latex_rendered"></p>
-        <p id="product_output_latex_raw"></p>
+        <div id="product_output_container" style="display: none;">
+          <p><b>Product signature: </b></p>
+          <p id="product_output_signature"></p>
+          <p><b>Typesetted product: </b></p>
+          <p id="product_output_latex_rendered"></p>
+          <p><b>LaTex: </b></p>
+          <p id="product_output_latex_raw"></p>
+        </div>
       </div>
 
       <div class="main_infobox">
