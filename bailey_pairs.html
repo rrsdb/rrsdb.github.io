@@ -95,7 +95,7 @@
             prefactor on the righthand side is the generating function for the number of 
             <a href="partitions.html#overpartitions">overpartitions</a> of \(n\), \(\overline{p}(n).\)
         </p>
-        <p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) form a <a href="bailey_pair.html#definition">
+        <p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) form a <a href="bailey_pairs.html#definition">
             Bailey pair</a> relative to \(a=1\), then
             \[\sum_{n=0}^\infty q^{n(n+1)/2} (-1;q)_n \beta_n(1,q) = 
             2\frac{(-q;q)_\infty}{(q;q)_\infty}
@@ -124,7 +124,7 @@
             <a href="partitions.html#overpartitions">overpartitions</a> of \(n\), \(\overline{p}(n).\)
         </p>
         <p>If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\)
-           form a <a href="bailey_pair.html#definition">
+           form a <a href="bailey_pairs.html#definition">
            Bailey pair</a> relative to \(a=q\), then
            \[\frac{1}{1-q}\sum_{n=0}^\infty q^{n(n+1)/2} (-q;q)_n \beta_n(q,q) = 
            \frac{(-q;q)_\infty}{(q;q)_\infty}
@@ -136,6 +136,46 @@
 	    <div class="main_infobox_header">
 		  <h3>The p-Bailey lemma</h2>
 		</div>
+		<p>
+			The p-Bailey lemma is a limiting case ($\rho_1, \rho_2, n\to\infty$
+			with \(a\) specialized) of the 
+			<a href="bailey_pairs.html#strong_Bailey_lemma">strong Bailey lemma</a> 
+			and is so named because of
+			the infinite product prefactor on the righthand side is the generating function
+			for \(p(n)\), the function that counts the number of unrestricted partitions
+			of \(n\). 
+			</p>
+		  
+			<p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) 
+			form a <a href="bailey_pairs.html#definition">Bailey pair</a> relative to \(a=1\),
+			then
+			\[ \sum_{n=0}^\infty q^{n^2} \beta_n(1,q) = \frac{1}{(q;q)_\infty}
+			\sum_{r=0}^\infty q^{r^2} \alpha_r(1,q). \]
+
+			</p>
+
+			<p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\)
+			form a <aa href="bailey_pairs.html#definition">Bailey pair</a> relative to \(a=q\),
+			then
+			\[ \sum_{n=0}^\infty q^{n^2+n} \beta_n(q,q) = \frac{1}{(q^2;q)_\infty}
+			\sum_{r=0}^\infty q^{r^2+r} \alpha_r(q,q). \]
+
+			</p>
+
+			<p> If \(a\) is left unspecialized, we have the ap-Bailey lemma, also
+			known in the literature as the
+			<a href="https://dlmf.nist.gov/17.12">weak Bailey lemma</a>:
+
+			\[ \sum_{n=0}^\infty a^n q^{n^2} \beta_n(a,q) =
+			\frac{1}{(aq;q)_\infty} \sum_{r=0}^\infty a^r q^{r^2} \alpha_r(a,q),
+			\] for any Bailey pair \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) relative to
+			\(a\).  Notice here that the prefactor on the right hand side is
+			\[ \frac{1}{(aq;q)_\infty} = \sum_{n=0}^\infty \sum_{m=0}^\infty 
+			p(n,m) a^m q^n, \] where \(p(n,m)\) denotes the number of partitions of \(n\)
+			of length \(m\).
+
+			</p>
+		  
 	  </div>
 
 	  <div class="main_infobox" id="pod_Bailey_lemma">
