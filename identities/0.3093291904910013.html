@@ -34,10 +34,10 @@
         <div class="identity_container">
           <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q,-q)}{\psi(-q)} = (q,q^2,q^3; q^4)_\infty\]
           <h2>Combinatorial interpretation of product</h2>
-          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
-             of \(n\) with CONGRUENCES HERE.</p>
-          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
-          <p>\(\displaystyle r(n) \sim FORMULA\;HERE\) as \( n\to\infty. \)</p>
+          <p> Let \(e(n)\) and \(o(n)\) respectively count the number of
+              <a href="../partitions.html#integer_partitions">partitions</a>
+              of \(n\) with an even and odd number of distinct parts which may not be divisible by 4.
+              Then \(r(n) = e(n) - o(n)\).</p>
           <div id="series_expansion_container">
             <h2>Power series expansion</h2>
             <p>First <input id="series_expansion_input_box"
@@ -49,25 +49,7 @@
         <h2>\(q\)-series representations</h2>
 
         <div class="identity_container">
-          <p>\(\displaystyle F(q) = Q\;SERIES\;HERE\)</p>
-          <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
-          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             PROOF HERE OR DELETE THIS LINE</p>
-          <p><b>Combinatorial interpretations:</b></p>
-          <ul>
-            <li><p>1st interpretation here.</p></li>
-            <li><p>2nd interpretation here.</p></li>
-          </ul>
-          <p><b>History:</b></p>
-          <ul>
-            <li><p>1st fact here.</p></li>
-            <li><p>2nd fact here.</p></li>
-          </ul>
-        </div>
-        
-        <div class="identity_container">
-          <p>\(\displaystyle F(q) = OTHER\;FORM\;HERE\;OR\;DELETE\;DIV\)</p>
-          <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{(-1)^nq^{n^2}(-q;q^2)_n}{(q^4;q^4)_n} \)</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
              PROOF HERE OR DELETE THIS LINE</p>
           <p><b>Combinatorial interpretations:</b></p>
