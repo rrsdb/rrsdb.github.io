@@ -48,11 +48,13 @@
             <p>A pair \( (\alpha_n, \beta_n) \) is called a <b>Bailey pair relative to \( x/q \)</b> if
 	 \[  \beta_n = \sum_{r=0}^n \frac{\alpha_r}{(x;q)_{n+r} (q;q)_{n-r}}  \tag{BP} .\]
          In each case, Eq. (BP) will be evaluated using a specialization of Bailey's
-         <a href="q-series.html#q-hypergeometric">well-poised bilateral sum</a> (Bailey, 1935)
+         <a href="q-series.html#q-hypergeometric">sum of a very-well-poised \({}_6\psi_6\) series</a> (Bailey, 1935); see also
+		    Gasper and Rahman (2004, p. 140 ff.)
 	 \[ \sum_{n=-\infty}^\infty \frac{(1-aq^{2n})(b,c,d,e;q)_n}
 		  {(1-a)(aq/b, aq/c, aq/d, aq/e;q)_n } \Big( \frac{a^2q}{bcd} \Big)^n
 		  = \frac{(q,q/a,aq,aq/(bc),aq/(bd),aq/(be), aq/(cd), aq/(ce),aq/(de),q)_\infty}
-		  {(q/b,q/c,q/d,q/e,aq/b,aq/c,aq/d,aq/e,a^2q/(bcde);q)_\infty}. \tag{BBS}\]
+		  {(q/b,q/c,q/d,q/e,aq/b,aq/c,aq/d,aq/e,a^2q/(bcde);q)_\infty}, \tag{BBS}\]
+		    where \( |a^2 q / (bcde)| < 1 \).
 	Always, \( \alpha_0 = 1 . \)</p>	  
         <h2>Table A</h2>
 	<!--  This doesn't apply to table A (my mistake).  I'm just commenting it out, because I think
@@ -85,7 +87,11 @@
 	    <h2>References</h2>
 	      <ul>
 		<li><p>W. N. Bailey (1935) Generalized Hypergeometric Series, Cambridge Tracts in Mathematics and Mathematical Physics, 
-		no. 32, Cambridge University Press: London.</p></li>      
+		no. 32, Cambridge University Press: London.</p></li>
+		<li><p>G. Gasper and M. Rahman (2004) Basic Hypergeometric Series, 2nd ed., Encyclopedia of Mathematics and its 
+			Applications, vol. 96, Cambridge University Press.
+		 <a href="https://doi.org/10.1017/CBO9780511526251"> DOI </a>
+		</p></li>      
 		<li><p>L. J. Slater (1951) A new proof of Rogers's transformations of infinite series, Proc. London Math. Soc. s2-53,
 		460&ndash;475.<a href="https://doi.org/10.1112/plms/s2-53.6.460"> DOI</a> </p></li>   
 		<li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,  Proc. London Math. Soc. s2-54, 
