@@ -33,13 +33,13 @@
         </figure>
         <div class="identity_container">
           <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n :=
-             \frac{f(-q,-q^3)}{f(-q)} = \frac{1}{(q^2;q^4)_\infty}\]
+             \frac{f(-q,-q^3)}{f(-q)} = \frac{1}{(q^2;q^4)_\infty} = (-q^2;q^2)_\infty \]
           <h2>Combinatorial interpretation of product</h2>
           <ul>
             <li><p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
                    of \(n\) with only parts congruent to 2 modulo 4.</p></li>
             <li><p>\(r(n)\) is the number of partitions
-                   of \(n\) with distinct, even parts.</p></li>
+                   of \(n\) with distinct parts, all even.</p></li>
           </ul>
           <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
           <p>\(\displaystyle r(n) \sim
@@ -57,14 +57,15 @@
         <div class="identity_container">
           <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(n+1)}}{(q^2;q^2)_n}\)</p>
           <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
-             PROOF HERE OR DELETE THIS LINE</p>
+             Insert E(3) into the <a href="../bailey_pairs.html#p_Bailey_lemma">p-Bailey lemma</a> and apply the 
+            <a href="../q-series.html#triple_product>triple product identity</a>.</p>
           <p><b>Combinatorial interpretations:</b> The expression \(q^{n(n+1)/2}/(q;q)_n\)
              generates partitions with exactly \(n\) distinct parts. The terms of this sum are the
-             same, magnified by 2.</p>
+             same, dilated by a factor of 2.</p>
           <p><b>History:</b></p>
           <ul>
-            <li><p>1st fact here.</p></li>
-            <li><p>2nd fact here.</p></li>
+            <li><p>Special case of an identity of Euler.</p></li>
+            <li><p>Slater (1952), Eq. (7)</p></li>
           </ul>
         </div>
 
@@ -74,7 +75,8 @@
         <h2>References</h2>
           <ul id="references">
             <li><p>Ref 1 here</p></li>
-            <li><p>Ref 2 here</p></li>
+            <li><p><li><p>L. J. Slater, Further identities of the Rogers–Ramanujan type, Proc. London Math. Soc. (2) 54 (1952) 147–167 
+              <a href="https://doi.org/10.1112/plms/s2-54.2.147">DOI</a>  </p></li></p></li>
           </ul>
       </div>
 
