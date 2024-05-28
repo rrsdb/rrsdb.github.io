@@ -28,12 +28,35 @@
         <h1>Fundamental <b>q</b>-hypergeometric summation identities</h1>
       </div>
 
-      <div class="main_infobox" id="Euler">
+      <div class="main_infobox" id="Euler_id">
 	    <h2>An identity of Euler</h2>
 	    <p> If \(|z|<1 \) and \( |q|<1 \), 
-        \[ \sum_{n=0}^\infty \frac{z^n q^{n(n-1)/2}{(q;q)_n}  = (-z;q)_\infty.\]  </p>
+        \[ \sum_{n=0}^\infty \frac{z^n q^{n(n-1)/2}}{(q;q)_n}  = (-z;q)_\infty.\] 
+	    Due to Euler (1748).  See also Andrews (1976, p. 19, Eq. (2.2.6))</p>
       </div>
 
+      <div class="main_infobox" id="Cauchy_id">
+	    <h2>An identity of Cauchy</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{z^n q^{n(n-1)}}{((z;q)_n (q;q)_n}  = \frac{1}{(z;q)_\infty}.\]
+	    Due to Cauchy (1829).  See also Andrews (1976, p. 20, Eq. (2.2.8)).</p>
+      </div>
+
+      <div class="main_infobox" id="Lebesgue_id">
+	    <h2>V. A. Lebesgue's identity</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{n(n+1)}(a;q)_n}{(q;q)_n}  = \frac{(aq;q^2)_\infty}{(q;q^2)_\infty}.\]
+	    Due to V. A. Lebesgue (1840).  See also Andrews (1976, p. 21, Cor. 2.7).</p>
+      </div>	
+
+      <div class="main_infobox" id="q-Gauss">
+	    <h2>Heine's \(q\)-Gauss sum (limiting case)</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{(-1)^n c^n q^{n(n-1)/2}(a;q)_n}{a^n (c;q)_n(q;q)_n}  
+		    = \frac{(c/a;q)_\infty}{(c;q)_\infty}.\]
+	    Due to E. Heine (1847).  See also Gasper and Rahman (2004, Eq. (II.8)).</p>
+      </div>	 		    
+		    
       <div class="main_infobox">
         <h2>References</h2>
         <ul>
@@ -52,8 +75,21 @@
 	  <a href="https://doi.org/10.1007/978-1-4612-1021-4">DOI</a>
 	  </p>
           </li>
-        <li><p></p></li>
+        <li><p>C. Jacobi (1829) Fundamenta Nova Theoriae Functionum Ellipticarum, Regiomonti, Sumtibus fractrum 
+		Borntr&auml;ger, K&ouml;nigsberg.
+	        <a href="https://archive.org/details/fundamentanovat00jacogoog/mode/2up">Internet Archive</a></p></li>
+	<li><p>V. A. Lebesgue (1840) Sommation de quelques s&eacute;ries, J. Math. Pures Appl., 42&ndash;71.
+            <a href="http://www.numdam.org/item/JMPA_1840_1_5__42_0.pdf">PDF</a></p></li>	
+
+	<li><p>E. Heine, Untersuchungen &uuml;ber die Reinhe
+	\[ 1 + \frac{(1-q^\alpha)(1-q^\beta)}{(1-q)(1-q^\gamma)}\cdot x + 
+		\frac{(1-q^\alpha)(1-q^{\alpha+1}(1-q^{\beta})(1-q^{\beta+1}})}
+		{(1-q)(1-q^2)(1-q^{\gamma})(1-q^{\gamma+1})}\cdot x^2 + \cdots ,\]
+		J. Reine Agnew. Math. 34, 285&ndash;328.
+		<a href="https://doi.org/10.1515/crll.1847.34.285">DOI</a>
+	</p></li>	
         </ul>
+	      
       </div>
     </div>
   </div>
