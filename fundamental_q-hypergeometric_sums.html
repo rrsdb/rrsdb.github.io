@@ -58,7 +58,7 @@
       </div>	
 
       <div class="main_infobox" id="q-2nd_Gauss">
-	    <h2>Andrews' \(q\)-analog of Gauss' \( {}_2 F_1 (\frac 12) \) sum</h2>
+	    <h2>Andrews' \(q\)-analog of Gauss' \( {}_2 F_1 (-1) \) sum</h2>
 	    <p> If \( |q|<1 \), 
         \[ \sum_{n=0}^\infty \frac{ q^{n(n+1)/2}(a, b; q)_n}{(q;q)_n (abq;q^2)_n}  
 		    = \frac{(aq,bq;q^2)_\infty}{(q,abq;q^2)_\infty}.\]
@@ -66,12 +66,28 @@
       </div>	
 
       <div class="main_infobox" id="q-Bailey">
-	    <h2>Andrews' \(q\)-analog of Bailey's \( {}_2 F_1 (\frac 12) \) sum</h2>
+	    <h2>Andrews' \(q\)-analog of Bailey's \( {}_2 F_1 (-1) \) sum</h2>
 	    <p> If \( |q|<1 \), 
-        \[ \sum_{n=0}^\infty \frac{c^n q^{n(n-1)/2}(a, b; q)_n}{ ((q;q)_n (q^2;q^2)_n}  
+        \[ \sum_{n=0}^\infty \frac{c^n q^{n(n-1)/2}(a, b; q)_n}{ (q;q)_n (q^2;q^2)_n}  
 		    = \frac{(cq/b, bc;q^2)_\infty}{(c;q)_\infty}.\]
 	    Due to G. E. Andrews (1973, p. 526, Eq. (1.9)). </p>
-      </div>			    
+      </div>
+
+      <div class="main_infobox" id="Ramanujan1">
+	    <h2>An identity of Ramanujan</h2>
+	    <p> If \( a\neq 0\) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{2n^2} (-q/a, -qa; q^2)_n}{ (q^2;q^2)_n}  
+		    = \frac{f(aq^3,q^3/a}{f(-q^2)}.\]
+	    Due to Ramanujan; see Andrews and Berndt (2009, p. 99, Entry 5.3.1). </p>
+      </div>	
+
+      <div class="main_infobox" id="Ramanujan2">
+	    <h2>Another identity of Ramanujan</h2>
+	    <p> If \( a\neq 0\) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{n^2} (-q/a, -qa; q^2)_n}{ (q;q^2)_n (q^4;q^4)_n}  
+		    = \frac{f(aq^2,q^2/a}{\psi(-q^2)}.\]
+	    Due to Ramanujan; see Andrews and Berndt (2009, p. 103, Entry 5.3.5). </p>
+      </div>		    
 		    
       <div class="main_infobox">
         <h2>References</h2>
@@ -85,6 +101,9 @@
           Cambridge University Press, 1998.
             <a href="https://doi.org/10.1017/CBO9780511608650"> DOI </a>
           </p></li>
+	  <li><p>G. E. Andrews and B. C. Berndt (2009), Ramanujan's Lost Notebook, Part II,
+	  Springer-Verlag: New York.
+	  <a href="https://doi.org/10.1007/b13290">DOI</a></p></li>	
           <li> <p>L. Euler (1748), 
           Introductio in Analysin Infinitorum, book 1(in Latin), translated to English (1988): 
           Introduction to Analysis of the Infinite, book 1, Springer-Verlag.
