@@ -32,10 +32,12 @@
           <figcaption>Graph of \(F(q)\) for real \(q\in(-1,1)\).</figcaption>
         </figure>
         <div class="identity_container">
-          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q,-q^3)}{\varphi(-q)} = \frac{f(1,q^2)}{2\psi(-q)} = \frac{1}{(q,q^2,q^3; q^4)_\infty}\]
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q,-q^3)}{\varphi(-q)} = \frac{f(1,q^2)}{2\psi(-q)} = \frac{1}{(q,q^2,q^3; q^4)_\infty} = \frac{(-q^2;q^2)_\infty}{(q;q^2)_\infty}\]
           <h2>Combinatorial interpretation of product</h2>
           <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
              of \(n\) where no part is divisible by 4.</p>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) where no even part is repeated.</p>
           <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
           <p>\(\displaystyle r(n) \sim \frac{e^{\frac{\pi  \sqrt{n}}{\sqrt{2}}}}{4\ 2^{3/4} n^{3/4}}\)
              as \( n\to\infty. \)</p>
@@ -60,8 +62,8 @@
           </ul>
           <p><b>History:</b></p>
           <ul>
-            <li><p>1st fact here.</p></li>
-            <li><p>2nd fact here.</p></li>
+            <li><p>Special case of the <a href="../fudametnal_q-hypergeometric_sums.html#Lebesgue_id">Lebesgue identity</a></p></li>
+            <li><p>Slater (1952), Eq. (8).</p></li>
           </ul>
         </div>
         
@@ -76,7 +78,7 @@
           </ul>
           <p><b>History:</b></p>
           <ul>
-            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">(\q\)-Gauss sum.</a></p></li>
+            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">q-Gauss sum.</a></p></li>
             <li><p>2nd fact here.</p></li>
           </ul>
         </div>
@@ -92,7 +94,7 @@
           </ul>
           <p><b>History:</b></p>
           <ul>
-            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">(\q\)-Gauss sum.</a></p></li>
+            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">q-Gauss sum.</a></p></li>
             <li><p>2nd fact here.</p></li>
           </ul>
         </div>
@@ -102,8 +104,11 @@
       <div class="main_infobox">
         <h2>References</h2>
           <ul id="references">
-            <li><p>Ref 1 here</p></li>
-            <li><p>Ref 2 here</p></li>
+            <li><p>OEIS Foundation Inc. (2024), Entry  <a href="https://oeis.org/A001935">A001935</a> 
+              in The On-Line Encyclopedia of Integer Sequences.</p></li>
+            <li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,
+ Proc. London Math. Soc. (2) 54, 147&ndash;167.
+ <a href="https://doi.org/10.1112/plms/s2-54.2.147">DOI</a>   </p></li>
           </ul>
       </div>
 
