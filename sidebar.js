@@ -10,7 +10,7 @@ function rrsdb_page_init() {
 
       if (search_text === "") return;
 
-      window.location.href= "https://rrsdb.github.io/identities_by_product.htmll#mod" + search_text;
+      window.location.href= "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
     });
   }
 
