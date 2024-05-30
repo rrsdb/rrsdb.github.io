@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
-  <title>Bailey Pairs</title>
+  <title>Bailey Pairs & Bailey's lemma</title>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="sidebar.js"></script>
@@ -24,7 +24,7 @@
 
     <div id="main">
 
-      <h1>Bailey Pairs</h1>
+      <h1>Bailey Pairs & Bailey's lemma</h1>
 	  <div class="main_infobox" id="definition">
 	    <div class="main_infobox_header">
 		  <h2>Definition</h2>
@@ -137,7 +137,7 @@
 		  <h3>The p-Bailey lemma</h2>
 		</div>
 		<p>
-			The p-Bailey lemma is a limiting case ($\rho_1, \rho_2, n\to\infty$
+			The p-Bailey lemma is a limiting case (\(\rho_1, \rho_2, n\to\infty\)
 			with \(a\) specialized) of the 
 			<a href="Bailey_pairs.html#strong_Bailey_lemma">strong Bailey lemma</a> 
 			and is so named because of
@@ -181,6 +181,51 @@
 	  <div class="main_infobox" id="pod_Bailey_lemma">
 	    <div class="main_infobox_header">
 		  <h3>The pod-Bailey lemma</h2>
+                     <p>
+The pod-Bailey lemma is a limiting case ( (\ \rho_2, n\to\infty$, \rho_1 =
+-\sqrt{q}\),
+with \(a\) specialized, then \(q\) replaced by \(q^2\) throughout) of the 
+<a href="../Bailey_pairs.html#strong_Bailey_lemma">strong Bailey lemma</a> 
+and is so named because of
+the infinite product prefactor on the righthand side is the generating function
+for \(pod(n)\), the function that counts the number of partitions
+of \(n\) in which no odd part is repeated. 
+
+</p>
+<p> If \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) 
+form a <a href="Bailey_pairs.html#definition">Bailey pair</a> relative to \(a=1\),
+then
+\[ \sum_{n=0}^\infty q^{n^2} (-q;q^2)_n \beta_n(1,q^2) = 
+\frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty}
+\sum_{r=0}^\infty q^{r^2} \alpha_r(1,q^2). \]
+
+</p>
+
+<p> If $\big(\alpha_n(a,q), \beta_n(a,q)\big)$
+form a <a href="BaileyPairDef.html">Bailey pair</a> relative to $a=q$,
+then
+\[ \sum_{n=0}^\infty q^{n^2+2n} \beta_n(q^2,q^2) = 
+\frac{(-q;q^2)_\infty}{(q^4;q^2)_\infty}
+\sum_{r=0}^\infty \frac{ q^{r^2+2r}}{1+q^{2r+1}} \alpha_r(q^2,q^2). \]
+
+</p>
+
+<p> If $a$ is left unspecialized, we have the apod-Bailey lemma:
+
+\[ \sum_{n=0}^\infty a^n q^{n^2} (-q;q^2)_n \beta_n(a,q^2) =
+\frac{(-aq;q^2)_\infty}
+{(aq^2;q^2)_\infty} \sum_{r=0}^\infty 
+\frac{a^r q^{r^2} (-q;q^2)_r}{ (-aq;q^2)_r } \alpha_r(a,q^2),
+\] for any Bailey pair \(\big(\alpha_n(a,q), \beta_n(a,q)\big)\) relative to
+\(a\).  Notice here that the prefactor on the right hand side is
+\[ \frac{(-aq;q^2)_\infty}{(aq^2;q^2)_\infty} = 
+\sum_{n=0}^\infty \sum_{m=0}^\infty 
+pod(n,m) a^m q^n, \] where \(pod(n,m)\) denotes the number of partitions of \(n\)
+of length \(m\) in which no odd part is repeated.
+
+
+</p>
+		    
 		</div>
 	  </div>
 
