@@ -77,9 +77,36 @@
 	   \(q\)-hypergeometric summation identities.</p>
       </div>
 
+     <div class="main_infobox" id="theta_functions">
+	    <h2>Ramanujan's theta functions</h2>
+        <p>Ramanujan's <b>theta function</b> is given by the infinite series
+		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2}.\]
+           Using the <a href="#triple_product">triple product identity</a>, we can also write
+           \[f(a,b) = (-a-b, ab; ab)_\infty.\]
+        </p>
+		<p> Ramanujan defined three special cases of \(f(a,b)\) as follows:
+		    \[\varphi(q) := f(q,q) = \frac{(-q;-q)_\infty}{(q;-q)_\infty},\]
+			\[f(-q) :=  f(-q, -q^2) = (q;q)_\infty,\]
+			\[\psi(q) := f(q,q^3) = \frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.\]
+		</p>
+		<p> Note that the reciprocals of the three functions above are important as generating functions:
+		    \[\frac{1}{\varphi(-q)} = \frac{(-q;q)_\infty}{(q;q)_\infty} =
+            \sum_{n=0}^\infty \bar{p}(n) q^n,\]
+			\[\frac{1}{f(-q)} = \frac{1}{(q;q)_\infty} = \sum_{n=0}^\infty p(n) q^n ,\]
+			\[\frac{1}{\psi(-q)} = 
+            \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{n=0}^\infty pod(n) q^n,\]
+			where \(p(n)\) is the number of <a href="partitions.html#unrestricted">unrestricted
+			partitions</a> of \(n\), \(\bar{p}(n)\) is the number of
+			<a href="partitions.html#overpartitions">overpartitions</a> of \(n,\) and
+			\(pod(n)\) is the number of partitions of \(n\) in which no odd part is repeated.
+		</p>
+      </div>	    
+
       <div class="main_infobox" id="triple_product">
         <h2>The triple product identity</h2>
 	    <p>Jacobi's (1829) <b>triple product identity</b> appears in the literature in many different forms.
+		In terms of <a href="#theta_function">Ramanujan's theta functions, it is
+		\[ f(a,b) = (a, b, ab; ab)_\infty, \] where \(|ab|<1.\)
 		   In the context of Rogers-Ramanujan type identities, we often encounter the triple product
 		   identity in the forms
 		   \[\sum_{n=-\infty}^\infty (-1)^n q^{\frac a2 n^2 - \frac b2 n} = (q^{(a-b)/2},
@@ -112,30 +139,7 @@
           \[ f(z^2 q, z^{-2} q^3) + z f(z^2 q^3, z^{-2}q) = f(z, q/z).  \]
       </div>	      
 
-      <div class="main_infobox" id="theta_functions">
-	    <h2>Ramanujan's theta functions</h2>
-        <p>Ramanujan's <b>theta function</b> is given by the infinite series
-		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2}.\]
-           Using the <a href="#triple_product">triple product identity</a>, we can also write
-           \[f(a,b) = (-a-b, ab; ab)_\infty.\]
-        </p>
-		<p> Ramanujan defined three special cases of \(f(a,b)\) as follows:
-		    \[\varphi(q) := f(q,q) = \frac{(-q;-q)_\infty}{(q;-q)_\infty},\]
-			\[f(-q) :=  f(-q, -q^2) = (q;q)_\infty,\]
-			\[\psi(q) := f(q,q^3) = \frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.\]
-		</p>
-		<p> Note that the reciprocals of the three functions above are important as generating functions:
-		    \[\frac{1}{\varphi(-q)} = \frac{(-q;q)_\infty}{(q;q)_\infty} =
-            \sum_{n=0}^\infty \bar{p}(n) q^n,\]
-			\[\frac{1}{f(-q)} = \frac{1}{(q;q)_\infty} = \sum_{n=0}^\infty p(n) q^n ,\]
-			\[\frac{1}{\psi(-q)} = 
-            \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{n=0}^\infty pod(n) q^n,\]
-			where \(p(n)\) is the number of <a href="partitions.html#unrestricted">unrestricted
-			partitions</a> of \(n\), \(\bar{p}(n)\) is the number of
-			<a href="partitions.html#overpartitions">overpartitions</a> of \(n,\) and
-			\(pod(n)\) is the number of partitions of \(n\) in which no odd part is repeated.
-		</p>
-      </div>
+      
 
       <div class="main_infobox" id="polygonal_number_identities">
 	    <h2>Polygonal number identities</h2>
