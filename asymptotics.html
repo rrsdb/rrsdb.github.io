@@ -45,26 +45,46 @@
     <div id="main">
       <h1>Asymptotics</h1>
 	  <div class="main_infobox">
-           
+          <p> 
+	  A theorem of Meinardus (1954) provides an asymptotic formula for \( r(n) \) when
+		  \[ 1 + \sum_{n=1}^\infty r(n) q^n = \prod_{n=1}^\infty \frac{1}{(1-q^n)^{a_n}} \]
+	when the \(a_n\) are nonnegative integers.  See Andrews (1976, Chapter 6) for an exposition in
+		  English.
+	Todt (2011) strengthens Meinardus' result by showing that it can be extended to all real \(a_n\)
+		  provided the \(r(n)\) are a nondecreasing function of \(n\).  
+	It is further conjectured that Meinardus' result would still hold for real \(a_n\) if the
+		  \(r(n)\) were <i>eventually</i> nondecreasing, but this has not been established rigorously.
+
+	For the infinite product with signature \(m: (a_1, a_2, \dots, a_m) \),  the Meinardus asymptotic
+		  simplifies to 
+		  \[ r(n) \sim \frac{m^{a_m/2}}{2^{1+m\bar{\mathbf{a}}/2}} 
+		  \left( \frac{a}{6} \right)^{(1+a_m)/4}    \]
+	  
+	  
+	  
+	  
+	  
+	  </p> 
       </div>
 
       <div class="main_infobox">
 	    <h2>References</h2>
 	      <ul>
-		<!--<li><p>W. N. Bailey (1935) Generalized Hypergeometric Series, Cambridge Tracts in Mathematics and Mathematical Physics, 
-		no. 32, Cambridge University Press: London.</p></li>-->
-		<li> W. N. Bailey (1936) Series of hypergeometric type which are infinite in both
-			directions, Quarterly J. Math. (Oxford) 7, 105&ndash;115.
-			<a href="https://doi.org/10.1093/qmath/os-7.1.105">DOI</a>
-		</li>      
-		<li><p>G. Gasper and M. Rahman (2004) Basic Hypergeometric Series, 2nd ed., Encyclopedia of Mathematics and its 
-			Applications, vol. 96, Cambridge University Press.
-		 <a href="https://doi.org/10.1017/CBO9780511526251"> DOI </a>
-		</p></li>      
-		<li><p>L. J. Slater (1951) A new proof of Rogers's transformations of infinite series, Proc. London Math. Soc. s2-53,
-		460&ndash;475.<a href="https://doi.org/10.1112/plms/s2-53.6.460"> DOI</a> </p></li>   
-		<li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,  Proc. London Math. Soc. s2-54, 
-		147&ndash;167. <a href="https://doi.org/10.1112/plms/s2-54.2.147"> DOI</a></p></li>
+		<li><p>G. E. Andrews (1976) The Theory of Partitions, Encyclopedia of Mathematics
+          			and its Applications, vol. 2, Addison&ndash;Wesley: Reading, MA.  Reissued,
+          			Cambridge University Press, 1998.
+            			<a href="https://doi.org/10.1017/CBO9780511608650"> DOI </a>
+          			</p></li>      
+		<li>G. Meinardus, Asymptotosche aussagen &uuml;ber Partitionen (1954) Math. Z.
+		59, 388&ndash;398.  
+		<a href="https://doi.org/10.1007/BF01180268">DOI</a></li>
+		<li>A. V. Sills, An Invitation to the Rogers&ndash;Ramanujan Identities (2018)
+			CRC Press: Boca Raton, FL.
+			<a href="https://www.routledge.com/An-Invitation-to-the-Rogers-Ramanujan-Identities/Sills/p/book/9780367657611">
+				Publisher's page</a>
+		</li> 
+		<li>H. Todt (2011) Asymptotics of Partition Functions, Ph.D. dissertation, Pennsylvania 
+		State University. <a href="https://etda.libraries.psu.edu/files/final_submissions/2280">PDF</a></li>      
 	      </ul>
 	  </div>
     </div>
