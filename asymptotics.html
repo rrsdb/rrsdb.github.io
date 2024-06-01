@@ -54,9 +54,15 @@
 		  provided the \(r(n)\) are a nondecreasing function of \(n\).  
 	It is further conjectured that Meinardus' result would still hold for real \(a_n\) if the
 		  \(r(n)\) were <i>eventually</i> nondecreasing, but this has not been established rigorously.
-	The Meinardus asymptotic is
-		  \[ r(n) \sim C n^\kappa exp\{ n^{\alpha/(\alpha+1)} \left( 1 + \frac{1}{\alpha} \right)
-		  [ A \Gamma(\alpha+1) \zeta(\alpha+1)]^{1/(\alpha+1)} \}  \] as \( n \to \infty \).
+	The Meinardus asymptotic, as \( n\to\infty\), is
+		  \[ r(n) \sim C n^\kappa \exp\{ n^{\alpha/(\alpha+1)} \left( 1 + \frac{1}{\alpha} \right)
+		  [ A \Gamma(\alpha+1) \zeta(\alpha+1)]^{1/(\alpha+1)} \} , \] where
+		  \( \zeta(s) \) is the Riemann zeta-function, \( \Gamma(s) \) is Euler's gamma function,
+		  \[ C =  e^{D'(0)} (2\pi(1+\alpha))^{1/2} \left(A\Gamma(\alpha+1) \right)^{(1-2D(0))/(2+2\alpha) },\]
+		  \[ \kappa =  \frac{2D(0)-2-\alpha}{2(1+\alpha)}, \]
+		  \[ D(s) := \sum_{n=1}^\infty \frac{a_n}{n^s}, \]
+		  convergent for \(\Re s>\alpha\), and possessing an analytic continuation to \(\Re s\geq -C_0,\) and that in
+		  this region \(D(s)\) is analytic except for a pole of order 1 at \(s = \alpha\) with residue \(A\).
 
 	For the infinite product with signature \(m: (a_1, a_2, \dots, a_m) \), if the \(a_j\) have
 		  the symmetry property that \( a_j = a_{m-j} \) for \( j = 1, 2, \dots, m-1 \),
