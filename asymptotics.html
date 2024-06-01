@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Asymptotics</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <style>
+  /****************************
+   Style for just this document
+   ****************************/
+  .main_infobox table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0px;
+  }
+  .main_infobox tr:nth-child(odd) {
+    background: #ededed;
+  }
+  .main_infobox th, .main_infobox td {
+    padding: 10px;
+  }
+  .main_infobox td:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  </style>
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="logo_container" href="index.html"></a>
+    <div style="line-height: 50px; height: 100%;">
+      <p id="page_title">
+         Definitions and Preliminaries</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <h1>Asymptotics</h1>
+	  <div class="main_infobox">
+           
+      </div>
+
+      <div class="main_infobox">
+	    <h2>References</h2>
+	      <ul>
+		<!--<li><p>W. N. Bailey (1935) Generalized Hypergeometric Series, Cambridge Tracts in Mathematics and Mathematical Physics, 
+		no. 32, Cambridge University Press: London.</p></li>-->
+		<li> W. N. Bailey (1936) Series of hypergeometric type which are infinite in both
+			directions, Quarterly J. Math. (Oxford) 7, 105&ndash;115.
+			<a href="https://doi.org/10.1093/qmath/os-7.1.105">DOI</a>
+		</li>      
+		<li><p>G. Gasper and M. Rahman (2004) Basic Hypergeometric Series, 2nd ed., Encyclopedia of Mathematics and its 
+			Applications, vol. 96, Cambridge University Press.
+		 <a href="https://doi.org/10.1017/CBO9780511526251"> DOI </a>
+		</p></li>      
+		<li><p>L. J. Slater (1951) A new proof of Rogers's transformations of infinite series, Proc. London Math. Soc. s2-53,
+		460&ndash;475.<a href="https://doi.org/10.1112/plms/s2-53.6.460"> DOI</a> </p></li>   
+		<li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,  Proc. London Math. Soc. s2-54, 
+		147&ndash;167. <a href="https://doi.org/10.1112/plms/s2-54.2.147"> DOI</a></p></li>
+	      </ul>
+	  </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>
