@@ -54,11 +54,17 @@
 		  provided the \(r(n)\) are a nondecreasing function of \(n\).  
 	It is further conjectured that Meinardus' result would still hold for real \(a_n\) if the
 		  \(r(n)\) were <i>eventually</i> nondecreasing, but this has not been established rigorously.
+	The Meinardus asymptotic is
+		  \[ r(n) \sim C n^\kappa exp\{ n^{\alpha/(\alpha+1}} \left( 1 + \frac{1}{\alpha} \right)
+		  [ A \Gamma(\alpha+1) \zeta(\alpha+1)]^{1/(\alpha+1)} \}  \] as \( n \to \infty \).
 
 	For the infinite product with signature \(m: (a_1, a_2, \dots, a_m) \),  the Meinardus asymptotic
 		  simplifies to 
 		  \[ r(n) \sim \frac{m^{a_m/2}}{2^{1+m\bar{\mathbf{a}}/2}} 
-		  \left( \frac{a}{6} \right)^{(1+a_m)/4}    \]
+		  \left( \frac{\bar{\mathbf{a}}}{6} \right)^{(1+a_m)/4} 
+		  \prod_{j=1}^{\lfloor (m-1)/2 \rfloor} \mathrm{csc}^{a_j} \left( \frac{j\pi}{m}  \right)
+		  n^{-(a_m+3)/4} \exp\left( \pi \sqrt{ \frac{2n\bar{\mathbf{a}}}{3}} \right)
+		  \] as \(n \to \infty).
 	  
 	  
 	  
@@ -75,16 +81,17 @@
           			Cambridge University Press, 1998.
             			<a href="https://doi.org/10.1017/CBO9780511608650"> DOI </a>
           			</p></li>      
-		<li>G. Meinardus, Asymptotosche aussagen &uuml;ber Partitionen (1954) Math. Z.
+		<li><p>G. Meinardus, Asymptotosche aussagen &uuml;ber Partitionen (1954) Math. Z.
 		59, 388&ndash;398.  
-		<a href="https://doi.org/10.1007/BF01180268">DOI</a></li>
-		<li>A. V. Sills, An Invitation to the Rogers&ndash;Ramanujan Identities (2018)
+		<a href="https://doi.org/10.1007/BF01180268">DOI</a></p></li>
+		<li><p>A. V. Sills, An Invitation to the Rogers&ndash;Ramanujan Identities (2018)
 			CRC Press: Boca Raton, FL.
 			<a href="https://www.routledge.com/An-Invitation-to-the-Rogers-Ramanujan-Identities/Sills/p/book/9780367657611">
-				Publisher's page</a>
+				Publisher's page</a></p>
 		</li> 
-		<li>H. Todt (2011) Asymptotics of Partition Functions, Ph.D. dissertation, Pennsylvania 
-		State University. <a href="https://etda.libraries.psu.edu/files/final_submissions/2280">PDF</a></li>      
+		<li><p>H. Todt (2011) Asymptotics of Partition Functions, Ph.D. dissertation, Pennsylvania 
+		State University. <a href="https://etda.libraries.psu.edu/files/final_submissions/2280">PDF</a>
+		</p></li>      
 	      </ul>
 	  </div>
     </div>
