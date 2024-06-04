@@ -32,11 +32,12 @@ header {
   text-decoration: none;
   font-weight: bold;
   padding-left: 10px;
+  display: inline;
 }
 a#page_title:hover {
  text-decoration: underline;
 }
-#header > div{
+#header > div {
   overflow: hidden;
 }
 
