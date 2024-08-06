@@ -614,7 +614,7 @@
       
 
        <h2>Groups C, E (partial), G, and I</h2>		    
-	<p>In (BBS), set \( b = q^{-n/2} \), \( q^{(1-n)/2} \) and replace \( q \) by \(q^2\)
+	<p>In (BBS), set \( b = q^{-n/2} \), \(c= q^{(1-n)/2} \) and replace \( q \) by \(q^2\)
 		throughout. This yields
 	\[ \sum_{r = -\lfloor n/2 \rfloor}^{\lfloor n/2 \rfloor} 
 	\frac{(1-aq^{4r}) (q^{-n};q)_{2r} a^{2r} q^{2nr+r} (d,e;q^2)_r}
@@ -759,12 +759,33 @@
 		<th>\( -q^{2r+1} - q^{-2r-1}  \)</th>  
 		<th>\( q \)</th>
 	  </tr>		
-	
-	
-		
-
 		
 	</table>
+
+	<h2>Group K</h2>		    
+	<p>In (BBS), set \( b = q^{-n/4} \), \(  c = q^{(1-n)/4} \), \( d = q^{(2-n)/4} \), \( e = q^{(3-n)/4} \), 
+		and replace \( q \) by \(q^4\)
+		throughout. This yields
+	\[ \sum_{r = -\lfloor n/4 \rfloor}^{\lfloor n/4 \rfloor} 
+	\frac{(1-aq^{8r}) (q^{-n};q)_{4r} a^{2r} q^{4nr-2r} a^{2r}}
+	{(1-a) (aq^{n+1};q)_{4r} } 
+	=  \frac{(q^4/a, a/q, a, aq; q^4)_\infty  }
+		{ (q, q^2, q^3, a^2/q^2;q^4)_\infty  }
+		\frac{(aq, q;q)_n (-a/q;q^2)_n}{(a;q)_{2n} \]
+       where \(a\) has a a value such that the series terminates below at \( r = -\lfloor n/4 \rfloor \).
+	</p>
+	<p> Historical note: Group K Bailey pairs are due to Slater (1951).</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a \) </th>
+		<th>\( \beta_n \) </th>  
+		<th> \( \alpha_{4r-2} \)  </th>  
+	        <th>\(\alpha_{4r-1} \)</th> 
+	        <th>\(\alpha_{4r}\)</th>
+		<th>\(\alpha_{4r+1}\)</th>  
+		<th>\(x\)</th>
+	  </tr>		    
 		      
 		    
  </div>
