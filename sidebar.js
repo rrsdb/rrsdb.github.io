@@ -12,11 +12,11 @@ function rrsdb_page_init() {
 
       if (search_text === "") return;
 
-      window.location.href= "../identities-by-modulus.html#mod" + search_text;
+      window.location.href= "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
     });
   }
 
-  xhttp.open("GET", "../sidebar.html", true);
+  xhttp.open("GET", "https://rrsdb.github.io/sidebar.html", true);
   xhttp.send();
 
   /* For touch screen devices. Toggles sidebar visibility. */
