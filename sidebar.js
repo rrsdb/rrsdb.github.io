@@ -1,4 +1,6 @@
 function rrsdb_page_init() {
+
+  /* Loads the sidebar. TODO make this cleaner somehow? */
   var xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function() {
@@ -10,10 +12,15 @@ function rrsdb_page_init() {
 
       if (search_text === "") return;
 
-      window.location.href= "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
+      window.location.href= "../identities-by-modulus.html#mod" + search_text;
     });
   }
 
-  xhttp.open("GET", "https://rrsdb.github.io/sidebar.html", true);
+  xhttp.open("GET", "../sidebar.html", true);
   xhttp.send();
+
+  /* For touch screen devices. Toggles sidebar visibility. */
+  document.getElementById("mobile_dropdown_menu_button").addEventListener("click", function() {
+    document.getElementById("sidebar").style.display = (document.getElementById("sidebar").style.display == "block") ? "none" : "block";
+  });
 }
