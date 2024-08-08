@@ -239,8 +239,8 @@ footer a:hover {text-decoration: underline;}
 @media (any-pointer: coarse) {
   #mobile_dropdown_menu_button {
     display: block;
-    line-height: 50px;
-    font-size: 1.5em;
+    line-height: 100px;
+    font-size: 3em;
     width: 50px;
     text-align: center;
   }
@@ -249,6 +249,8 @@ footer a:hover {text-decoration: underline;}
   }
   #logo_container {
       margin-left: max(0px, calc(50% - 150px));
+      margin-top: 25px;
+      margin-bottom: 25px;
   }
   #sidebar {
     display: none;
