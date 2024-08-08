@@ -12,7 +12,7 @@ function rrsdb_page_init() {
 
       if (search_text === "") return;
 
-      window.location.href= "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
+      window.location.href = "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
     });
   }
 
@@ -21,6 +21,12 @@ function rrsdb_page_init() {
 
   /* For touch screen devices. Toggles sidebar visibility. */
   document.getElementById("mobile_dropdown_menu_button").addEventListener("click", function() {
-    document.getElementById("sidebar").style.display = (document.getElementById("sidebar").style.display == "block") ? "none" : "block";
+    if (document.getElementById("sidebar").style.display == "block") {
+      document.getElementById("sidebar").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    } else {
+      document.getElementById("sidebar").style.display = "block";
+      document.getElementById("main").style.display = "none";
+    } 
   });
 }

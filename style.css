@@ -248,19 +248,23 @@ footer a:hover {text-decoration: underline;}
     display: none;
   }
   #logo_container {
-      margin-left: max(0px, calc(50% - 150px));
-      margin-top: 25px;
-      margin-bottom: 25px;
+    margin-left: max(0px, calc(50% - 150px));
+    margin-top: 25px;
+    margin-bottom: 25px;
   }
   #sidebar {
     display: none;
-    width: 100%;
     border: none;
+    flex-grow: 1;
+    padding: 0px 15%;
   }
   .sidebar_content_dropdown {
     height: auto;
   }
-  #sidebar_and_main_container {
-    flex-direction: column;
+  .sidebar_title_text {
+    font-size: 1.4em;
+  }
+  .sidebar_content_container {
+    font-size: 1.3em;
   }
 }
