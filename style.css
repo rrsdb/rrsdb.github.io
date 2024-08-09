@@ -236,7 +236,7 @@ footer a:hover {text-decoration: underline;}
  Touch screen support
 *********************/
 
-@media (any-pointer: coarse) {
+@media (pointer: coarse) {
   #mobile_dropdown_menu_button {
     display: block;
     line-height: 100px;

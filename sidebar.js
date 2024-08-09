@@ -6,7 +6,7 @@ function rrsdb_page_init() {
   xhttp.onreadystatechange = function() {
     var container = document.getElementById("sidebar");
     container.innerHTML = this.responseText;
-    
+
     document.getElementById("modulus_search_button").addEventListener("click", function() {
       var search_text = document.getElementById("modulus_search_text").value.trim();
 
@@ -27,6 +27,14 @@ function rrsdb_page_init() {
     } else {
       document.getElementById("sidebar").style.display = "block";
       document.getElementById("main").style.display = "none";
-    } 
+    }
+  });
+
+  /* In the specific case that a link is followed from the touch screen drop
+   * down menu that only changes the #, hide the menu. */
+  window.addEventListener("hashchange", function() {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("main").style.display = "block";
   });
 }
+
