@@ -241,14 +241,14 @@ footer a:hover {text-decoration: underline;}
     display: block;
     line-height: 100px;
     font-size: 3em;
-    width: 50px;
+    width: 80px;
     text-align: center;
   }
   #page_title_container {
     display: none;
   }
   #logo_container {
-    margin-left: max(0px, calc(50% - 150px));
+    margin-left: max(0px, calc(50% - 180px));
     margin-top: 25px;
     margin-bottom: 25px;
   }
@@ -266,9 +266,9 @@ footer a:hover {text-decoration: underline;}
     height: auto;
   }
   .sidebar_title_text {
-    font-size: 1.4em;
+    font-size: 2em;
   }
   .sidebar_content_container {
-    font-size: 1.3em;
+    font-size: 1.8em;
   }
 }
