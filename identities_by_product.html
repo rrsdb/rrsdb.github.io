@@ -31,6 +31,16 @@
   
     xhttp.open("GET", "sidebar.html", true);
     xhttp.send();
+
+    document.getElementById("mobile_dropdown_menu_button").addEventListener("click", function() {
+      if (document.getElementById("sidebar").style.display == "block") {
+        document.getElementById("sidebar").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      } else {
+        document.getElementById("sidebar").style.display = "block";
+        document.getElementById("main").style.display = "none";
+      } 
+    });
   }
 
   // Update this list if any new moduli are added.
