@@ -14,9 +14,12 @@ PLUGINS = [
 ]
 
 
+# Close all open HTML tags
 def closing_tags(text: str) -> str:
     return "\n".join(f"</{tag}>" for tag in re.findall(r"<(\w+)(?!.*</\1>)", text))
 
+
+# Wrap some content in tags
 def wrap(text: str, tags: str) -> str:
     return f"{tags}\n{text}\n{closing_tags(tags)}"
 
@@ -39,13 +42,16 @@ plaintext = mistune.create_markdown(renderer=TextRenderer(), plugins=PLUGINS)
 Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
 
 class RRSDBRenderer(mistune.HTMLRenderer):
+    # Wrap headings
     heading_tags = {}
 
+    # Wrap the entire block, with the heading
     inclusive_block_tags = {
         "h1": '<div id="main">',
         "h2": '<div class="main_infobox">'
     }
     
+    # Wrap the entire block, without the heading
     exclusive_block_tags = {}
     
     def __init__(self):

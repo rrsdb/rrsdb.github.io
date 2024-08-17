@@ -5,14 +5,17 @@ from .renderers import *
 from pathlib import Path
 
 
+# Get file relative to CWD
 def local_path(path: str) -> Path:
     return Path(os.path.dirname(__file__)).joinpath(path)
 
 
+# Get widget content; will eventually use build scripts
 def build_widget(path: str) -> str:
     return local_path("widgets").joinpath(path, "template.html").read_text()
     
 
+# Metaclass for building after __init__
 class Built(type):
     def __call__(cls, *args, **kwargs):
       new = type.__call__(cls, *args, **kwargs)
