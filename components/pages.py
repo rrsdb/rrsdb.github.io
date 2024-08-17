@@ -29,8 +29,10 @@ class RRSDBPage(metaclass=Built):
     def __init__(self, filename: str, page: str):
         self.filename = filename
         
+        # Render body
         self.renderer = self._renderer()
         self.body = mistune.create_markdown(renderer=self.renderer, plugins=PLUGINS)(page)
+        self.body += closing_tags(self.body)
         
         # Layout info
         self.headings = self.renderer.headings
