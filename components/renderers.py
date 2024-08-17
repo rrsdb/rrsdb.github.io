@@ -73,6 +73,9 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         
         return rendered
     
+    def emphasis(self, text: str) -> str:
+        return f"<i>{text}</i>"
+
     def strong(self, text: str) -> str:
         return f"<b>{text}</b>"
 
