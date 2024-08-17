@@ -32,6 +32,8 @@ $ \displaystyle F(q) = Q\;SERIES\;HERE $
 - 1st fact here
 - 2nd fact here
 
+<br>
+
 $ \displaystyle F(q) = OTHER\;FORM\;HERE\;OR\;DELETE\;DIV $
 
 **Common name:** NAME HERE, OR DELETE THIS LINE
