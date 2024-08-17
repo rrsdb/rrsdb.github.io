@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>q-series</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="index.html"></a>
+    <div id="page_title_container">
+      <p id="page_title">
+         Definitions and Preliminaries</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <h1>\(q\)-series: notations, definitions, basic results</h1>
+	  <div class="main_infobox" id="q-Pochhammer">
+	    <h2>The rising \(q\)-factorial, or \(q\)-shifted factorial, or \(q\)-Pochhammer symbol</h2>
+	    <p> For a positive integer \(n\), 
+		    The \(q\)-Pochhammer symbol is defined \[(a;q)_n := \prod_{k=0}^{n-1} (1-aq^k)\]
+			\[ (a;q)_{-n} := \prod_{k=1}^n \frac{1}{1-aq^{-k}} = \frac{(-1)^n q^{n(n+1)/2}}{a^n (q/a;q)_n} \]
+			with \((a;q)_0 = 1\). For complex \(\vert q \vert < 1\),
+			\[(a;q)_\infty := \prod_{k=0}^\infty (1-aq^k) \]
+			and for real \(n\),
+			\[(a;q)_n := \frac{(a;q)_\infty}{(aq^n;q)_\infty}.\]
+			For positive integers \(r\) and \(n \in \mathbb{Z} \cup \{\infty\}\),
+            the product of \(q\)-Pochhammer symbols is written
+			\[(a_1, a_2, a_3, \dots, a_r; q)_n = \prod_{k=1}^r (a_k;q)_n.\] </p>
+	  </div>
+
+      <div class="main_infobox" id="q-binomial">
+	    <h2>The \(q\)-binomial coefficient</h2>
+	    <p> The <b>Gaussian polynomial</b>, or the \(q\)-<b>binomial coefficient</b>, is given by
+		    \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q  := \frac{(q;q)_n}{(q;q)_k(q;q)_{n-k}},\] when
+		    \( 0 \leq k \leq n \) and \( 0 \)
+		    otherwise.    A nonzero \(q\)-binomial coefficient is a polynomial of degree \( k(n-k) \).
+	        \[ \left[ \genfrac{}{}{0pt}{}{n}{k} \right]_q = \sum_{j = 0}^{k(n-k)} p_{k,n-k}(j) q^j, \]
+		    where \( p_{k,n-k} (j) \) denotes the number of partitions of \(j\) of length at most \(k\) and parts no
+		    greater than \(n-k\).
+      </div>
+
+      <div class="main_infobox" id="q-hypergeometric">
+	    <h2>\(q\)-hypergeometric series</h2>
+	    <p> A <b>basic hypergeometric series</b> with base \(q\), also called a \(q\)-hypergeometric series,
+		    is given by
+			\[{ {}_{r}\phi_{s}
+            \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
+            {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
+            := \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(q;q)_k (b_1, b_2, \dots, b_s;q)_k}
+            z^k \left( (-1)^k q^{k(k-1)/2} \right)^{1+s-r}, \]
+			where \(r\) and \(s\) are nonnegative integers.
+	    </p>
+		<p> A basic hypergeometric series is <b>balanced</b> (or Saalschützian in the older literature)
+		    if \(r=s+1\) and \(a_1 a_2 \cdots a_{s+1} = q b_1 b_2\cdots b_s\), and <b>well-poised</b>
+			if \(r=s+1\) and there exists a permutation of the numerator parameters so that
+			\(a_1 q = a_2 b_1 = \cdots = a_{s+1} b_s\). A well-poised hypergeometric series
+			<b>very well-poised</b> if additionally \(a_2 = -a_3 = q\sqrt{a}\).
+		</p>
+		<p> The <b>bilateral basic hypergeometric series</b> with base \(q\) is
+		    \[{ {}_{r}\psi_{s} \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r}
+            {b_1, b_2, \dots, b_s} ; {q},{z} \right]}
+            := \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k}
+            z^k \left( (-1)^k q^{k(k-1)/2} \right)^{s-r},\]
+			where \(r\) and \(s\) are nonnegative integers.
+		  </p>
+        <p>See <a href="fundamental_q-hypergeometric_sums.html">here</a> for a list of some notable
+	   \(q\)-hypergeometric summation identities.</p>
+      </div>
+
+     <div class="main_infobox" id="theta_functions">
+	    <h2>Ramanujan's theta functions</h2>
+        <p>Ramanujan's <b>theta function</b> is given by the infinite series
+		   \[f(a,b) := \sum_{n=-\infty}^\infty a^{n(n+1)/2} b^{n(n-1)/2}.\]
+           Using the <a href="#triple_product">triple product identity</a>, we can also write
+           \[f(a,b) = (-a, -b, ab; ab)_\infty.\]
+        </p>
+		<p> Ramanujan defined three special cases of \(f(a,b)\) as follows:
+		    \[\varphi(q) := f(q,q) = \frac{(-q;-q)_\infty}{(q;-q)_\infty},\]
+			\[f(-q) :=  f(-q, -q^2) = (q;q)_\infty,\]
+			\[\psi(q) := f(q,q^3) = \frac{(q^2;q^2)_\infty}{(q;q^2)_\infty}.\]
+		</p>
+		<p> Note that the reciprocals of the three functions above are important as generating functions:
+		    \[\frac{1}{\varphi(-q)} = \frac{(-q;q)_\infty}{(q;q)_\infty} =
+            \sum_{n=0}^\infty \bar{p}(n) q^n,\]
+			\[\frac{1}{f(-q)} = \frac{1}{(q;q)_\infty} = \sum_{n=0}^\infty p(n) q^n ,\]
+			\[\frac{1}{\psi(-q)} = 
+            \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{n=0}^\infty pod(n) q^n,\]
+			where \(p(n)\) is the number of <a href="partitions.html#unrestricted">unrestricted
+			partitions</a> of \(n\), \(\bar{p}(n)\) is the number of
+			<a href="partitions.html#overpartitions">overpartitions</a> of \(n,\) and
+			\(pod(n)\) is the number of partitions of \(n\) in which no odd part is repeated.
+		</p>
+      </div>	    
+
+      <div class="main_infobox" id="triple_product">
+        <h2>The triple product identity</h2>
+	    <p>Jacobi's (1829) <b>triple product identity</b> appears in the literature in many different forms.
+		In terms of <a href="#theta_function">Ramanujan's theta function</a>, it is given by
+		\[ f(a,b) = (-a, -b, ab; ab)_\infty, \] where \(|ab|<1.\)
+		   In the context of Rogers-Ramanujan type identities, we often encounter the triple product
+		   identity in the forms
+		   \[\sum_{n=-\infty}^\infty (-1)^n q^{\frac a2 n^2 - \frac b2 n} = (q^{(a-b)/2},
+           q^{(a+b)/2}, q^a; q^a)_\infty\]
+		   \[\sum_{n=-\infty}^\infty q^{\frac a2 n^2 - \frac b2 n} = (-q^{(a-b)/2},
+           -q^{(a+b)/2}, q^a; q^a)_\infty\]
+		   for positive integers \(a > b\), where \(\vert q \rvert < 1\).
+		</p>
+      </div>
+
+      <div class="main_infobox" id="quintuple_product">
+	    <h2>The quintuple product identity</h2>
+        The <b>quintuple product identity</b> has been discovered and re-discovered many times.  See Cooper (2006) for a 
+	      comprehensive history the identity.  The first explicit appearance in the literature seems to be 
+	      Fricke (1916), although Ramanujan independently discovered it around the same time and made use of many 
+	      special cases.  A form that is particularly useful in the context of Rogers&ndash;Ramanujan type identities is
+	      as follows:
+ 	\[ f(-wx^3, -w^2 x^{-3}) + x f(-wx^{-3},-w^2 x^3) = (-w/x, -x, w; w)_\infty (w/x^2, wx^2; w^2)_\infty, \]
+	      where \(w\) and \(x\) are each equal to \( \pm q^{m} \) for some positive integer or half-integer \( m \) and \( |q| < 1 \)
+		to ensure convergence.   Another form of the quintuple product identity is
+        \[(z^{-1},zq,q; q)_\infty (z^{-2}q, z^2q; q^2)_\infty
+          =\sum_{n=-\infty}^\infty q^{n(3n+1)/2} ( z^{3n} - z^{-3n-1}), \]  where \(z\neq 0\) and \(|q|<1.\)
+      </div>
+
+      <div class="main_infobox" id="dissection">
+            <h2>Bailey's triple product dissection</h2>
+	     Bailey (1951) gives another identity that allows
+	      a sum of certain theta functions into a single theta function.  Equivalently, it dissects a theta function into
+	      even and odd parts:
+          \[ f(z^2 q, z^{-2} q^3) + z f(z^2 q^3, z^{-2}q) = f(z, q/z).  \]
+      </div>	      
+
+      
+
+      <div class="main_infobox" id="polygonal_number_identities">
+	    <h2>Polygonal number identities</h2>
+	    <p> Euler's pentagonal number theorem is
+		    \[f(-q) = (q;q)_\infty = \sum_{n=-\infty}^\infty (-1)^n q^{n(3n-1)/2}.\]
+		</p>
+		<p> Gauss's square number and hexagonal number theorems are, respectively 
+		    \[\varphi(-q) = \frac{(q;q)_\infty}{(-q;q)_\infty} = \sum_{n=-\infty}^\infty (-1)^n q^{n^2}\]
+		and	\[\psi(-q) = \frac{(q^2;q^2)_\infty}{(-q;q^2)_\infty}
+			= \sum_{n=-\infty}^\infty (-1)^n q^{2n^2-n}.\]
+      </div>
+
+      <div class="main_infobox">
+	    <h2>References</h2>
+	      <ul id="references">
+		<li><p>W. N. Bailey (1951) On the simplification of some identities of Rogers&ndash;Ramanujan type,
+		Proc. London Math. Soc. s3-1, 217&ndash;221.
+		<a href="https://doi.org/10.1017/CBO9780511526251">DOI</a></p></li>      
+          	<li><p>S. Cooper (2006) The quintuple product idenitity, 
+			Int. J. Number Theory 2, 115&ndash;161.  
+                        <a href="https://doi.org/10.1142/S1793042106000401">DOI</a></p></li>
+            	<li><p>R. Fricke (1916) Die Elliptischen Funktionen und ihre Anwendungen 
+			(Erste Teil, Teubner, Leipzig).</p></li>
+		<li><p>G. Gasper and M. Rahman (2004) Basic Hypergeometric Series, 2nd ed., Encyclopedia of Mathematics 
+		and its Applications vol. 96, Cambridge University Press, Cambridge.
+		<a href="https://doi.org/10.1017/CBO9780511526251">DOI</a></p></li>
+		<li><p>C. G. J. Jacobi (1829) Fundamenta Nova Theoriae Functionum Ellipticarum (in Latin), Borntraeger: K&ouml;nigsberg.
+		<a href="https://archive.org/details/fundamentanovat00jacogoog/mode/2up">Internet Archive</a></p></li>      
+             </ul>
+	  </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>

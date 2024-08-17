@@ -30,7 +30,7 @@ jobs:
 
     - name: Build pages
       run: |
-        python components/build.py
+        python build.py
 
     - name: Upload pages artifact
       uses: actions/upload-pages-artifact@v1

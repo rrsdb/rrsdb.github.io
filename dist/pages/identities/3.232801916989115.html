@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Article for infinite product with signature 4:(1,1,1,0)</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="../rrsdb_math.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body onload="rrsdb_page_init(); rrsdb_series_expand_simple(4, [1,1,1,0]);">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="../index.html"></a>
+    <div id="page_title_container">
+      <a id="page_title" href="../identities_by_product.html">
+         Rogers&ndash;Ramanujan type identities</a>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <div class="main_infobox">
+        <h1>Article for infinite product with <a href="../product_signature.html">
+            signature</a> 4:(1,1,1,0)</h1>
+        <figure id="identity_graph">
+          <img src="graphs/g3.232801916989115.jpeg">
+          <figcaption>Graph of \(F(q)\) for real \(q\in(-1,1)\).</figcaption>
+        </figure>
+        <div class="identity_container">
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q,-q^3)}{\varphi(-q)} = \frac{f(1,q^2)}{2\psi(-q)} = \frac{1}{(q,q^2,q^3; q^4)_\infty} = \frac{(-q^2;q^2)_\infty}{(q;q^2)_\infty}\]
+          <h2>Combinatorial interpretation of product</h2>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) where no part is divisible by 4.</p>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) where no even part is repeated.</p>
+          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
+          <p>\(\displaystyle r(n) \sim \frac{e^{\frac{\pi  \sqrt{n}}{\sqrt{2}}}}{4\ 2^{3/4} n^{3/4}}\)
+             as \( n\to\infty. \)</p>
+          <div id="series_expansion_container">
+            <h2>Power series expansion</h2>
+            <p>First <input id="series_expansion_input_box"
+               type="text" value="10"> <input id="series_expansion_button"
+               type="submit" value="Go" onclick="rrsdb_series_expand_simple(4, [1,1,1,0])"> terms:</p>
+            <p id="series_expansion"></p>
+          </div>
+        </div>
+        <h2>\(q\)-series representations</h2>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(n+1)/2}(-q;q)_n}{(q;q)_n}\)</p>
+          <p><b><a href="../Bailey_pairs.html">Bailey pair</a> proof:</b>
+             PROOF HERE OR DELETE THIS LINE</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#Lebesgue_id">Lebesgue identity</a></p></li>
+            <li><p>Slater (1952), Eq. (8).</p></li>
+          </ul>
+        </div>
+        
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(n+1)}(-q;q^2)_n}{(q;q)_{2n+1}}\)</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
+             PROOF HERE OR DELETE THIS LINE</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">q-Gauss sum.</a></p></li>
+            <li><p>2nd fact here.</p></li>
+          </ul>
+        </div>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \frac{1}{2}\sum_{n=0}^\infty \frac{q^{n(n-1)}(-q;q^2)_n}{(q;q)_{2n}}\)</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
+             PROOF HERE OR DELETE THIS LINE</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Special case of the <a href="../fundamental_q-hypergeometric_sums.html#q-Gauss">q-Gauss sum.</a></p></li>
+            <li><p>2nd fact here.</p></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="main_infobox">
+        <h2>References</h2>
+          <ul id="references">
+            <li><p>OEIS Foundation Inc. (2024), Entry  <a href="https://oeis.org/A001935">A001935</a> 
+              in The On-Line Encyclopedia of Integer Sequences.</p></li>
+            <li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,
+ Proc. London Math. Soc. (2) 54, 147&ndash;167.
+ <a href="https://doi.org/10.1112/plms/s2-54.2.147">DOI</a>   </p></li>
+          </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="../index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="../contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>

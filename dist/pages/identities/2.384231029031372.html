@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Article for infinite product with signature 2:(1,0)</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="../rrsdb_math.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body onload="rrsdb_page_init(); rrsdb_series_expand_simple(2, [1,0]);">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="../index.html"></a>
+    <div id="page_title_container">
+      <a id="page_title" href="../identities_by_product.html">
+         Rogers&ndash;Ramanujan type identities</a>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <div class="main_infobox">
+        <h1>Article for infinite product with <a href="../product_signature.html">
+            signature</a> 2:(1,0)</h1>
+        <figure id="identity_graph">
+          <img src="graphs/g2.384231029031372.jpeg">
+          <figcaption>Graph of \(F(q)\) for real \(q\in(-1,1)\).</figcaption>
+        </figure>
+        <div class="identity_container">
+          <p>\[ F(q) := \sum_{n=0}^\infty r(n)q^n := \frac{f(-q)}{\varphi(-q)} = \frac{1}{(q;q^2)_\infty} = (-q;q)_\infty\]
+          <h2>Combinatorial interpretation of product</h2>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) into odd parts. </p>
+          <p>\(r(n)\) is the number of <a href="../partitions.html#integer_partitions">partitions</a>
+             of \(n\) with parts distinct. </p>
+          <h2><a href="../asymptotics.html">Asymptotic formula</a> for \(r(n)\)</h2>
+          <p>\(\displaystyle r(n) \sim \frac{e^{\frac{\pi  \sqrt{n}}{\sqrt{3}}}}{4 \sqrt[4]{3} n^{3/4}} \) as \( n\to\infty. \)</p>
+          <div id="series_expansion_container">
+            <h2>Power series expansion</h2>
+            <p>First <input id="series_expansion_input_box"
+               type="text" value="10"> <input id="series_expansion_button"
+               type="submit" value="Go" onclick="rrsdb_series_expand_simple(2, [1,0])"> terms:</p>
+            <p id="series_expansion"></p>
+          </div>
+        </div>
+        <h2>\(q\)-series representations</h2>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(n+1)/2}}{(q;q)_n}\)</p>
+          <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
+          <p><b><a href="../Bailey_pairs.html">Bailey pair</a> proof:</b>
+             Insert E(2) into second op-Bailey lemma and apply the triple product identity.</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Special case of an identity due to Euler.</p></li>
+            <li><p>Slater (2) </p></li>
+          </ul>
+        </div>
+        
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(2n+1)}}{(q;q)_{2n+1}}\)</p>
+          <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
+          <p><b><a href="../Bailey_pairs.html">Bailey pair</a> proof:</b>
+             For Slater 9, insert F(3) into p-Bailey lemma and apply triple product identity.
+             For Slater 84, insert A(6) into p-Bailey lemma; apply triple product identity, then quintuple product identity.</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Due to F. H. Jackson (1928).</p></li>
+            <li><p>Slater 9, 84</p></li>
+          </ul>
+        </div>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(2n-1)}}{(q;q)_{2n}}\)</p>
+          <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
+          <p><b><a href="../Bailey_pairs.html">Bailey pair</a> proof:</b>
+            For Slater 52, insert C(5) into pod-Bailey lemma, then apply triple product identity.
+            For Slater 85, insert A(7) into p-Bailey lemma; apply triple product identity, then
+          quintuple product identity.</p>
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p>Due to Starcher (1931, p. 809, Eq. (3.29)).</p></li>
+            <li><p>Slater (1952), Eqs. (52), (85)</p></li>
+          </ul>
+        </div>
+
+        <div class="identity_container">
+          <p>\(\displaystyle F(q) = \sum_{n=0}^\infty \frac{q^{n(3n-1)/2}(1+q^{2n})(-q;q)_{n-1}}{(q;q)_n}\)</p>
+        <!--  <p><b>Common name:</b> NAME HERE, OR DELETE THIS LINE</p>
+          <p><b><a href="../bailey_pairs.html">Bailey pair</a> proof:</b>
+             Insert E(2) into second op-Bailey lemma and apply the triple product identity.</p>
+          -->
+          <p><b>Combinatorial interpretations:</b></p>
+          <ul>
+            <li><p>1st interpretation here.</p></li>
+            <li><p>2nd interpretation here.</p></li>
+          </ul>
+          <p><b>Notes:</b></p>
+          <ul>
+            <li><p> Due to Starcher (1931, p. 809, Eq. (3.29))</p></li>
+            <li><p> </p></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="main_infobox">
+        <h2>References</h2>
+          <ul id="references">
+            <li><p>L. Euler</p>
+            <li><p>F. H. Jackson (1928)  Examples of a generalization of Euler's transformation for power
+          series, Messenger of Math. 57, 169&ndash;187.</p></li>
+            <li><p>G. W. Starcher (1931) On identities arising from solutions to (\q\)-difference equations and
+            some interpretations in number theory, American J. Math. 53, 801&ndash;816. </p></li>
+            <li><p>L. J. Slater (1952) Further identities of the Rogers–Ramanujan type, Proc. London Math. Soc. s2-54, 
+              147&ndash;167. 
+              <a href="https://doi.org/10.1112/plms/s2-54.2.147">DOI</a>  </p></li>
+            <li><p>OEIS Foundation Inc. (2024), Entry  <a href="https://oeis.org/A000009">A000090</a> 
+              in The On-Line Encyclopedia of Integer Sequences.</li>
+          </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="../index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="../contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>

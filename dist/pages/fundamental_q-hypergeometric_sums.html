@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Some q-hypergeometric summation identities</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="index.html"></a>
+    <div id="page_title_container">
+      <p id="page_title">
+         Definitions and Preliminaries</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+
+      <div class="main-infobox">
+        <h1><b>q</b>-hypergeometric summation identities which contain Rogers&ndash;Ramanujan&ndash;Slater type
+	identities as special cases</h1>
+      </div>
+
+      <div class="main_infobox" id="Euler_id">
+	    <h2>An identity of Euler</h2>
+	    <p> If \(|z|<1 \) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{z^n q^{n(n-1)/2}}{(q;q)_n}  = (-z;q)_\infty.\] 
+	    Due to Euler (1748).  See also Andrews (1976, p. 19, Eq. (2.2.6))</p>
+      </div>
+
+      <div class="main_infobox" id="Jacobi_id">
+	    <h2>An identity of Jacobi</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{z^n q^{n(n-1)}}{(z;q)_n (q;q)_n}  = \frac{1}{(z;q)_\infty}.\]
+	    Due to Jacobi (1829).  See also Andrews (1976, p. 20, Eq. (2.2.8)); there this identity is 
+		    attributed to Cauchy, but priority appears to go to Jacobi.</p>
+      </div>
+
+      <div class="main_infobox" id="Lebesgue_id">
+	    <h2>V.-A. Lebesgue's identity</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{n(n+1)}(a;q)_n}{(q;q)_n}  = \frac{(aq;q^2)_\infty}{(q;q^2)_\infty}.\]
+	    Due to V. A. Lebesgue (1840).  See also Andrews (1976, p. 21, Cor. 2.7).</p>
+      </div>	
+
+      <div class="main_infobox" id="q-Gauss">
+	    <h2>Heine's \(q\)-Gauss sum (limiting case)</h2>
+	    <p> If \( a\neq 0 \) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{(-1)^n c^n q^{n(n-1)/2}(a;q)_n}{a^n (c;q)_n(q;q)_n}  
+		    = \frac{(c/a;q)_\infty}{(c;q)_\infty}.\]
+	    Due to E. Heine (1847).  See also Gasper and Rahman (2004, p. 14, with \( b\to\infty\) ).</p>
+      </div>	
+
+      <div class="main_infobox" id="q-2nd_Gauss">
+	    <h2>Andrews' \(q\)-analog of Gauss' \( {}_2 F_1 (-1) \) sum</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{ q^{n(n+1)/2}(a, b; q)_n}{(q;q)_n (abq;q^2)_n}  
+		    = \frac{(aq,bq;q^2)_\infty}{(q,abq;q^2)_\infty}.\]
+	    Due to G. E. Andrews (1973, p. 526, Eq. (1.8)). </p>
+      </div>	
+
+      <div class="main_infobox" id="q-Bailey">
+	    <h2>Andrews' \(q\)-analog of Bailey's \( {}_2 F_1 (-1) \) sum</h2>
+	    <p> If \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{c^n q^{n(n-1)/2}(q/b, b; q)_n}{ (c;q)_n (q^2;q^2)_n}  
+		    = \frac{(cq/b, bc;q^2)_\infty}{(c;q)_\infty}.\]
+	    Due to G. E. Andrews (1973, p. 526, Eq. (1.9)). </p>
+      </div>
+
+      <div class="main_infobox" id="Ramanujan_1">
+	    <h2>An identity of Ramanujan</h2>
+	    <p> If \( a\neq 0\) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{2n^2} (-q/a, -qa; q^2)_n}{ (q^2;q^2)_n}  
+		    = \frac{f(aq^3,q^3/a)}{f(-q^2)}.\]
+	    Due to Ramanujan; see Andrews and Berndt (2009, p. 99, Entry 5.3.1). </p>
+      </div>	
+
+      <div class="main_infobox" id="Ramanujan_2">
+	    <h2>Another identity of Ramanujan</h2>
+	    <p> If \( a\neq 0\) and \( |q|<1 \), 
+        \[ \sum_{n=0}^\infty \frac{q^{n^2} (-q/a, -qa; q^2)_n}{ (q;q^2)_n (q^4;q^4)_n}  
+		    = \frac{f(aq^2,q^2/a)}{\psi(-q)}.\]
+	    Due to Ramanujan; see Andrews and Berndt (2009, p. 103, Entry 5.3.5). </p>
+      </div>		    
+		    
+      <div class="main_infobox">
+        <h2>References</h2>
+        <ul>
+          <li><p>G. E. Andrews (1973) On the \(q\)-analog of Kummer's theorem and
+          applications, Duke Math. J. 40, 525&ndash;528.
+            <a href="https://doi.org/10.1215/S0012-7094-73-04045-3"> DOI</a>
+          </p></li>
+          <li><p>G. E. Andrews (1976) The Theory of Partitions, Encyclopedia of Mathematics
+          and its Applications, vol. 2, Addison&ndash;Wesley: Reading, MA.  Reissued,
+          Cambridge University Press, 1998.
+            <a href="https://doi.org/10.1017/CBO9780511608650"> DOI </a>
+          </p></li>
+	  <li><p>G. E. Andrews and B. C. Berndt (2009), Ramanujan's Lost Notebook, Part II,
+	  Springer-Verlag: New York.
+	  <a href="https://doi.org/10.1007/b13290">DOI</a></p></li>	
+          <li> <p>L. Euler (1748), 
+          Introductio in Analysin Infinitorum, book 1(in Latin), translated to English (1988): 
+          Introduction to Analysis of the Infinite, book 1, Springer-Verlag.
+	  <a href="https://doi.org/10.1007/978-1-4612-1021-4">DOI</a>
+	  </p>
+          </li>
+        <li><p>C. Jacobi (1829) Fundamenta Nova Theoriae Functionum Ellipticarum, Regiomonti, Sumtibus fractrum 
+		Borntr&auml;ger, K&ouml;nigsberg.
+	        <a href="https://archive.org/details/fundamentanovat00jacogoog/mode/2up">Internet Archive</a></p></li>
+	<li><p>V.-A. Lebesgue (1840) Sommation de quelques s&eacute;ries, J. Math. Pures Appl., 42&ndash;71.
+            <a href="http://www.numdam.org/item/JMPA_1840_1_5__42_0.pdf">PDF</a></p></li>	
+
+	<li><p>E. Heine, Untersuchungen &uuml;ber die Reinhe
+	\[ 1 + \frac{(1-q^\alpha)(1-q^\beta)}{(1-q)(1-q^\gamma)}\cdot x + 
+		\frac{(1-q^\alpha)(1-q^{\alpha+1})(1-q^{\beta})(1-q^{\beta+1})}
+		{(1-q)(1-q^2)(1-q^{\gamma})(1-q^{\gamma+1})}\cdot x^2 + \cdots ,\]
+		J. Reine Agnew. Math. 34, 285&ndash;328.
+		<a href="https://doi.org/10.1515/crll.1847.34.285">DOI</a>
+	</p></li>	
+        </ul>
+	      
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>
