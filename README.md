@@ -15,20 +15,22 @@ The identities template demonstrates how each of the important Markdown elements
 
 #### Inline elements
 
-| Element        | Markdown Syntax |
-|----------------|-----------------|
-| Title          | `# Title`       |
-| Heading        | `## Heading`    |
-| Subheading     | `## Subheading` |
-| Bold           | `**bold**`      |
-| Italics        | `_italics_`     |
-| Highlight      | `==highlight==` |
-| Math           | `$LaTeX$`       |
-| Quote          | `> Quote`       |
-| Link           | `[text](url)`   |
-| Image          | `![text](url)`  |
-| Widget         | `!!widget`      |
-| Line Break     | `<br>`          |
+| Element    | Markdown Syntax  |
+|------------|------------------|
+| Title      | `# Title`        |
+| Heading    | `## Heading`     |
+| Subheading | `### Subheading` |
+| Bold       | `**bold**`       |
+| Italics    | `_italics_`      |
+| Highlight  | `==highlight==`  |
+| Math       | `$LaTeX$`        |
+| Quote      | `> Quote`        |
+| Link       | `[text](url)`    |
+| Image      | `![text](url)`   |
+| Widget     | `!!widget`       |
+| Line Break | `<br>`           |
+
+When linking to other pages, use relative links (`../partitions.html`) rather than absolute links (`rrsdb.github.io/partitions.html`). Any `.md` file you can view on GitHub has a corresponding `.html` page.
 
 #### Block Elements
 
