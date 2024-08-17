@@ -27,7 +27,6 @@ The identities template demonstrates how each of the important Markdown elements
 | Quote      | `> Quote`        |
 | Link       | `[text](url)`    |
 | Image      | `![text](url)`   |
-| Widget     | `!!widget`       |
 | Line Break | `<br>`           |
 
 When linking to other pages, use relative links (`../partitions.html`) rather than absolute links (`rrsdb.github.io/partitions.html`). Any `.md` file you can view on GitHub has a corresponding `.html` page.
@@ -65,3 +64,10 @@ Sentence. [^1]
 # Raw HTML
 <p>HTML</p>
 ```
+
+#### Widgets
+
+Widgets are elements generated using page and identity information after the rest of the page is written to HTML. Widgets are inserted via `!!name`; do not change the location of widgets already provided in the template.
+
+- `!!graphs`: Graph(s) of the function
+- `!!power_series`: Calculator for power series coefficients
