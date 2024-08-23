@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Power series factorization tool</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <script>
+
+  function rrsdb_get_divisors(value)
+  {
+    var divisors = [];
+  
+    for (var index = 1; index <= value; ++index) {
+      if ((value % index) == 0) divisors.push(index);
+    }
+  
+    return divisors;
+  }
+
+  function rrsdb_factor_series()
+  {
+    var coefficients_raw = document.getElementById("power_series_factorization_input_box").innerHTML;
+    var coefficients = [];
+
+    // TODO add input sanity checks
+
+    for (const entry of coefficients_raw.split(',')) {
+      coefficients.push(parseInt(entry, 10));
+    }
+
+    if (coefficients[0] != 1) {
+      document.getElementById("power_series_factorization_output").innerHTML
+          = "<span style='color: red'>The constant coefficient must equal 1.</span>";
+      return;
+    }
+
+    if (coefficients.length == 1) {
+      document.getElementById("power_series_factorization_output").innerHTML = "1";
+      return;
+    }
+
+    var power_list = [coefficients[1]];
+
+    for (var power_index = 2; power_index < coefficients.length; ++power_index) {
+      let power = 0;
+  
+      for (var inner_index = 1; inner_index <= power_index; ++inner_index) {
+        const divisors = rrsdb_get_divisors(inner_index);
+  
+        for (const divisor of divisors) {
+          if (divisor == power_index) continue;
+  
+          power -= coefficients[power_index - inner_index] * divisor * power_list[divisor - 1];
+        }
+      }
+
+      power /= power_index;
+      power += coefficients[power_index];
+      power_list.push(power);
+    }
+
+    var html = "";
+
+    for (var index = 0; index < power_list.length; ++index) {
+      if (power_list[index] == 0) continue;
+
+      html += "(1-q<sup>" + (index + 1).toString() + "</sup>)<sup>" +
+              (power_list[index] < 0 ? "" : "-") + "<b>" + 
+              Math.abs(power_list[index].toString()) + "</b></sup>";
+    }
+
+    document.getElementById("power_series_factorization_output").innerHTML = html;
+  }
+  </script>
+  <style>
+  #power_series_factorization_input_box {
+    display: inline-block;
+    outline: 2px solid transparent;
+    background: #e3ecfa;
+    min-height: 4em;
+    min-width: 500px;
+    padding: 5px;
+  }
+  #power_series_factorization_input_box:focus-visible {
+    outline: 2px solid #a3aebf;
+  }
+  </style>
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="index.html"></a>
+    <div id="page_title_container">
+      <p id="page_title">
+         Tools</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+
+      <h1>Power series factorization tool</h1>
+	  <p>This tool factors a truncated power series in the form
+         \[ 1 + \sum_{n=1}^T r(n)q^n  = \prod_{n=1}^T (1-q^n)^{-a_n}.\]
+         where equality holds for the coefficients only up to \(q^T\).
+         This is useful for finding patterns in order to conjecture identities of the form
+         \[ 1 + \sum_{n=1}^\infty r(n)q^n  = \prod_{n=1}^\infty (1-q^n)^{-a_n}.\]</p>
+      <p> Enter the series coefficients as a comma-separated list \(1, r(1), r(2), \dots, r(T)\) of integers \(r(n)\).</p>
+      <p>
+         <span id="power_series_factorization_input_box"
+               contenteditable="true">1, 1, 2, 3, 5, 7, 11</span></p>
+         <p><input id="power_series_factorization_button" type="submit" value="Factorize"
+         onclick="rrsdb_factor_series()"></p>
+      <p id="power_series_factorization_output"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>

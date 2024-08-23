@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Bailey pair tables</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="sidebar.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <style>
+  /****************************
+   Style for just this document
+   ****************************/
+  .main_infobox table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0px;
+  }
+  .main_infobox tr:nth-child(odd) {
+    background: #ededed;
+  }
+  .main_infobox th, .main_infobox td {
+    padding: 10px;
+  }
+  .main_infobox td:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  </style>
+</head>
+
+<body onload="rrsdb_page_init();">
+  <header>
+    <a id="mobile_dropdown_menu_button">&#9776</a>
+    <a id="logo_container" href="index.html"></a>
+    <div id="page_title_container">
+      <p id="page_title">
+         Definitions and Preliminaries</p>
+    </div>
+  </header>
+
+  <div style="display: flex">
+    <div id="sidebar"></div>
+
+    <div id="main">
+      <h1>Bailey pair tables</h1>
+	  <div class="main_infobox">
+            <p>A pair \( (\alpha_n, \beta_n) \) is called a <b>Bailey pair relative to \( x/q \)</b> if
+	 \[  \beta_n = \sum_{r=0}^n \frac{\alpha_r}{(x;q)_{n+r} (q;q)_{n-r}}  \tag{BP} .\]
+         In each case, Eq. (BP) will be evaluated using a specialization of Bailey's
+         <a href="q-series.html#q-hypergeometric">sum of a very-well-poised \({}_6\psi_6\) series</a> (Bailey, 1936); see also
+		    Gasper and Rahman (2004, p. 140 ff.)
+	 \[ \sum_{n=-\infty}^\infty \frac{(1-aq^{2n})(b,c,d,e;q)_n}
+		  {(1-a)(aq/b, aq/c, aq/d, aq/e;q)_n } \Big( \frac{a^2q}{bcd} \Big)^n
+		  = \frac{(q,q/a,aq,aq/(bc),aq/(bd),aq/(be), aq/(cd), aq/(ce),aq/(de),q)_\infty}
+		  {(q/b,q/c,q/d,q/e,aq/b,aq/c,aq/d,aq/e,a^2q/(bcde);q)_\infty}, \tag{BBS}\]
+		    where \( |a^2 q / (bcde)| < 1 \) and \(|q|<1\). </p>
+	<p> Always, \( \alpha_0 = \beta_0 = 1 . \)</p>	
+	<p> Historical note: Group A Bailey pairs are transformations due to Rogers (1917), translated into
+	Bailey pair language by Slater.  Group J pairs are due to Slater (1952).  Group P pairs are due to
+	McLaughlin and Sills (2008).</p>
+	
+        <h2>Groups A, J, and P</h2>
+
+       <p>In (BBS), set \( b = q^{-n/3}, c = q^{(1-n)/3}, d = q^{(2-n)/3},\) then replace \( q \) by \( q^3 \).  This yields
+	\[ \sum_{r = -N}^{\lfloor n/3 \rfloor} \frac{(1-aq^{6r})(q^{-n};q)_{3r} (e;q^3)_r a^{2r} q^{3nr} }{(1-a)(aq^{n+1};q)_{3r} (aq^3/e;q^3)_r e^r} 
+	=  \frac{(a,q^3/a, aq^2/e, aq/e; q^3)_\infty}{(q, q^2, q^3/e, a^2/e; q^3)_\infty} \frac{(q,aq;q)_n (a^2/e;q^3)_n}{ (a;q)_{2n} (aq/e;q)_n }, \]
+		where \( a \) is some power of \( q \) so that the series terminates below.
+	</p>	  
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a \) </th>
+		<th>\( e \) </th>  
+	        <th>\(\beta_n\)</th> 
+	        <th>\(\alpha_{3r-1}\)</th>
+                <th>\(\alpha_{3r}\)</th>
+		<th>\(\alpha_{3r+1}\)</th>
+		<th>\(x\)</th></tr>
+          <tr>
+            <td>A(1)</td>
+	    <td> \(q\) </td>
+	    <td> \(\infty\) </td>	  
+            <td>\(1/(q;q)_{2n}\)</td>
+            <td>\(-q^{6r^2-5r+1}\)</td>
+            <td>\(q^{6r^2-r} + q^{6r^2+r}\)</td>
+            <td>\(-q^{6r^2-5r+1}\)</td>
+            <td>\(q\)</td>
+          </tr>
+
+	<tr>
+            <td>A(2)</td>
+	    <td> \(q^2\) </td>
+	    <td> \(\infty\) </td>	  
+            <td>\(1/(q^2;q)_{2n}\)</td>
+            <td>\(q^{6r^2-r}\)</td>
+            <td>\(q^{6r^2+r}\)</td>
+            <td>\(-q^{6r^2-5r+1} - q^{6r^2 + 7r + 2}\)</td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+	<tr>
+            <td>A(3)</td>
+	    <td> \(q\) </td>
+	    <td> \(\infty\) </td>	  
+            <td>\(q^n/(q;q)_{2n}\)</td>
+            <td>\(-q^{6r^2-2r}\)</td>
+            <td>\(q^{6r^2-2r} + q^{6r^2+2r}\)</td>
+            <td>\(-q^{6r^2+2r}\)</td>
+            <td>\(q\)</td>
+          </tr>
+
+	<tr>
+            <td>A(4)</td>
+	    <td> \(q^2\) </td>
+	    <td> \(\infty\) </td>	  
+            <td>\(q^n/(q^2;q)_{2n}\)</td>
+            <td>\(q^{6r^2-4r}\)</td>
+            <td>\(q^{6r^2+4r}\)</td>
+            <td>\(-q^{6r^2+8r+2} - q^{6r^2 + 4r}\)</td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+ <tr>
+            <td>A(5)</td>
+	    <td> \(q\) </td>
+	    <td> \( 0 \) </td>	  
+            <td>\(q^{n^2}/(q;q)_{2n}\)</td>
+            <td>\(-q^{3r^2-r}\)</td>
+            <td>\(q^{3r^2-r} + q^{3r^2+r}\)</td>
+            <td>\(-q^{3r^2+r}\)</td>
+            <td>\(q\)</td>
+          </tr>
+
+	<tr>
+            <td>A(6)</td>
+	    <td> \(q^2\) </td>
+	    <td> \( 0 \) </td>	  
+            <td>\(q^{n^2}/(q^2;q)_{2n}\)</td>
+            <td>\(q^{3r^2+r}\)</td>
+            <td>\(q^{3r^2-r}\)</td>
+            <td>\(-q^{3r^2+r} - q^{3r^2 + 5r + 2}\)</td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+	<tr>
+            <td>A(7)</td>
+	    <td> \(q\) </td>
+	    <td> \(0 \) </td>	  
+            <td>\(q^{n^2-n}/(q;q)_{2n}\)</td>
+            <td>\(-q^{3r^2-4r+1}\)</td>
+            <td>\(q^{3r^2-2r} + q^{3r^2+2r}\)</td>
+            <td>\(-q^{3r^2+4r+1}\)</td>
+            <td>\(q\)</td>
+          </tr>
+
+	<tr>
+            <td>A(8)</td>
+	    <td> \(q^2\) </td>
+	    <td> \(0\) </td>	  
+            <td>\(q^{n^2+n}/(q^2;q)_{2n}\)</td>
+            <td>\(q^{3r^2-2r}\)</td>
+            <td>\(q^{3r^2+2r}\)</td>
+            <td>\(-q^{3r^2+4r+1} - q^{3r^2 + 2r}\)</td>
+            <td>\(q^2\)</td>
+          </tr>				
+
+        <tr>
+            <td>J(1)</td>
+	    <td> \(1\) </td>
+	    <td> \(1\) </td>	  
+            <td>\( (q^3;q^3)_{n-1}/[(q;q)_{2n-1} (q;q)_n]\)</td>
+            <td>\( 0 \)</td>
+            <td>\(q^{3r(3r-1)/2} (1+q^{3r})\)</td>
+            <td>\(0 \)</td>
+            <td>\(q\)</td>
+          </tr>	
+
+         <tr>
+            <td>J(2)</td>
+	    <td> \(q \) </td>
+	    <td> \(q^2 \) </td>	  
+            <td>\( (q^3;q^3)_{n-1}/[(q;q)_{2n} (q;q)_{n-1}]\)</td>
+            <td>\( (-1)^{r+1} q^{9r(r-1)/2 + 1 }  \)</td>
+            <td>\( (-1)^r (q^{3r(3r-1)/2} + q^{3r(3r+1)/2} )\)</td>
+            <td>\( (-1)^{r+1} q^{9r(r+1)/2 + 1} \)</td>
+            <td>\( q \)</td>
+          </tr>	
+
+	  <tr>
+            <td>J(3)</td>
+	    <td> \(q\) </td>
+	    <td> \(q^2\) </td>	  
+            <td>\( q^n (q^3;q^3)_{n-1}/[(q;q)_{2n} (q;q)_{n-1}]\)</td>
+            <td>\( (-1)^{r+1} q^{3r(r-1)/2 }  \)</td>
+            <td>\( (-1)^n (q^{3r(3r-1)/2} + q^{3r(3r+1)/2} )\)</td>
+            <td>\( (-1)^{r+1} q^{3r(r+1)/2} \)</td>
+            <td>\( q \)</td>
+          </tr>	
+
+	
+	 <tr>
+            <td>J(4)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \( q^{5/2} \) </td>	  
+            <td>\( (q^{3/2} ;q^3)_{n}/[(q^2;q)_{2n} (q^{1/2};q)_{n}]\)</td>
+            <td>\( (-1)^{r} q^{9r^2/2 }  \)</td>
+            <td>\( (-1)^r q^{9r^2/2}  \)</td>
+            <td>\( (-1)^{r+1} ( q^{(9r^2+12r+4)/2} - q^{(9r^2 + 6r +1)/2} ) \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	 
+
+	<tr>
+            <td>J(5)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \( q^{5/2} \) </td>	  
+            <td>\( q^n (q^{3/2} ;q^3)_{n}/[(q^2;q)_{2n} (q^{1/2};q)_{n}]\)</td>
+            <td>\( (-1)^{r} q^{3r(3r-2)/2 }  \)</td>
+            <td>\( (-1)^r (q^{3r(3r+2)/2}  )\)</td>
+            <td>\( (-1)^{r+1} ( q^{(9r^2 + 6r)/2} - q^{(9r^2 + 12r +3)/2} \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	
+
+	<tr>
+            <td>J(6)</td>
+	    <td> \( q^3 \) </td>
+	    <td> \( q^{3} \) </td>	  
+            <td>\(  (q^{3} ;q^3)_{n}/[(q^3;q)_{2n} (q;q)_{n}]\)</td>
+            <td>\( 0  \)</td>
+            <td>\( (1-q^{6r+3}) (-1)^n q^{3r(3r+1)/2 } / (1-q^3)  \)</td>
+            <td>\( 0 \)</td>
+            <td>\( q^4 \)</td>
+          </tr>	
+
+	 <tr>
+            <td>P(1)</td>
+	    <td> \( q \) </td>
+	    <td> \(-q^2 \) </td>	  
+            <td>\(  (-1 ;q^3)_{n}/[(q;q)_{2n} (-1;q)_{n}]\)</td>
+            <td>\( -q^{9r^2/2 - 9r/2 +1}  \)</td>
+            <td>\( q^{9r^2/2 - 3r/2} (1+q^{3r})  \)</td>
+            <td>\( -q^{9r^2/2 + 9r/2 + 1} \)</td>
+            <td>\( q \)</td>
+          </tr>	
+
+        <tr>
+            <td>P(2)</td>
+	    <td> \( q \) </td>
+	    <td> \(-q^2 \) </td>	  
+            <td>\(  q^n (-1 ;q^3)_{n}/[(q;q)_{2n} (-1;q)_{n}]\)</td>
+            <td>\( -q^{9r^2/2 - 3r/2}  \)</td>
+            <td>\( q^{9r^2/2 - 3r/2} (1+q^{3r})  \)</td>
+            <td>\( -q^{9r^2/2 + 3r/2 } \)</td>
+            <td>\( q \)</td>
+          </tr>	
+
+	  <tr>
+            <td>P(3)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \(-q \) </td>	  
+            <td>\(  (-q^3 ;q^3)_{n}/[(q^2;q)_{2n} (-q;q)_{n}]\)</td>
+            <td>\( -q^{9r^2/2 - 3r/2}  \)</td>
+            <td>\( q^{9r^2/2 + 3r/2}   \)</td>
+            <td>\( -2 q^{9r^2/2 + 9r/2 + 1} \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	 
+
+         <tr>
+            <td>P(4)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \(-q^{5/2} \) </td>	  
+            <td>\(  (-q^{3/2} ;q^3)_{n}/[(q^2;q)_{2n} (-q^{1/2};q)_{n}]\)</td>
+            <td>\( q^{9r^2/2}  \)</td>
+            <td>\( q^{9r^2/2}   \)</td>
+            <td>\( - q^{9r^2/2 + 3r + 1/2} (1+q^{3r}) \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	
+
+	  <tr>
+            <td>P(5)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \(-q^{5/2} \) </td>	  
+            <td>\(  q^n (-q^{3/2} ;q^3)_{n}/[(q^2;q)_{2n} (-q^{1/2};q)_{n}]\)</td>
+            <td>\( q^{9r^2/2 - 3r}  \)</td>
+            <td>\( q^{9r^2/2 + 3r}   \)</td>
+            <td>\( - q^{9r^2/2 } (q^{6r+3/2} + q^{3r}) \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	
+
+
+	<tr>
+            <td>P(6)</td>
+	    <td> \( q \) </td>
+	    <td> \(-q^2 \) </td>	  
+            <td>\(  (1-q) (-1 ;q^3)_{n}/[(q;q)_{2n} (-1;q)_{n}]\)</td>
+            <td>\( -q^{9r^2/2 - 9r/2 +1} (1-q^{6r-1})  \)</td>
+            <td>\( q^{9r^2/2 - 3r/2} (1+q^{6r+1})  \)</td>
+            <td>\( 0 \)</td>
+            <td>\( q^2 \)</td>
+          </tr>	
+
+	 <tr>
+            <td>P(7)</td>
+	    <td> \( q \) </td>
+	    <td> \(q^2 \) </td>	  
+            <td>\(  (q^3 ;q^3)_{n-1}/[(q^2;q)_{2n-1} (q;q)_{n-1}]\)</td>
+            <td>\( (-1)^{r+1} q^{9r^2/2 - 9r/2+1} (1-q^{6r-1})/(1-q)  \)</td>
+            <td>\(  (-1)^r q^{9r^2/2 - 3r/2} (1-q^{6r+1})/(1-q) \)</td>
+            <td>\( (-1)^{r+1} q^{9r^2/2 + 3r/2+1} (1-q^{6r+3})/(1-q)\)</td>
+            <td>\( q^2 \)</td>
+          </tr>		
+	
+		
+        </table>
+			    
+	   <h2>Groups B, E (partial), F, and H</h2>		    
+	<p>In (BBS), set \( b = q^{-n} \) and \(e = a\). This yields
+	\[ \sum_{r = 0}^{n} \frac{(1-aq^{2r}) (-1)^r a^r q^{r(r+1)/2} (a,c,d;q)_r}{(1-a) (aq;q)_{n+r} (q,aq/c, aq/d;q)_r (cd)^r} 
+	=  \frac{(aq/[cd];q)_n}{(q,aq/c,aq/d;q)_n}. \]
+
+	</p>
+	<p> Historical note: Group B and F Bailey pairs 
+		are transformations due to Rogers (1917), translated into
+	Bailey pair language by Slater.  Group H pairs are due to Slater (1951, 1952).  Group E is named by Slater to
+	correspond to Rogers' transformations, but it makes more sense to put part of the E group here and the rest below.</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a \) </th>
+		<th>\( c \) </th>  
+		<th> \( d\)  </th>  
+	        <th>\(\beta_n\)</th> 
+	        <th>\(\alpha_{r}\)</th>
+		<th>\(x\)</th></tr>
+          <tr>
+            <td>B(1)</td>
+	    <td> \(q\) </td>
+	    <td> \(\infty\) </td>
+            <td> \(\infty\) </td>  
+            <td>\(1/(q;q)_{n}\)</td>
+            <td>\( (-1)^r q^{r(3r-1)/2} (1+q^r)   \) </td>
+            <td>\(q\)</td>
+          </tr>
+
+	   <td>B(2)</td>
+	    <td>  </td>
+	    <td>  </td>
+            <td>  </td>  
+            <td>\(q^n/(q;q)_{n}\)</td>
+            <td>\( (-1)^n q^{3r(r-1)/2} (1+q^{3r})   \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>B(3)</td>
+	    <td> \(q\) </td>
+	    <td> \(\infty\) </td>
+            <td> \(\infty\) </td>  
+            <td>\(1/(q;q)_{n}\)</td>
+            <td>\( (-1)^r q^{r(3r+1)/2} (1-q^{2r+1})/(1-q)   \) </td>
+            <td>\(q^2\)</td>
+          </tr>
+
+	   <td>B(4)</td>
+	    <td>  </td>
+	    <td>  </td>
+            <td>  </td>  
+            <td>\(q^n/(q;q)_{n}\)</td>
+            <td>\( \{ (-1)^r q^{(3r+2)(r-1)/2} (1-q^r) 
+	        + q^{(3r+5)/2}(1-q^{r+1})\}/(1-q)  \) </td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+           <tr>
+            <td>E(3)</td>
+	    <td> \(q\) </td>
+	    <td> \(-q\) </td>
+            <td> \(\infty\) </td>  
+            <td>\(1/(q^2;q^2)_{n}\)</td>
+            <td>\( (-1)^r q^{r^2} (1-q^{2r+1})/(1-q)   \) </td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+	  <tr>
+            <td>E(6)</td>
+	    <td> \(q\) </td>
+	    <td> \(-q\) </td>
+            <td> \(\infty\) </td>  
+            <td>\(q^n/(q^2;q^2)_{n}\)</td>
+            <td>\( (-1)^r q^{r(r-1)} (1+q^{2r})/(1-q)   \) </td>
+            <td>\(q^2\)</td>
+          </tr>	
+
+	  <tr>
+            <td>E(7)</td>
+	    <td> \(q\) </td>
+	    <td> \(-q\) </td>
+            <td> \(0 \) </td>  
+            <td>\((-1)^n q^{-n}/(q^2;q^2)_{n}\)</td>
+            <td>\( (-1)^r q^{r^2} (q^{-r} + q^{r+1} )/(1-q)   \) </td>
+            <td>\(q^2\)</td>
+          </tr>		
+
+	   <td>F(1)</td>
+	    <td> \(1\) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( \infty \) </td>  
+            <td>\( 1/[(q^{1/2};q)_{n} (q;q)_n ]\)</td>
+            <td>\( q^{r^2 - r/2} (1+q^r) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>F(2)</td>
+	    <td> \( q \) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( \infty \) </td>  
+            <td>\( 1/[(q^{3/2};q)_{n} (q;q)_n ]\)</td>
+            <td>\( q^{r^2 - r/2} (1+q^{r+1/2})/(1+q^{1/2}) \) </td>
+            <td>\(  q^2  \)</td>
+          </tr>	
+
+	  <td>F(3)</td>
+	    <td> \(1\) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( 0 \) </td>  
+            <td>\( q^{-n/2}/[(q^{1/2};q)_{n} (q;q)_n ]\)</td>
+            <td>\( q^{-r/2} (1+q^r) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+          <td>F(4)</td>
+	    <td> \( q \) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( 0 \) </td>  
+            <td>\( q^{-n/2}/[(q^{3/2};q)_{n} (q;q)_n ]\)</td>
+            <td>\( q^{- r/2} (1+q^{r+1/2})/(1+q^{1/2}) \) </td>
+            <td>\(  q^2  \)</td>
+          </tr>			
+	  	
+
+          <td>H(1)</td>
+	    <td> \(1\) </td>
+	    <td> \( -q^{1/2} \) </td>
+            <td> \( q^{1/2} \) </td>  
+            <td>\((-1;q)_{n}/[(q;q^2)_{n} (q;q)_n ]\)</td>
+            <td>\( q^{r(r-1)/2} (1+q^r) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+          <td>H(2)</td>
+	    <td> \(1\) </td>
+	    <td> \( -q^{1/2} \) </td>
+            <td> \( \infty \) </td>  
+            <td>\( (-q^{1/2};q)_{n}^{-1} (q;q)_n^{-1} \)</td>
+            <td>\( (-1)^r q^{r(r-1)/2} (1+q^r) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	 <td>H(3)</td>
+	    <td> \(q\) </td>
+	    <td> \( 0 \) </td>
+            <td> \( 0 \) </td>  
+            <td>\( (-1)^n q^{-n(n+3)/2} / (q;q)_n \)</td>
+            <td>\( (-1)^r q^{-r(r-3)/2} (1+q^{3r} ) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(4)</td>
+	    <td>  </td>
+	    <td>  </td>
+            <td>  </td>  
+            <td>\( (-1)^n q^{-n(n+1)/2} / (q;q)_n \)</td>
+            <td>\( (-1)^r q^{-r(r-1)/2} (1+q^{r} ) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(5)</td>
+	    <td> \( q \) </td>
+	    <td> \( q \) </td>
+            <td> \( 0 \) </td>  
+            <td>\( q^{-n} / (q;q)_n^2 \)</td>
+            <td>\( q^{-r} (1 - q^{2r} ) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	   <td>H(6)</td>
+	    <td>  </td>
+	    <td>  </td>
+            <td>  </td>  
+            <td>\( 1 / (q;q)_n^2 \)</td>
+            <td>\( 0 \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(7)</td>
+	    <td> \( q \) </td>
+	    <td> \( -q \) </td>
+            <td> \( \infty \) </td>  
+            <td>\(  (-1)^n / (q^2;q^2)_n \)</td>
+            <td>\( 2 (-1)^r  \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(8)</td>
+	    <td> \(  \) </td>
+	    <td> \(  \) </td>
+            <td> \(  \) </td>  
+            <td>\(  (-1)^n q^{-n} / (q^2;q^2)_n \)</td>
+            <td>\( (-1)^r q^{-r} (1+q^{2r}) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(9)</td>
+	    <td> \( q \) </td>
+	    <td> \( -q \) </td>
+            <td> \( \infty \) </td>  
+            <td>\(  q^{n} / (q;q)_n^2 \)</td>
+            <td>\(   q^{r(r+1)} (1 - q^{-2r}) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+          <td>H(10)</td>
+	    <td> \( q \) </td>
+	    <td> \( q \) </td>
+            <td> \( -q \) </td>  
+            <td>\(  2 (1+q^n) / (q;q)_n^2 \)</td>
+            <td>\(   q^{r(r-1)/2} (1 - q^{r}) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(11)</td>
+	    <td> \(  \) </td>
+	    <td> \(  \) </td>
+            <td> \(  \) </td>  
+            <td>\(  2 q^n (1+q^n) / (q;q)_n^2 \)</td>
+            <td>\(   q^{r(r+1)/2} (1 - q^{-r}) \) </td>
+            <td>\(q\)</td>
+          </tr>	
+
+	  <td>H(12)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \( q \) </td>
+            <td> \( 0 \) </td>  
+            <td>\(  (q^2;q)_n^{-1} (q;q)_n^{-1} \)</td>
+            <td>\(   q^{-r} (1 - q^{2r+1}) \) </td>
+            <td>\(q^2 \)</td>
+          </tr>	
+
+	  <td>H(13)</td>
+	    <td> \(  \) </td>
+	    <td> \(  \) </td>
+            <td> \(  \) </td>  
+            <td>\(   (q^2;q)_n^{-1} (q;q)_n^{-1} \)</td>
+            <td>\(   0 \) </td>
+            <td>\(q^2 \)</td>
+          </tr>	
+
+	  <td>H(14)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \( q \) </td>
+            <td> \( \infty \) </td>  
+            <td>\( q^n  (q^2;q)_n^{-1} (q;q)_n^{-1} \)</td>
+            <td>\( -q^{r^2-1} (1 - q^{2r+1}) \) </td>
+            <td>\(q^2 \)</td>
+          </tr>	
+
+	  <td>H(15)</td>
+	    <td> \( q^2 \) </td>
+	    <td> \( q \) </td>
+            <td> \( q^{3/2} \) </td>  
+            <td>\( (q^{1/2};q)_n (q^2;q)_n^{-1} (q;q)_n^{-1} (q^{3/2};q)_n^{-1} \)</td>
+            <td>\( (-1)^r (q^{r^2/2} + q^{(r+1)^2/2} ) \) </td>
+            <td>\(q^2 \)</td>
+          </tr>	
+
+	  <td>H(16)</td>
+	    <td> \(  \) </td>
+	    <td> \( \) </td>
+            <td> \(  \) </td>  
+            <td>\( q^n (q^{1/2};q)_n (q^2;q)_n^{-1} (q;q)_n^{-1} (q^{3/2};q)_n^{-1} \)</td>
+            <td>\( (-1)^r (q^{r^2/2+r} + q^{(r^2-1)/2} ) \) </td>
+            <td>\(q^2 \)</td>
+          </tr>
+
+	  <td>H(17)</td>
+	    <td> \( 1 \) </td>
+	    <td> \( 0 \) </td>
+            <td> \( \infty  \) </td>  
+            <td>\( 0 \)</td>
+            <td>\( (-1)^r q^{r(r-1)/2} (1 + q^r ) \) </td>
+            <td>\( q \)</td>
+          </tr>	
+
+	   <td>H(18)</td>
+	    <td> \( q \) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( q  \) </td>  
+            <td>\( (1 - q^{1/2}) (1 - q^{n+1/2})^{-1} (q;q)_n^{-2} \)</td>
+            <td>\( (-1)^r q^{r^2/2} (1 + q^{r+1/2}) / (1 + q^{1/2})  \) </td>
+            <td>\( q^2 \)</td>
+          </tr>	
+
+	  <td>H(19)</td>
+	    <td> \( q \) </td>
+	    <td> \( q^{1/2} \) </td>
+            <td> \( -q  \) </td>  
+            <td>\( (-q^{1/2};q)_n (q^{3/2};q)_n^{-1} (q^2;q^2)_n^{-1} \)</td>
+            <td>\(  q^{r^2/2} (1 + q^{r+1/2}) / (1 + q^{1/2})  \) </td>
+            <td>\( q^2 \)</td>
+          </tr>		
+				
+		
+        </table>
+
+      
+
+       <h2>Groups C, E (partial), G, and I</h2>		    
+	<p>In (BBS), set \( b = q^{-n/2} \), \(c= q^{(1-n)/2} \) and replace \( q \) by \(q^2\)
+		throughout. This yields
+	\[ \sum_{r = -\lfloor n/2 \rfloor}^{\lfloor n/2 \rfloor} 
+	\frac{(1-aq^{4r}) (q^{-n};q)_{2r} a^{2r} q^{2nr+r} (d,e;q^2)_r}
+	{(1-a) (aq^{n+1};q)_{2r} (aq^2/d, aq^2/e;q^2)_r (de)^r} 
+	=  \frac{(q^2/q, aq/d, aq/e, aq^2/[de]; q^2)_\infty  }
+		{ (q, q^2/d, q^2/e, a^2q/[de];q^2)_\infty  }
+		\frac{(q, aq, a^2q/[de];q^2)_n}{(aq;q^2)_n (aq/d,aq/d;q)_n}, \]
+       where \(a\) has a a value such that the series terminates below at \( r = -\lfloor n/2 \rfloor \).
+	</p>
+	<p> Historical note: Group C, E, and G Bailey pairs 
+		are transformations due to Rogers (1917), translated into
+	Bailey pair language by Slater.  Group I pairs are due to Slater (1951, 1952).</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a \) </th>
+		<th>\( d \) </th>  
+		<th> \( e \)  </th>  
+	        <th>\(\beta_n\)</th> 
+	        <th>\(\alpha_{2r}\)</th>
+		<th>\(\alpha_{2r+1}\)</th>  
+		<th>\(x\)</th>
+	  </tr>
+
+	   <tr>
+		<th> C(1) </th>
+		<th>\( 1 \) </th>
+		<th>\( 1 \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( (q;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{r(3r-1)/2} (1+q^{r}) \)</th>
+		<th>\( 0 \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> C(2) </th>
+		<th>\( q^2 \) </th>
+		<th>\( q^2 \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( q^n (q;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{3r^2-r} (1+q^{2r}) \)</th>
+		<th>\( (-1)^{r+1} q^{3r^2+r} (1-q^{4r+2}) \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> C(3) </th>
+		<th>\( q^2 \) </th>
+		<th>\( q^2 \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( (q^3;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{3r^2+r}  \)</th>
+		<th>\( (-1)^{r+1} q^{3r^2+5r+2}  \)</th>  
+		<th>\( q^2 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> C(4) </th>
+		<th>\( q^2 \) </th>
+		<th>\( q^2 \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( q^n (q^3;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{3r^2+3r}  \)</th>
+		<th>\( (-1)^{r+1} q^{3r^2+3r}  \)</th>  
+		<th>\( q^2 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> C(5) </th>
+		<th>\( 1 \) </th>
+		<th>\( 1 \) </th>  
+		<th> \( 0 \)  </th>  
+	        <th>\( q^{n(n-1)/2} (q;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{r^2-r} (1+q^{2r})  \)</th>
+		<th>\( 0  \)</th>  
+		<th>\( q \)</th>
+	  </tr>
+
+	  <tr>
+		<th> C(6) </th>
+		<th>\( q^2 \) </th>
+		<th>\( q^2 \) </th>  
+		<th> \( 0 \)  </th>  
+	        <th>\( q^{n(n-1)/2} (q^3;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{r^2-r}  \)</th>
+		<th>\( (-1)^{r+1} q^{r^2+3r+2}  \)</th>  
+		<th>\( q^2 \)</th>
+	  </tr>	
+
+	   <tr>
+		<th> C(7) </th>
+		<th>\( q^2 \) </th>
+		<th>\( q^2 \) </th>  
+		<th> \( 0 \)  </th>  
+	        <th>\( q^{n(n+1)/2} (q^3;q^2)_n^{-1} (q;q)_n^{-1} \)</th> 
+	        <th>\( (-1)^r q^{r^2+r}  \)</th>
+		<th>\( (-1)^{r+1} q^{r^2+5r+2}  \)</th>  
+		<th>\( q^2 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> E(1) </th>
+		<th>\( q \) </th>
+		<th>\( \infty \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( 1/(q^2;q^2)_n \)</th> 
+	        <th>\( 2q^{4r^2}  \)</th>
+		<th>\( -2q^{4r^2+4r+1}  \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+          <tr>
+		<th> E(2) </th>
+		<th>\( q \) </th>
+		<th>\( 0 \) </th>  
+		<th> \( 0 \)  </th>  
+	        <th>\( (-1)^n/(q^2;q^2)_n \)</th> 
+	        <th>\( 2  \)</th>
+		<th>\( -2  \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> E(4) </th>
+		<th>\( q \) </th>
+		<th>\( \infty \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\( q^n/(q^2;q^2)_n \)</th> 
+	        <th>\( q^{4r^2-2r} (1+q^{4r})  \)</th>
+		<th>\( -q^{4r^2+2r}(1+q^{4r+2})  \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th> E(5) </th>
+		<th>\( q \) </th>
+		<th>\( 0 \) </th>  
+		<th> \( 0 \)  </th>  
+	        <th>\( (-1)^n q^{-n} /(q^2;q^2)_n \)</th> 
+	        <th>\( q^{-2r} + q^{2r}  \)</th>
+		<th>\( -q^{2r+1} - q^{-2r-1}  \)</th>  
+		<th>\( q \)</th>
+	  </tr>		
+		
+	</table>
+
+	<h2>Group K</h2>		    
+	<p>In (BBS), set \( b = q^{-n/4} \), \(  c = q^{(1-n)/4} \), \( d = q^{(2-n)/4} \), \( e = q^{(3-n)/4} \), 
+		and replace \( q \) by \(q^4\)
+		throughout. This yields
+	\[ \sum_{r = -\lfloor n/4 \rfloor}^{\lfloor n/4 \rfloor} 
+	\frac{(1-aq^{8r}) (q^{-n};q)_{4r} a^{2r} q^{4nr-2r} a^{2r}}
+	{(1-a) (aq^{n+1};q)_{4r} } 
+	=  \frac{(q^4/a, a/q, a, aq; q^4)_\infty  }
+		{ (q, q^2, q^3, a^2/q^2;q^4)_\infty  }
+		\frac{(aq, q;q)_n (-a/q;q^2)_n}{(a;q)_{2n}} \]
+       where \(a\) has a value such that the series terminates below at \( r = -\lfloor n/4 \rfloor \).
+	</p>
+	<p> Historical note: Group K Bailey pairs are due to Slater (1951).</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a \) </th>
+		<th>\( \beta_n \) </th>  
+		<th> \( \alpha_{4r-2} \)  </th>  
+	        <th>\(\alpha_{4r-1} \)</th> 
+	        <th>\(\alpha_{4r}\)</th>
+		<th>\(\alpha_{4r+1}\)</th>  
+		<th>\(x\)</th>
+	  </tr>	
+
+	 <tr>
+		<th>K(1)</th>
+		<th>\( q \) </th>
+		<th>\( (-q^2;q^2)_{n-1}/(q;q)_{2n} \) </th>  
+		<th> \( 0  \)  </th>  
+	        <th>\(  -q^{8r^2-6r+1} \)</th> 
+	        <th>\(q^{8r^2-2r}(1+q^{4r})\)</th>
+		<th>\( -q^{8r^2+6r+1}  \)</th>  
+		<th>\(q \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>K(2)</th>
+		<th>\( q \) </th>
+		<th>\( q^n (-q^2;q^2)_{n-1}/(q;q)_{2n} \) </th>  
+		<th> \( 0  \)  </th>  
+	        <th>\(  -q^{8r^2-2r} \)</th> 
+	        <th>\(q^{8r^2-2r}(1+q^{4r})\)</th>
+		<th>\( -q^{8r^2+2r}  \)</th>  
+		<th>\(q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th>K(3)</th>
+		<th>\( q^2 \) </th>
+		<th>\( (-q;q^2)_{n}/(q^2;q)_{2n} \) </th>  
+		<th> \(  -q^{8r^2-8r+2}  \)  </th>  
+	        <th>\(  q^{8r^2} \)</th> 
+	        <th>\(q^{8r^2}\)</th>
+		<th>\( -q^{8r^2+8r+2}  \)</th>  
+		<th>\(q^2 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th>K(4)</th>
+		<th>\( q^2 \) </th>
+		<th>\( q^n (-q;q^2)_{n}/(q^2;q)_{2n} \) </th>  
+		<th> \(  -q^{8r^2-4r}  \)  </th>  
+	        <th>\(  q^{8r^2-4r} \)</th> 
+	        <th>\(  q^{8r^2+4r}\)</th>
+		<th>\( -q^{8r^2+4r}  \)</th>  
+		<th>\(q^2 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th>K(5)</th>
+		<th>\( q^3 \) </th>
+		<th>\((-q^2;q^2)_{n}/(q^3;q)_{2n} \) </th>  
+		<th> \( q^{8r^2-2r}  \)  </th>  
+	        <th>\(  0 \)</th> 
+	        <th>\(  q^{8r^2+2r}\)</th>
+		<th>\( -q^{8r^2+5r+1}(1+q^{5r+2})  \)</th>  
+		<th>\(q^3 \)</th>
+	  </tr>	
+
+	  <tr>
+		<th>K(6)</th>
+		<th>\( q^3 \) </th>
+		<th>\(  q^n (-q^2;q^2)_{n}/(q^3;q)_{2n} \) </th>  
+		<th> \( q^{8r^2-6r}  \)  </th>  
+	        <th>\(  0 \)</th> 
+	        <th>\(  q^{8r^2+6r}\)</th>
+		<th>\( -q^{8r^2+6r}(1+q^{4r+2})  \)</th>  
+		<th>\(q^3 \)</th>
+	  </tr>		
+		
+
+	</table>
+
+
+	<h2>Group L</h2>		    
+	<p>In (BBS), set \( d = q^{-n/2} \) and \(  e = -q^{n/2} \);  
+		replace \( a \) by \( a^{1/2} \) and \( q \) by \(q^{1/2}\) 
+		throughout. 
+		<!--This yields
+	\[ \sum_{r = -\lfloor n/4 \rfloor}^{\lfloor n/4 \rfloor} 
+	\frac{(1-aq^{8r}) (q^{-n};q)_{4r} a^{2r} q^{4nr-2r} a^{2r}}
+	{(1-a) (aq^{n+1};q)_{4r} } 
+	=  \frac{(q^4/a, a/q, a, aq; q^4)_\infty  }
+		{ (q, q^2, q^3, a^2/q^2;q^4)_\infty  }
+		\frac{(aq, q;q)_n (-a/q;q^2)_n}{(a;q)_{2n}} \] 
+       where \(a\) has a value such that the series terminates below at \( r = -\lfloor n/4 \rfloor \).-->
+	</p>
+	<p> Historical note: Group L Bailey pairs are due to Slater (1952).</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a^{1/2} \) </th>
+		<th>\( b\) </th>  
+		<th> \( c \)  </th>  
+	        <th>\(\beta_n \)</th> 
+	        <th>\(\alpha_{r}\)</th>  
+		<th>\(x\)</th>
+	  </tr>			    
+
+           <tr>
+		<th>L(1)</th>
+		<th>\( 1 \) </th>
+		<th>\( 0 \) </th>  
+		<th> \( 1 \)  </th>  
+	        <th>\( (-1)^n q^{n^2/2} (q;q)_n^{-1} (-q^{1/2};q^{1/2})_{2n}^{-1} \)</th> 
+	        <th>\( (1+q^{r/2})(-1)^r q^{r(r-1)/4}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>L(2)</th>
+		<th>\( 1 \) </th>
+		<th>\( -q^{1/4} \) </th>  
+		<th> \( 1 \)  </th>  
+	        <th>\( (q^{1/4};q^{1/2})_{2n} / (q;q)_{2n} \)</th> 
+	        <th>\( (1+q^{r/2})(-1)^r q^{r(2r-1)/4}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>L(3)</th>
+		<th>\( 1 \) </th>
+		<th>\( \infty \) </th>  
+		<th> \( 1 \)  </th>  
+	        <th>\( (q;q)_{n}^{-1} (-q^{1/2};q^{1/2})_{2n}^{-1} \)</th> 
+	        <th>\( (1+q^{r/2})(-1)^r q^{r(3r-1)/4}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>L(4)</th>
+		<th>\( -1 \) </th>
+		<th>\( 0 \) </th>  
+		<th> \( iq^{1/4} \)  </th>  
+	        <th>\( q^{n(n-1)/2}(-q^{1/2};q)_{n}^{-1} (q^{1/2};q^{1/2})_{2n}^{-1} \)</th> 
+	        <th>\( (1+q^{r})(-1)^r q^{r(r-2)/2}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>L(5)</th>
+		<th>\( -1 \) </th>
+		<th>\( iq^{1/4} \) </th>  
+		<th> \( -iq^{1/4} \)  </th>  
+	        <th>\( (-1;q^{1/2} )_{2n} (-q^{1/2};q)_{n}^{-1} (q^{1/2};q^{1/2})_{2n}^{-1} \)</th> 
+	        <th>\( (1+q^{r}) q^{r(r-1)/2}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>	
+
+	  <tr>
+		<th>L(6)</th>
+		<th>\( -1 \) </th>
+		<th>\( iq^{1/4} \) </th>  
+		<th> \( \infty \)  </th>  
+	        <th>\(  (-q^{1/2};q)_{n}^{-1} (q^{1/2};q^{1/2})_{2n}^{-1} \)</th> 
+	        <th>\( (1+q^{r}) (-1)^{r/2} q^{r(3r-2)/4} \frac{ 1+(-1)^r }{2}   \)</th>  
+		<th>\( q \)</th>
+	  </tr>		
+	
+
+		
+	</table>
+
+	<h2>Group M</h2>		    
+	<p>In (BBS), set \( b = q^{-n/4} \) , \(  c = -q^{n/4} \), 
+		\( d = iq^{n/4} \), and \( e = -iq^{n/4} \);  
+		replace \( a \) by \( a^{1/4} \) and \( q \) by \(q^{1/4}\) 
+		throughout. 
+		<!--This yields
+	\[ \sum_{r = -\lfloor n/4 \rfloor}^{\lfloor n/4 \rfloor} 
+	\frac{(1-aq^{8r}) (q^{-n};q)_{4r} a^{2r} q^{4nr-2r} a^{2r}}
+	{(1-a) (aq^{n+1};q)_{4r} } 
+	=  \frac{(q^4/a, a/q, a, aq; q^4)_\infty  }
+		{ (q, q^2, q^3, a^2/q^2;q^4)_\infty  }
+		\frac{(aq, q;q)_n (-a/q;q^2)_n}{(a;q)_{2n}} \] 
+       where \(a\) has a value such that the series terminates below at \( r = -\lfloor n/4 \rfloor \).-->
+	</p>
+	<p> Historical note: Group M Bailey pairs are due to Slater (1952).</p>
+        <table>
+          <tr>
+		<th>Label</th>
+		<th>\( a^{1/4} \) </th> 
+	        <th>\(\beta_n \)</th> 
+	        <th>\(\alpha_{r}\)</th>  
+		<th>\(x\)</th>
+	  </tr>	
+
+	 <tr>
+		<th>M(1) </th>
+		<th>\(-1 \) </th> 
+	        <th>\( (q^{1/4};q^{1/2})_n / (q;q)_{2n} \)</th> 
+	        <th>\( (-1)^r q^{r^2/2 - r/4} (1+q^{r/2})   \)</th>  
+		<th>\(q \)</th>
+	  </tr>	
+
+	<tr>
+		<th>M(2) </th>
+		<th>\(-q^{1/4} \) </th> 
+	        <th>\( (-q^{1/4};q^{1/2})_{2n+1} / (q;q)_{2n+1} \)</th> 
+	        <th>\( q^{r(2r+1)/4} (1+q^{(2r+1)/4}) /(1-q)   \)</th>  
+		<th>\(q^2 \)</th>
+	  </tr>	
+
+	 <tr>
+		<th>M(3) </th>
+		<th>\(i q^{1/4} \) </th> 
+	        <th>\( (q^{1/4};q^{1/2})_{2n+1} / (q;q)_{2n+1} \)</th> 
+	        <th>\( (-1)^r q^{r^2/2} (q^{r/2} - q^{(3r+1)/4}) /(1-q)   \)</th>  
+		<th>\(q^2 \)</th>
+	  </tr>		
+
+	</table>	
+		    
+ </div>
+			    
+
+      <div class="main_infobox">
+	    <h2>References</h2>
+	      <ul>
+		<!--<li><p>W. N. Bailey (1935) Generalized Hypergeometric Series, Cambridge Tracts in Mathematics and Mathematical Physics, 
+		no. 32, Cambridge University Press: London.</p></li>-->
+		<li> <p>W. N. Bailey (1936) Series of hypergeometric type which are infinite in both
+			directions, Quarterly J. Math. (Oxford) 7, 105&ndash;115.
+			<a href="https://doi.org/10.1093/qmath/os-7.1.105">DOI</a></p>
+		</li>      
+		<li><p>G. Gasper and M. Rahman (2004) Basic Hypergeometric Series, 2nd ed., Encyclopedia of Mathematics and its 
+			Applications, vol. 96, Cambridge University Press.
+		 <a href="https://doi.org/10.1017/CBO9780511526251"> DOI </a>
+		</p></li> 
+		<li><p> J. McLaughlin and A. V. Sills (2008) Ramanujan&ndash;Slater type identities related to the 
+		moduli 18 and 24, J. Math. Anal Appl. 344, 765&ndash;777. 
+		<a href="https://doi.org/10.1016/j.jmaa.2008.03.033"> DOI </a>
+		</p></li>      
+		<li><p>L. J. Rogers (1917) On two theorems of combinatory analysis and allied
+		identities, Proc. London Math. Soc. s2-16, 315&ndash;336.
+		<a href="https://doi.org/10.1112/plms/s2-16.1.315"> DOI </a>
+		</p></li>      
+		<li><p>L. J. Slater (1951) A new proof of Rogers's transformations of infinite series, Proc. London Math. Soc. s2-53,
+		460&ndash;475.<a href="https://doi.org/10.1112/plms/s2-53.6.460"> DOI</a> </p></li>   
+		<li><p>L. J. Slater (1952) Further identities of the Rogers&ndash;Ramanujan type,  Proc. London Math. Soc. s2-54, 
+		147&ndash;167. <a href="https://doi.org/10.1112/plms/s2-54.2.147"> DOI</a></p></li>
+	      </ul>
+	  </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+       The Rogers&ndash;Ramanujan&ndash;Slater Data Base <br>
+       <a href="index.html">Home</a>
+       &bull;
+       <a href="https://github.com/rrsdb/rrsdb.github.io">Source</a>
+       &bull;
+       <a href="contact.html">Contact</a> <br>
+       Design by Hunter Waldron, 2024
+    </p>
+  </footer>
+</body>
+</html>
