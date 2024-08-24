@@ -84,6 +84,9 @@ class RRSDBRenderer(mistune.HTMLRenderer):
     def inline_math(self, text: str) -> str:
         return rf"\({text}\)"
 
+    def list_item(self, text: str) -> str:
+        return f"<p>{super().list_item(text)}</p>"
+
 
 class IdentityRenderer(RRSDBRenderer):
     inclusive_block_tags = {
