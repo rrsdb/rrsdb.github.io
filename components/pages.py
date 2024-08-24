@@ -32,6 +32,10 @@ class RRSDBPage(metaclass=Built):
     def __init__(self, filename: str, page: str):
         self.filename = filename
         
+        # Math spacing
+        page = re.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page)
+        page = re.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
+
         # Render body
         self.renderer = self._renderer()
         self.body = mistune.create_markdown(renderer=self.renderer, plugins=PLUGINS)(page)
@@ -49,10 +53,6 @@ class RRSDBPage(metaclass=Built):
         # Widgets
         self.content = local_path(self._parent).with_suffix(".html").read_text(encoding="utf-8").format(**vars(self))
         self.content = re.sub(r"!!(\w+)", lambda match: build_widget(match[1]).format(**vars(self)), self.content)
-        
-        # Math
-        self.content = re.sub(r"\$\$(.*?)\$\$", lambda match: rf"\[{match[1]}\]", self.content)
-        self.content = re.sub(r"\$([^$].*?)\$", lambda match: rf"\({match[1]}\)", self.content)
         
     def __class_getitem__(cls, item):
         return cls._page_types[item]

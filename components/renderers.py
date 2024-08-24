@@ -10,7 +10,8 @@ PLUGINS = [
     "table",
     "def_list",
     "abbr",
-    "mark"
+    "mark",
+    "math"
 ]
 
 
@@ -76,6 +77,12 @@ class RRSDBRenderer(mistune.HTMLRenderer):
 
     def strong(self, text: str) -> str:
         return f"<b>{text}</b>"
+
+    def block_math(self, text: str) -> str:
+        return rf"\[{text}\]"
+
+    def inline_math(self, text: str) -> str:
+        return rf"\({text}\)"
 
 
 class IdentityRenderer(RRSDBRenderer):
