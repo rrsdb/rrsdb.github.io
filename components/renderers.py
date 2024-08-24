@@ -24,20 +24,9 @@ def wrap(text: str, tags: str) -> str:
     return f"{tags}\n{text}\n{closing_tags(tags)}"
 
 
-class TextRenderer(mistune.HTMLRenderer):
-    # Really hacky tbh
-    def __getattribute__(self, item):
-        try:
-            if item in object.__getattribute__(self, "__methods") and getattr(type(self), item) == getattr(mistune.HTMLRenderer, item):
-                return lambda text, *args, **kwargs: text
-            
-        except AttributeError:
-            pass
-        
-        return object.__getattribute__(self, item)
-    
-
-plaintext = mistune.create_markdown(renderer=TextRenderer(), plugins=PLUGINS)
+# Strip all tags
+def plaintext(text: str) -> str:
+    return re.sub(r"<.*?>", "", text, flags=re.DOTALL)
     
 Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
 
