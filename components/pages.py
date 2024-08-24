@@ -39,7 +39,7 @@ class RRSDBPage(metaclass=Built):
         
         # Layout info
         self.headings = self.renderer.headings
-        self.title = self.headings[0].plaintext
+        self.title = self.headings[0].plaintext if self.headings else ""
         
     def __build__(self):
         self.sidebar = local_path("sidebar.html").read_text(encoding="utf-8")

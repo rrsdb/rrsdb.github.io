@@ -49,3 +49,6 @@ def process_directory(path):
 
 if __name__ == "__main__":
     process_directory("pages")
+
+    # Copy sidebar (for now)
+    shutil.copyfile("components/sidebar.html", "dist/pages/sidebar.html")
