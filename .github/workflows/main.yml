@@ -28,9 +28,6 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         python -m pip install mistune
 
-    - name: Configure GitHub Pages
-      uses: actions/configure-pages@v3
-
     - name: Build pages
       run: |
         python build.py
