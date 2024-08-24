@@ -27,7 +27,6 @@ The identities template demonstrates how each of the important Markdown elements
 | Quote      | `> Quote`        |
 | Link       | `[text](url)`    |
 | Image      | `![text](url)`   |
-| Line Break | `<br>`           |
 
 When linking to other pages, use relative links (`../partitions.html`) rather than absolute links (`rrsdb.github.io/partitions.html`). Any `.md` file you can view on GitHub has a corresponding `.html` page.
 

@@ -50,6 +50,9 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         self._heading_stack = [Heading(0, "", "", "")]
         
     def heading(self, text: str, level: int, **attrs) -> str:
+        if not text:
+            return "<br>"
+
         text, heading_id = re.search(r"(.+)\s*(?:\{#(.+)})?", text).groups()
 
         rendered = ""
