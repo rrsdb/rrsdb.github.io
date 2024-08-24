@@ -22,7 +22,8 @@ $ \displaystyle F(q) = Q\;SERIES\;HERE $
 
 **Common name:** NAME HERE, OR DELETE THIS LINE
 
-**[Bailey pair](../Bailey_pairs.html) proof:** PROOF HERE OR DELETE THIS LINE
+**[Bailey pair](../Bailey_pairs.html) proof:**
+> PROOF HERE OR DELETE THIS LINE
 
 **Combinatorial interpretations:**
 - 1st interpretation here
