@@ -15,9 +15,21 @@ PLUGINS = [
 ]
 
 
-# Close all open HTML tags
+# Close all open HTML tags (really awful)
 def closing_tags(text: str) -> str:
-    return "\n".join(f"</{tag}>" for tag in re.findall(r"<(\w+)(?!.*</\1>)", text))
+    out = []
+    for tag in re.findall(r"<(/?\w+)", text):
+        if "/" in tag:
+            try:
+                out.remove(f"<{tag}>")
+
+            except ValueError:
+                pass
+
+        else:
+            out.insert(0, f"</{tag}>")
+
+    return "\n".join(out[::-1])
 
 
 # Wrap some content in tags
@@ -85,7 +97,7 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         return rf"\({text}\)"
 
     def list_item(self, text: str) -> str:
-        return f"<li><p>{super().list_item(text)[4:-6]}</p></li>"
+        return f"<li><p>{super().list_item(text)[4:-6]}</p></li>\n"
 
 
 class IdentityRenderer(RRSDBRenderer):
