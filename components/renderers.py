@@ -85,7 +85,7 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         return rf"\({text}\)"
 
     def list_item(self, text: str) -> str:
-        return f"<p>{super().list_item(text)}</p>"
+        return f"<li><p>{super().list_item(text)[4:-6]}</p></li>"
 
 
 class IdentityRenderer(RRSDBRenderer):
