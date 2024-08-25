@@ -38,7 +38,7 @@ class RRSDBPage(metaclass=Built):
         page = re.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
 
         # URL Escaping
-        page = re.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=":/")})", page)
+        page = re.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=":/#")})", page)
 
         # Render body
         self.renderer = self._renderer()
