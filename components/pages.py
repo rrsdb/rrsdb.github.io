@@ -3,6 +3,7 @@ import re
 
 from .renderers import *
 from pathlib import Path
+from urllib.parse import quote
 
 
 # Get file relative to CWD
@@ -35,6 +36,9 @@ class RRSDBPage(metaclass=Built):
         # Math spacing
         page = re.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page)
         page = re.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
+
+        # URL Escaping
+        page = re.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=":/")})", page)
 
         # Render body
         self.renderer = self._renderer()
