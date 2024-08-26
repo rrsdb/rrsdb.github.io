@@ -2,7 +2,8 @@ import mistune
 import re
 
 from collections import namedtuple
-
+from mistune.directives import FencedDirective
+from mistune.directives import Image, Figure
 
 PLUGINS = [
     "strikethrough",
@@ -11,7 +12,11 @@ PLUGINS = [
     "def_list",
     "abbr",
     "mark",
-    "math"
+    "math",
+    FencedDirective([
+        Image(),
+        Figure()
+    ])
 ]
 
 
@@ -40,8 +45,10 @@ def wrap(text: str, tags: str) -> str:
 # Strip all tags
 def plaintext(text: str) -> str:
     return re.sub(r"<.*?>", "", text, flags=re.DOTALL)
-    
+
+
 Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
+
 
 class RRSDBRenderer(mistune.HTMLRenderer):
     # Wrap headings
