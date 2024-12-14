@@ -1,5 +1,5 @@
 import mistune
-import re
+import regex
 
 from collections import namedtuple
 from mistune.directives import FencedDirective
@@ -23,7 +23,7 @@ PLUGINS = [
 # Close all open HTML tags (really awful)
 def closing_tags(text: str) -> str:
     out = []
-    for tag in re.findall(r"<(/?\w+)", text):
+    for tag in regex.findall(r"<(/?\w+)", text):
         if "/" in tag:
             try:
                 out.remove(f"<{tag}>")
@@ -44,7 +44,7 @@ def wrap(text: str, tags: str) -> str:
 
 # Strip all tags
 def plaintext(text: str) -> str:
-    return re.sub(r"<.*?>", "", text, flags=re.DOTALL)
+    return regex.sub(r"<.*?>", "", text, flags=regex.DOTALL)
 
 
 Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
@@ -73,7 +73,7 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         if not text:
             return "<br>"
 
-        text, heading_id = re.search(r"(.+)\s*(?:\{#(.+)})?", text).groups()
+        text, heading_id = regex.search(r"(.+)\s*(?:\{#(.+)})?", text).groups()
 
         rendered = ""
         while level <= self._heading_stack[-1].level:

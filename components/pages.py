@@ -1,5 +1,5 @@
 import os
-import re
+import regex
 
 from .renderers import *
 from pathlib import Path
@@ -34,11 +34,11 @@ class RRSDBPage(metaclass=Built):
         self.filename = filename
         
         # Math spacing
-        page = re.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page)
-        page = re.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
+        page = regex.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page)
+        page = regex.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
 
         # URL Escaping
-        page = re.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=":/#")})", page)
+        page = regex.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=':/#')})", page)
 
         # Render body
         self.renderer = self._renderer()
@@ -48,6 +48,13 @@ class RRSDBPage(metaclass=Built):
         # Layout info
         self.headings = self.renderer.headings
         self.title = self.headings[0].plaintext if self.headings else ""
+
+        # References
+        self.bailey_links = regex.findall(r"[A-Z]\(\d{,2}\)", page)
+
+        auth = r"[\p{Lu}\p{Lt}]\w+"
+        details = r"\((\d{4})(?:, ((?:\(.*?\)|.)*?))?\)"
+        self.references = regex.findall(rf"({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|) {details}", page)
         
     def __build__(self):
         self.sidebar = local_path("sidebar.html").read_text(encoding="utf-8")
@@ -56,7 +63,7 @@ class RRSDBPage(metaclass=Built):
         
         # Widgets
         self.content = local_path(self._parent).with_suffix(".html").read_text(encoding="utf-8").format(**vars(self))
-        self.content = re.sub(r"!!(\w+)", lambda match: build_widget(match[1]).format(**vars(self)), self.content)
+        self.content = regex.sub(r"!!(\w+)", lambda match: build_widget(match[1]).format(**vars(self)), self.content)
         
     def __class_getitem__(cls, item):
         return cls._page_types[item]
@@ -78,7 +85,7 @@ class IdentityPage(RRSDBPage):
     def __init__(self, filename: str, page: str):
         super().__init__(filename, page)
         
-        signature = re.search(r"(?P<length>\d+)\s*:\s*\((?P<items>.*?)\)", self.title)
+        signature = regex.search(r"(?P<length>\d+)\s*:\s*\((?P<items>.*?)\)", self.title)
         if signature is None:
             self.signature = "5, [1,0,0,1,0]"
 
