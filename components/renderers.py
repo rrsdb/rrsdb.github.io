@@ -59,7 +59,7 @@ class RRSDBRenderer(mistune.HTMLRenderer):
     # Wrap the entire block, with the heading
     inclusive_block_tags = {
         "h1": '<div id="main">',
-        "h2": '<div class="main_infobox">'
+        "h2": '<div class="main_infobox" id="">'
     }
     
     # Wrap the entire block, without the heading
@@ -75,7 +75,8 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         if not text:
             return "<br>"
 
-        text, heading_id = regex.search(r"(.+)\s*(?:\{#(.+)})?", text).groups()
+        text, heading_id = regex.search(r"([^{]+)(?:\{#(.+)})?", text).groups()
+        heading_id = f'id="{heading_id}"' if heading_id else ""
 
         rendered = ""
         while level <= self._heading_stack[-1].level:
@@ -83,8 +84,8 @@ class RRSDBRenderer(mistune.HTMLRenderer):
             rendered += closing_tags(previous.rendered)
         
         key = f"h{level}"
-        rendered += self.inclusive_block_tags.get(key, "")
-        rendered += wrap(super().heading(text, level, id=heading_id, **attrs), self.heading_tags.get(key, ""))
+        rendered += self.inclusive_block_tags.get(key, "").replace('id=""', heading_id)
+        rendered += wrap(super().heading(text, level, **attrs), self.heading_tags.get(key, ""))
         rendered += self.exclusive_block_tags.get(key, "")
         
         heading = Heading(level, heading_id, plaintext(text), rendered)
@@ -114,6 +115,6 @@ class IdentityRenderer(RRSDBRenderer):
 
     inclusive_block_tags = {
         "h1": '<div id="main">'
-              '<div class="main_infobox">',
+              '<div class="main_infobox" id="">',
         "h2": '<div class="identity_container">'
     }
