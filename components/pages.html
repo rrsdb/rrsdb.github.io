@@ -2,18 +2,35 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <title>{title}</title>
+    <title>!!title</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="rrsdb_math.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.png">
+    <style>
+        .main_infobox table {
+        width: 100%;
+        text-align: left;
+        border-spacing: 0px;
+        }
+        .main_infobox tr:nth-child(odd) {
+        background: #ededed;
+        }
+        .main_infobox th, .main_infobox td {
+        padding: 10px;
+        }
+        .main_infobox td:first-child {
+        font-weight: bold;
+        font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
-{header}
+!!header
 <div id="sidebar_and_main_container" style="display: flex">
-    {sidebar}
-    {body}
+    !!sidebar
+    !!body
 </div>
-{footer}
+!!footer
 </body>
