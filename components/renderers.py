@@ -52,7 +52,9 @@ Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
 
 class RRSDBRenderer(mistune.HTMLRenderer):
     # Wrap headings
-    heading_tags = {}
+    heading_tags = {
+        "h2": '<div class="main_infobox_header">'
+    }
 
     # Wrap the entire block, with the heading
     inclusive_block_tags = {
@@ -108,6 +110,8 @@ class RRSDBRenderer(mistune.HTMLRenderer):
 
 
 class IdentityRenderer(RRSDBRenderer):
+    heading_tags = {}
+
     inclusive_block_tags = {
         "h1": '<div id="main">'
               '<div class="main_infobox">',
