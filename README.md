@@ -7,7 +7,7 @@
 * ``rrsdb_math.js`` contains the code for power series expansion.
 
 ## Rogers-Ramanujan type identity articles
-To write a Rogers-Ramanujan type identity article, start by copying the file [identities/template.md](https://rrsdb.github.io/identities/template.md).
+To write a Rogers-Ramanujan type identity article, start by copying the file [identities/template.md](https://rrsdb.github.io/identities/template.md). Fill in the appropriate sections with information for that identity using in the format indicated.
 
 ### Markdown Cheatsheet
 
@@ -31,6 +31,8 @@ The identities template demonstrates how each of the important Markdown elements
 
 When linking to other pages, use relative links (`../partitions.html`) rather than absolute links (`rrsdb.github.io/partitions.html`). Any `.md` file you can view on GitHub has a corresponding `.html` page.
 
+You can also link to individual headings (`../partitions.html#integer_partitions`). Use `## Heading {#heading_id}` to assign a navigable ID to a heading.
+
 #### Block Elements
 
 ```md
@@ -46,6 +48,7 @@ When linking to other pages, use relative links (`../partitions.html`) rather th
 
 # Block Math
 $$ LaTeX $$
+(keep the LaTeX on a single line to avoid rendering issues)
 
 # Definition
 term
@@ -71,3 +74,7 @@ Widgets are elements generated using page and identity information after the res
 
 - `!!graphs`: Graph(s) of the function
 - `!!power_series`: Calculator for power series coefficients
+
+## Other articles
+
+Excepting some pages with embedded code (for the moment), the other informational articles on the site are also written in Markdown. Please feel free to add/correct any details on these pages.
