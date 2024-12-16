@@ -75,8 +75,12 @@ class RRSDBRenderer(mistune.HTMLRenderer):
         if not text:
             return "<br>"
 
-        text, heading_id = regex.search(r"([^{]+)(?:\{#(.+)})?", text).groups()
-        heading_id = f'id="{heading_id}"' if heading_id else ""
+        if "{#" in text:
+            text, heading_id = text.rstrip().split("{#")
+            heading_id = f'id="{heading_id.rstrip("}")}"'
+
+        else:
+            heading_id = ""
 
         rendered = ""
         while level <= self._heading_stack[-1].level:
