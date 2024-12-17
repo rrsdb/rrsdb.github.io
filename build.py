@@ -15,8 +15,8 @@ except FileExistsError:
 
 
 # Build a single page
-def build_page(path):
-    page = RRSDBPage[path.parent.stem](path.stem, path.read_text(encoding="utf-8"))
+def build_page(path: Path):
+    page = RRSDBPage.create(path, path.read_text(encoding="utf-8"))
         
     with open(OUT_DIR.joinpath(path).with_suffix(".html"), "w+", encoding="utf-8", errors="xmlcharrefreplace") as outfile:
         outfile.write(page.content)
@@ -34,12 +34,13 @@ def process_directory(path):
         for entry in it:
             if not entry.name.startswith(".") and entry.name != OUT_DIR.name:
                 if entry.is_file():
-                    if entry.name.endswith(".md"):
-                        # Markdown: render the page
+                    try:
                         build_page(Path(entry.path))
+                        print(f"Built page '{entry.path}'")
                         
-                    else:
-                        # Anything else: just copy it over
+                    except ValueError:
+                        # Skip non-text and ambiguous build matches
+                        print(f"Could not build page '{entry.path}'")
                         shutil.copyfile(entry.path, OUT_DIR.joinpath(entry.path))
                         
                 elif entry.is_dir():

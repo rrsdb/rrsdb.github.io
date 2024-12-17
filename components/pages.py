@@ -2,6 +2,7 @@ import os
 import regex
 
 from .renderers import *
+from fnmatch import fnmatch
 from pathlib import Path
 from urllib.parse import quote
 
@@ -22,16 +23,57 @@ class Built(type):
       new = type.__call__(cls, *args, **kwargs)
       new.__build__()
       return new
-        
-        
+
+
 class RRSDBPage(metaclass=Built):
     _page_types = {}
-    
-    _parent = None
+    _path = "*"
+
     _renderer = None
+
+    def __init__(self, path: Path, page: str):
+        # Just copy non-Markdown
+        self.path = path
+        self.filename = path.stem
+        self.content = page
+        self.section = "The Rogers–Ramanujan–Slater Data Base"
+
+    def __init_subclass__(cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+
+        RRSDBPage._page_types[cls._path] = cls
+        RRSDBPage._page_types[RRSDBPage._path] = RRSDBPage
+
+    def __build__(self):
+        pass
+
+    @classmethod
+    def create(cls, path: Path, page: str):
+        # Match class glob, respecting directory level
+        matches = [value for key, value in cls._page_types.items()
+                   if fnmatch(str(path), key) and (key.count("/") == 0 or len(path.parts) == len(key.split("/")))]
+
+        # Find the match with no children
+        leaves = [value for value in matches if
+                  not any(issubclass(child, value) for child in matches if value != child)]
+
+        if len(leaves) != 1:
+            raise ValueError(f"missing or multiple matches for path '{path}': {leaves}")
+
+        return leaves[0](path, page)
+
+    # Replace vars in a file (!! shouldn't conflict with other syntax)
+    def replace_vars(self, content: str) -> str:
+        return regex.sub(r"!!(\w+)(!!)?", lambda match: vars(self)[match[1]], content)
+        
+        
+class MarkdownPage(RRSDBPage):
+    _path = "*.md"
+
+    _renderer = RRSDBRenderer
     
-    def __init__(self, filename: str, page: str):
-        self.filename = filename
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
         
         # Math spacing
         page = regex.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page)
@@ -61,46 +103,44 @@ class RRSDBPage(metaclass=Built):
         self.header = self.replace_vars(local_path("header.html").read_text(encoding="utf-8"))
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
-        self.content = self.replace_vars(local_path(self._parent).with_suffix(".html").read_text(encoding="utf-8"))
+        self.content = self.replace_vars(local_path(self.path.parent.stem).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
         self.content = regex.sub(r"!!(\w+)(!!)?", lambda match: self.replace_vars(build_widget(match[1])), self.content)
         
-    def __class_getitem__(cls, item):
-        return cls._page_types[item]
         
-    def __init_subclass__(cls, **kwargs):
-        super().__init_subclass__(**kwargs)
-        cls._page_types[cls._parent] = cls
+class InfoPage(MarkdownPage):
+    _path = "pages/*.md"
 
-    # Replace vars in a file (!! shouldn't conflict with other syntax)
-    def replace_vars(self, content: str) -> str:
-        return regex.sub(r"!!(\w+)(!!)?", lambda match: vars(self)[match[1]], content)
-        
-        
-class InfoPage(RRSDBPage):
-    _parent = "pages"
-    _renderer = RRSDBRenderer
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
 
-    def __init__(self, filename: str, page: str):
-        super().__init__(filename, page)
-
-        # Maybe don't hardcode this in the future?
-        self.section = "Tools" if filename == "series_factorization_tool.html" else "Definitions and Preliminaries"
+        self.section = "Definitions and Preliminaries"
 
 
-class IdentityPage(RRSDBPage):
-    _parent = "identities"
+class ToolsPage(RRSDBPage):
+    _path = "pages/series_factorization_tool.html"
+
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
+
+        self.section = "Tools"
+
+
+class IdentityPage(MarkdownPage):
+    _path = "pages/identities/*.md"
+
     _renderer = IdentityRenderer
     
-    def __init__(self, filename: str, page: str):
-        super().__init__(filename, page)
-        
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
+
+        self.section = "Rogers–Ramanujan type identities"
+
+        # Determine sequence signature
         signature = regex.search(r"(?P<length>\d+)\s*:\s*\((?P<items>.*?)\)", self.title)
         if signature is None:
             self.signature = "5, [1,0,0,1,0]"
 
         else:
             self.signature = "{length}, [{items}]".format(**signature.groupdict())
-
-        self.section = "Rogers—Ramanujan type identities"
