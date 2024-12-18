@@ -118,6 +118,41 @@ class InfoPage(MarkdownPage):
         self.section = "Definitions and Preliminaries"
 
 
+class IdentitiesPage(RRSDBPage):
+    _path = "pages/identities_by_product.html"
+
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
+
+        self.section = "Rogers–Ramanujan type identities"
+
+    def __build__(self):
+        # Make missing pages red
+        identities = [entry.name for entry in os.scandir("pages/identities")]
+
+        for row in regex.findall(r"<tr>(.*?)</tr>", self.content, flags=regex.DOTALL):
+            if "<th>" in row:
+                continue
+
+            cols = regex.findall(r"<td>(.*?)</td>", row, flags=regex.DOTALL)
+            identity = regex.search(r"identities/([0-9.]+)\.html", cols[0])
+
+            if identity is None:
+                continue
+
+            identity = identity[1]
+            if f"{identity}.md" not in identities:
+                # Color equation red
+                self.content = regex.sub(rf'(?<=<a href="identities/{identity}\.html">)(.*?)\\\((.*?)\\\)',
+                                         lambda match: f"{match[1]}\\({{\\color{{red}} {match[2]} }}\\)",
+                                         self.content, flags=regex.DOTALL)
+
+                # Color entire row red
+                self.content = regex.sub(rf'<tr>(?=\s*<td>\s*<a href="identities/{identity}\.html">)',
+                                         '<tr style="color:red">',
+                                         self.content)
+
+
 class ToolsPage(RRSDBPage):
     _path = "pages/series_factorization_tool.html"
 
