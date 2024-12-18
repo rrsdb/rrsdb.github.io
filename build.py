@@ -34,12 +34,13 @@ def process_directory(path):
         for entry in it:
             if not entry.name.startswith(".") and entry.name != OUT_DIR.name:
                 if entry.is_file():
-                    try:
+                    if entry.name.endswith(".md") or entry.name.endswith(".html"):
+                        # Build text pages
                         build_page(Path(entry.path))
                         print(f"Built page '{entry.path}'")
                         
-                    except ValueError:
-                        # Skip non-text and ambiguous build matches
+                    else:
+                        # Copy everything else
                         print(f"Could not build page '{entry.path}'")
                         shutil.copyfile(entry.path, OUT_DIR.joinpath(entry.path))
                         
