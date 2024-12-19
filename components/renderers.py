@@ -5,20 +5,6 @@ from collections import namedtuple
 from mistune.directives import FencedDirective
 from mistune.directives import Image, Figure
 
-PLUGINS = [
-    "strikethrough",
-    "footnotes",
-    "table",
-    "def_list",
-    "abbr",
-    "mark",
-    "math",
-    FencedDirective([
-        Image(),
-        Figure()
-    ])
-]
-
 
 # Close all open HTML tags (really awful)
 def closing_tags(text: str) -> str:
@@ -45,6 +31,48 @@ def wrap(text: str, tags: str) -> str:
 # Strip all tags
 def plaintext(text: str) -> str:
     return regex.sub(r"<.*?>", "", text, flags=regex.DOTALL)
+
+
+# Math plugin
+def math(md):
+    block_pattern = r'^\s*\$\$\s*(?P<math_text>[\s\S]+?)\s*\$\$\s*$'
+    inline_pattern = r'\$\s*(?P<math_text>.+?)\s*\$'
+
+    def parse_block_math(block, match, state) -> int:
+        text = match.group("math_text")
+        state.append_token({"type": "block_math", "raw": text})
+        return match.end() + 1
+
+    def parse_inline_math(inline, match, state) -> int:
+        text = match.group("math_text")
+        state.append_token({"type": "inline_math", "raw": text})
+        return match.end()
+
+
+    md.block.register('block_math', block_pattern, parse_block_math, before='list')
+    md.block.insert_rule(md.block.list_rules, 'block_math', before='list')
+    md.inline.register('inline_math', inline_pattern, parse_inline_math, before='link')
+
+    if md.renderer and md.renderer.NAME == 'html':
+        md.renderer.register('block_math', lambda renderer, text: rf"\[{text}\]")
+        md.renderer.register('inline_math', lambda renderer, text: rf"\({text}\)")
+
+
+PLUGINS = [
+    "strikethrough",
+    "footnotes",
+    "table",
+    "def_list",
+    "abbr",
+    "mark",
+
+    math,
+
+    FencedDirective([
+        Image(),
+        Figure()
+    ])
+]
 
 
 Heading = namedtuple("Heading", ["level", "id", "plaintext", "rendered"])
@@ -103,12 +131,6 @@ class RRSDBRenderer(mistune.HTMLRenderer):
 
     def strong(self, text: str) -> str:
         return f"<b>{text}</b>"
-
-    def block_math(self, text: str) -> str:
-        return rf"\[{text}\]"
-
-    def inline_math(self, text: str) -> str:
-        return rf"\({text}\)"
 
     def list_item(self, text: str) -> str:
         return f"<li><p>{super().list_item(text)[4:-6]}</p></li>\n"

@@ -74,10 +74,6 @@ class MarkdownPage(RRSDBPage):
     
     def __init__(self, path: Path, page: str):
         super().__init__(path, page)
-        
-        # Math spacing (should write custom plugin for this)
-        page = regex.sub(r"\$\$\s*(.*?)\s*\$\$", lambda match: f"$$\n{match[1]}\n$$", page, flags=regex.DOTALL)
-        page = regex.sub(r"\$\s*(.*?)\s*\$", lambda match: f"${match[1]}$", page)
 
         # URL Escaping
         page = regex.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=':/#')})", page)
