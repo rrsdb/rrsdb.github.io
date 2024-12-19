@@ -1,10 +1,4 @@
-# Documentation
-
-## Important files
-
-* ``style.css`` contains style common to all pages (some special pages also contain custom style), including colors, margin sizes, font sizes, and so forth. Changes here effect **every article's appearance**, but not the html structure.
-* ``sidebar.html`` and ``sidebar.js`` contain respectively the html structure of the sidebar and the javascript code to load the sidebar. Changes made to sidebar.html **effect every article**.
-* ``rrsdb_math.js`` contains the code for power series expansion.
+# The Rogers–Ramanujan–Slater Data Base
 
 ## Rogers-Ramanujan type identity articles
 To write a Rogers-Ramanujan type identity article, start by copying the file [identities/template.md](https://rrsdb.github.io/identities/template.md). Fill in the appropriate sections with information for that identity using in the format indicated.
@@ -48,7 +42,6 @@ You can also link to individual headings (`../partitions.html#integer_partitions
 
 # Block Math
 $$ LaTeX $$
-(keep the LaTeX on a single line to avoid rendering issues)
 
 # Definition
 term
@@ -78,3 +71,9 @@ Widgets are elements generated using page and identity information after the res
 ## Other articles
 
 Excepting some pages with embedded code (for the moment), the other informational articles on the site are also written in Markdown. Please feel free to add/correct any details on these pages.
+
+## Other important files
+
+* ``style.css`` contains style common to all pages (some special pages also contain custom style), including colors, margin sizes, font sizes, and so forth. Changes here effect **every article's appearance**, but not the html structure.
+* ``sidebar.html`` and ``sidebar.js`` contain respectively the html structure of the sidebar and the javascript code to load the sidebar. Changes made to sidebar.html **effect every article**.
+* ``rrsdb_math.js`` contains the code for power series expansion.
