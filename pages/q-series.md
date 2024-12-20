@@ -81,7 +81,7 @@ where $p(n)$ is the number of [unrestricted partitions](partitions.html#integer_
 
 ## The triple product identity {#triple_product}
 
-Jacobi's (1829) **triple product identity** appears in the literature in many different forms. In terms of [Ramanujan's theta function](#theta_function), it is given by
+Jacobi's (1829) **triple product identity** appears in the literature in many different forms. In terms of [Ramanujan's theta function](#theta_functions), it is given by
 
 $$ f(a,b) = (-a, -b, ab; ab)_\infty, $$
 
