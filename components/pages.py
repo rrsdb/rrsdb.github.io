@@ -15,14 +15,14 @@ def local_path(path: str) -> Path:
 # Get widget content; will eventually use build scripts
 def build_widget(path: str) -> str:
     return local_path("widgets").joinpath(path, "template.html").read_text()
-    
+
 
 # Metaclass for building after __init__
 class Built(type):
     def __call__(cls, *args, **kwargs):
-      new = type.__call__(cls, *args, **kwargs)
-      new.__build__()
-      return new
+        new = type.__call__(cls, *args, **kwargs)
+        new.__build__()
+        return new
 
 
 class RRSDBPage(metaclass=Built):
@@ -65,13 +65,13 @@ class RRSDBPage(metaclass=Built):
     # Replace vars in a file (!! shouldn't conflict with other syntax)
     def replace_vars(self, content: str) -> str:
         return regex.sub(r"!!(\w+)(!!)?", lambda match: vars(self)[match[1]], content)
-        
-        
+
+
 class MarkdownPage(RRSDBPage):
     _path = "*.md"
 
     _renderer = RRSDBRenderer
-    
+
     def __init__(self, path: Path, page: str):
         super().__init__(path, page)
 
@@ -82,7 +82,7 @@ class MarkdownPage(RRSDBPage):
         self.renderer = self._renderer()
         self.body = mistune.create_markdown(renderer=self.renderer, plugins=PLUGINS)(page)
         self.body += closing_tags(self.body)
-        
+
         # Layout info
         self.headings = self.renderer.headings
         self.title = self.headings[0].plaintext if self.headings else ""
@@ -93,18 +93,19 @@ class MarkdownPage(RRSDBPage):
         auth = r"[\p{Lu}\p{Lt}]\w+"
         details = r"\((\d{4})(?:, ((?:\(.*?\)|.)*?))?\)"
         self.references = regex.findall(rf"({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|) {details}", page)
-        
+
     def __build__(self):
         self.sidebar = self.replace_vars(local_path("sidebar.html").read_text(encoding="utf-8"))
         self.header = self.replace_vars(local_path("header.html").read_text(encoding="utf-8"))
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
-        self.content = self.replace_vars(local_path(self.path.parent.stem).with_suffix(".html").read_text(encoding="utf-8"))
+        self.content = self.replace_vars(
+            local_path(self.path.parent.stem).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
         self.content = regex.sub(r"!!(\w+)(!!)?", lambda match: self.replace_vars(build_widget(match[1])), self.content)
-        
-        
+
+
 class InfoPage(MarkdownPage):
     _path = "pages/*.md"
 
@@ -162,7 +163,7 @@ class IdentityPage(MarkdownPage):
     _path = "pages/identities/*.md"
 
     _renderer = IdentityRenderer
-    
+
     def __init__(self, path: Path, page: str):
         super().__init__(path, page)
 
