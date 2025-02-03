@@ -1,3 +1,30 @@
+function rrsdb_page_init() {
+  document.getElementById("modulus_search_button").addEventListener("click", function() {
+    var search_text = document.getElementById("modulus_search_text").value.trim();
+    
+    if (search_text === "") return;
+
+    window.location.href = "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
+  });
+
+  /* For touch screen devices. Toggles sidebar visibility. */
+  document.getElementById("mobile_dropdown_menu_button").addEventListener("click", function() {
+    if (document.getElementById("sidebar").style.display == "block") {
+      document.getElementById("sidebar").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    } else {
+      document.getElementById("sidebar").style.display = "block";
+      document.getElementById("main").style.display = "none";
+    }
+  });
+
+  /* In the specific case that a link is followed from the touch screen drop
+   * down menu that only changes the #, hide the menu. */
+  window.addEventListener("hashchange", function() {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("main").style.display = "block";
+  });
+}
 
 // Returns the expansion of poly1 * poly2.
 function rrsdb_product(terms, poly1, poly2)
