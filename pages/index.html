@@ -5,12 +5,12 @@
   <title>The Rogers&ndash;Ramanujan&ndash;Slater Data Base</title>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="rrsdb_math.js"></script>
+  <script src="sidebar.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 
-<body onload="rrsdb_load_sidebar(); rrsdb_page_init();">
+<body onload="rrsdb_page_init();">
   <header>
     <a id="mobile_dropdown_menu_button">&#9776</a>
     <a id="logo_container" href="index.html"></a>
@@ -20,8 +20,9 @@
     </div>
   </header>
 
-  <div id="main_and_sidebar_container" style="display: flex">
-
+  <div style="display: flex">
+    <div id="sidebar_container"; style="display: contents;"></div>
+	  
     <div id="main">
       <div class="main_infobox">
         <div style="width: 600px; margin: 0 auto; text-align-last: justify;">
