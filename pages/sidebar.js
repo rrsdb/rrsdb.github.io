@@ -4,7 +4,7 @@ function rrsdb_page_init() {
   var xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function() {
-    var container = document.getElementById("sidebar");
+    var container = document.getElementById("sidebar_container");
     container.innerHTML = this.responseText;
 
     document.getElementById("modulus_search_button").addEventListener("click", function() {
