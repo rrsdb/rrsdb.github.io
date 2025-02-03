@@ -6,11 +6,33 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="rrsdb_math.js"></script>
+  <script> /* Temporary script until page is replaced with markdown. */
+  function rrsdb_load_sidebar() {	  
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      var container = document.getElementById("main_and_sidebar_container");
+      container.innerHTML = this.responseText + container.innerHTML;
+
+      document.getElementById("modulus_search_button").addEventListener("click", function() {
+        var search_text = document.getElementById("modulus_search_text").value.trim();
+
+        if (search_text === "") return;
+
+        window.location.href = "https://rrsdb.github.io/identities_by_product.html#mod" + search_text;
+      });
+    }
+
+    xhttp.open("GET", "https://rrsdb.github.io/sidebar.html", true);
+    xhttp.send();
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 
-<body onload="rrsdb_page_init();">
+<body onload="rrsdb_load_sidebar(); rrsdb_page_init();">
   <header>
     <a id="mobile_dropdown_menu_button">&#9776</a>
     <a id="logo_container" href="index.html"></a>
@@ -20,8 +42,7 @@
     </div>
   </header>
 
-  <div style="display: flex">
-    <div id="sidebar"></div>
+  <div id="main_and_sidebar_container" style="display: flex">
 
     <div id="main">
       <div class="main_infobox">
