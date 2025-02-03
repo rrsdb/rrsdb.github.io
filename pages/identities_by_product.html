@@ -16,7 +16,7 @@
     rrsdb_check_modulus();
 
     xhttp.onreadystatechange = function() {
-      var container = document.getElementById("sidebar");
+      var container = document.getElementById("sidebar_container");
       container.innerHTML = this.responseText;
       
       document.getElementById("modulus_search_button").addEventListener("click", function() {
@@ -112,7 +112,7 @@
   </header>
 
   <div style="display: flex">
-    <div id="sidebar"></div>
+    <div id="sidebar_container"; style="display: contents;"></div>
 
     <div id="main">
 
