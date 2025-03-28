@@ -88,11 +88,11 @@ class MarkdownPage(RRSDBPage):
         self.title = self.headings[0].plaintext if self.headings else ""
 
         # References
-        self.bailey_links = regex.findall(r"[A-Z]\(\d{,2}\)", page)
-
         auth = r"[\p{Lu}\p{Lt}]\w+"
         details = r"\((\d{4})(?:, ((?:\(.*?\)|.)*?))?\)"
-        self.references = regex.findall(rf"({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|) {details}", page)
+        self.references = [*regex.finditer(rf"({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|) {details}", page)]
+        self.references = [(regex.split(r" and |, and | & |, ", match[1]), match[2], match[3])
+                           for match in self.references]
 
     def __build__(self):
         self.sidebar = self.replace_vars(local_path("sidebar.html").read_text(encoding="utf-8"))
@@ -103,7 +103,14 @@ class MarkdownPage(RRSDBPage):
             local_path(self.path.parent.stem).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
-        self.content = regex.sub(r"!!(\w+)(!!)?", lambda match: self.replace_vars(build_widget(match[1])), self.content)
+        self.content = regex.sub(r"!!(\w+)(!!)?",
+                                 lambda match: self.replace_vars(build_widget(match[1])),
+                                 self.content)
+
+        # Bailey links
+        self.content = regex.sub(r"(?<!\$)[A-Z]\(\d+\)(?!\$)",
+                                 lambda match: f'<a href="../Bailey_pair_tables.html#{match[0]}">{match[0]}</a>',
+                                 self.content)
 
 
 class InfoPage(MarkdownPage):
