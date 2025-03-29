@@ -29,6 +29,7 @@ class RRSDBPage(metaclass=Built):
     _page_types = {}
     _path = "*"
 
+    _template = "page"
     _renderer = None
 
     def __init__(self, path: Path, page: str):
@@ -99,8 +100,7 @@ class MarkdownPage(RRSDBPage):
         self.header = self.replace_vars(local_path("header.html").read_text(encoding="utf-8"))
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
-        self.content = self.replace_vars(
-            local_path(self.path.parent.stem).with_suffix(".html").read_text(encoding="utf-8"))
+        self.content = self.replace_vars(local_path(self._template).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
         self.content = regex.sub(r"!!(\w+)(!!)?",
@@ -169,6 +169,7 @@ class ToolsPage(RRSDBPage):
 class IdentityPage(MarkdownPage):
     _path = "pages/identities/*.md"
 
+    _template = "identity"
     _renderer = IdentityRenderer
 
     def __init__(self, path: Path, page: str):
