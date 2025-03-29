@@ -107,11 +107,6 @@ class MarkdownPage(RRSDBPage):
                                  lambda match: self.replace_vars(build_widget(match[1])),
                                  self.content)
 
-        # Bailey links
-        self.content = regex.sub(r"(?<!\$)[A-Z]\(\d+\)(?!\$)",
-                                 lambda match: f'<a href="../Bailey_pair_tables.html#{match[0]}">{match[0]}</a>',
-                                 self.content)
-
 
 class InfoPage(MarkdownPage):
     _path = "pages/*.md"
@@ -184,3 +179,12 @@ class IdentityPage(MarkdownPage):
 
         else:
             self.signature = "{length}, [{items}]".format(**signature.groupdict())
+
+
+    def __build__(self):
+        super().__build__()
+
+        # Bailey links
+        self.content = regex.sub(r"(?<!\$)[A-Z]\(\d+\)(?!\$)",
+                                 lambda match: f'<a href="../Bailey_pair_tables.html#{match[0]}">{match[0]}</a>',
+                                 self.content)
