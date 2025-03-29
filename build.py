@@ -21,6 +21,8 @@ def build_page(path: Path):
               errors="xmlcharrefreplace") as outfile:
         outfile.write(page.content)
 
+    print(f"Built {type(page).__name__} '{path}'")
+
 
 # Build all pages in a directory
 def process_directory(path):
@@ -37,16 +39,19 @@ def process_directory(path):
                     if entry.name.endswith(".md") or entry.name.endswith(".html"):
                         # Build text pages
                         build_page(Path(entry.path))
-                        print(f"Built page '{entry.path}'")
 
                     else:
                         # Copy everything else
-                        print(f"Could not build page '{entry.path}'")
                         shutil.copyfile(entry.path, OUT_DIR.joinpath(entry.path))
+                        print(f"Copied File '{entry.path}'")
 
                 elif entry.is_dir():
                     # Recurse down subdirectories
                     process_directory(entry.path)
+
+                else:
+                    # Something weird
+                    raise ValueError(f"unrecognized entry: '{entry.path}'")
 
 
 if __name__ == "__main__":
