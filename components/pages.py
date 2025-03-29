@@ -16,6 +16,8 @@ def local_path(path: str) -> Path:
 def build_widget(path: str) -> str:
     return local_path("widgets").joinpath(path, "template.html").read_text()
 
+VAR_PATTERN = r"!!(?P<var>\w+)(!!)?"
+
 
 # Metaclass for building after __init__
 class Built(type):
@@ -65,7 +67,7 @@ class RRSDBPage(metaclass=Built):
 
     # Replace vars in a file (!! shouldn't conflict with other syntax)
     def replace_vars(self, content: str) -> str:
-        return regex.sub(r"!!(\w+)(!!)?", lambda match: vars(self)[match[1]], content)
+        return regex.sub(VAR_PATTERN, lambda match: vars(self)[match['var']], content)
 
 
 class MarkdownPage(RRSDBPage):
@@ -77,7 +79,7 @@ class MarkdownPage(RRSDBPage):
         super().__init__(path, page)
 
         # URL Escaping
-        page = regex.sub(r"]\((\S+)\)", lambda match: f"]({quote(match[1], safe=':/#')})", page)
+        page = regex.sub(r"]\((?P<url>\S+)\)", lambda match: f"]({quote(match['url'], safe=':/#')})", page)
 
         # Render body
         self.renderer = self._renderer()
@@ -90,9 +92,9 @@ class MarkdownPage(RRSDBPage):
 
         # References
         auth = r"[\p{Lu}\p{Lt}]\w+"
-        details = r"\((\d{4})(?:, ((?:\(.*?\)|.)*?))?\)"
-        self.references = [*regex.finditer(rf"({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|) {details}", page)]
-        self.references = [(regex.split(r" and |, and | & |, ", match[1]), match[2], match[3])
+        pattern = rf"(?P<authors>({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|)) \((?P<year>\d{{4}})(?:, (?P<details>(?:\(.*?\)|.)*?))?\)"
+        self.references = [*regex.finditer(pattern, page)]
+        self.references = [(regex.split(r" and |, and | & |, ", match['authors']), match['year'], match['details'])
                            for match in self.references]
 
     def __build__(self):
@@ -103,9 +105,7 @@ class MarkdownPage(RRSDBPage):
         self.content = self.replace_vars(local_path(self._template).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
-        self.content = regex.sub(r"!!(\w+)(!!)?",
-                                 lambda match: self.replace_vars(build_widget(match[1])),
-                                 self.content)
+        self.content = regex.sub(VAR_PATTERN, lambda match: self.replace_vars(build_widget(match['var'])), self.content)
 
 
 class InfoPage(MarkdownPage):
@@ -178,7 +178,7 @@ class IdentityPage(MarkdownPage):
             self.signature = "5, [1,0,0,1,0]"
 
         else:
-            self.signature = "{length}, [{items}]".format(**signature.groupdict())
+            self.signature = f"{signature['length']}, [{signature['items']}]"
 
 
     def __build__(self):

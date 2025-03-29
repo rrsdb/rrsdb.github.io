@@ -39,12 +39,12 @@ def math(md):
     inline_pattern = r'\$\s*(?P<math_text>.+?)\s*\$'
 
     def parse_block_math(block, match, state) -> int:
-        text = match.group("math_text")
+        text = match['math_text']
         state.append_token({"type": "block_math", "raw": text})
         return match.end() + 1
 
     def parse_inline_math(inline, match, state) -> int:
-        text = match.group("math_text")
+        text = match['math_text']
         state.append_token({"type": "inline_math", "raw": text})
         return match.end()
 
