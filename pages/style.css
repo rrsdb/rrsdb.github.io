@@ -133,7 +133,7 @@ a.sidebar_title_text:hover {
   min-height: calc(100vh - 190px);
   margin: 0px auto 0px auto;
   flex-grow: 1;
-  max-width: 1250px;
+  max-width: 1350px;
   background: white;
   padding: 10px;
 }
