@@ -6,7 +6,7 @@ $$ 1 + \sum_{n=1}^\infty r(n) q^n = \prod_{n=1}^\infty \frac{1}{(1-q^n)^{a_n}} $
 
 when the $a_n$ are nonnegative integers.  See Andrews (1976, Chapter 6) for an exposition in English. Todt (2011) strengthens Meinardus' result by showing that it can be extended to all real $a_n$ provided the $r(n)$ are a nondecreasing function of $n$. It is further conjectured that Meinardus' result would still hold for real $a_n$ if the $r(n)$ were *eventually* nondecreasing, but this has not been established rigorously.  The Meinardus asymptotic, as $ n\to\infty $, is
 
-$$ r(n) \sim C n^\kappa \exp\left\{ n^{\alpha/(\alpha+1)} \left( 1 + \frac{1}{\alpha} \right) A \Gamma(\alpha+1) \zeta(\alpha+1)]^{1/(\alpha+1)} \right\} , $$
+$$ r(n) \sim C n^\kappa \exp\left\{ n^{\alpha/(\alpha+1)} \left( 1 + \frac{1}{\alpha} \right) [A \Gamma(\alpha+1) \zeta(\alpha+1)]^{1/(\alpha+1)} \right\} , $$
 
 where $\zeta(s)$ is the Riemann zeta-function, $\Gamma(s)$ is Euler's gamma function,
 
