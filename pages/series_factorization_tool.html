@@ -63,17 +63,22 @@
       power_list.push(power);
     }
 
-    var html = "";
+    var html = "\\(";
 
     for (var index = 0; index < power_list.length; ++index) {
       if (power_list[index] == 0) continue;
 
-      html += "(1-q<sup>" + (index + 1).toString() + "</sup>)<sup>" +
-              (power_list[index] < 0 ? "" : "-") + "<b>" + 
-              Math.abs(power_list[index].toString()) + "</b></sup>";
+      html += "(1-q^{" + (index + 1).toString() + "})^{" +
+              (power_list[index] < 0 ? "" : "-") +
+              Math.abs(power_list[index].toString()) + "}";
     }
 
-    document.getElementById("power_series_factorization_output").innerHTML = html;
+    html += "\\)";
+
+    const output = document.getElementById("power_series_factorization_output");
+    MathJax.typesetClear([output]);
+    output.innerHTML = html;
+    MathJax.typesetPromise([output])
   }
   </script>
   <style>

@@ -160,17 +160,22 @@ function rrsdb_series_expand_simple(modulus, power_list)
     return;
   }
 
-  var html = "1";
+  var html = "\\( 1";
 
   if (terms > 1) {
     for (var index = 1; index < terms; ++index) {
       if (coefficients[index] != 0) {
         html += (coefficients[index] > 0 ? " + " : " - ")
           + (Math.abs(coefficients[index]) == 1 ? "" : Math.abs(coefficients[index]).toString())
-          + "q<sup>" + (index == 1 ? "" : index.toString()) + "</sup>";
+          + "q^{" + (index == 1 ? "" : index.toString()) + "}";
       }
     }
   }
 
-  document.getElementById("series_expansion").innerHTML = html;
+  html += "\\)"
+
+  const output = document.getElementById("series_expansion");
+  MathJax.typesetClear([output]);
+  output.innerHTML = html;
+  MathJax.typesetPromise([output])
 }
