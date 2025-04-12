@@ -26,20 +26,26 @@
     var coefficients_raw = document.getElementById("power_series_factorization_input_box").innerHTML;
     var coefficients = [];
 
+    const output = document.getElementById("power_series_factorization_output");
+
     // TODO add input sanity checks
 
     for (const entry of coefficients_raw.split(',')) {
       coefficients.push(parseInt(entry, 10));
     }
 
+    if (coefficients.some(Number.isNaN)) {
+        output.innerHTML = "<span style='color: red'>The input must be numeric.</span>";
+        return;
+    }
+
     if (coefficients[0] != 1) {
-      document.getElementById("power_series_factorization_output").innerHTML
-          = "<span style='color: red'>The constant coefficient must equal 1.</span>";
+      output.innerHTML = "<span style='color: red'>The constant coefficient must equal 1.</span>";
       return;
     }
 
     if (coefficients.length == 1) {
-      document.getElementById("power_series_factorization_output").innerHTML = "1";
+      output.innerHTML = "1";
       return;
     }
 
@@ -75,7 +81,6 @@
 
     html += "\\)";
 
-    const output = document.getElementById("power_series_factorization_output");
     MathJax.typesetClear([output]);
     output.innerHTML = html;
     MathJax.typesetPromise([output])
