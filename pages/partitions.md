@@ -44,7 +44,7 @@ $$ \sum_{n=0}^\infty p(n) q^n = \frac{1}{(q;q)_\infty}  = \frac{1}{f(-q)}. $$
 
 ## Partitions with $k$ colors {#colored_partitions}
 
-A **partition with $k$ colors** of an integer $n$ is a representation of \(n\) as a sum of weakly deceasing positive integers where summands of a particular magnitude may occur in $k$ different distinguishable varieties (or colors).  For example, while there are two partitions of $2$, namely $(2)$, and $(1,1)$, there are nine partitions of 2 in three colors:
+A **partition with $k$ colors** of an integer $n$ is a representation of $n$ as a sum of weakly deceasing positive integers where summands of a particular magnitude may occur in $k$ different distinguishable varieties (or colors).  For example, while there are two partitions of $2$, namely $(2)$, and $(1,1)$, there are nine partitions of 2 in three colors:
 
 $$(2_1), (2_2), (2_3), (1_1, 1_1), (1_1, 1_2), (1_1, 1_3), (1_2, 1_2), (1_2, 1_3), 
     (1_3, 1_3) , $$
@@ -66,7 +66,7 @@ $$ (3), (\overline{3}), (2,1), (\overline{2},1), (2,\overline{1}),
 
 Overpartitions were formally introduced by Corteel and Lovejoy (2004), and
 have since accumulated a vast literature. There are many results related
-to partitions that have natural analogs in overpartitions. As with partitions, the generating function for the number of overpartitions $\overline{p}(n)$ is the reciprocal of a [Ramanujan theta function](../q-series.html#theta_functions), specifically,
+to partitions that have natural analogs in overpartitions. As with partitions, the generating function for the number of overpartitions $\overline{p}(n)$ of $n$ is the reciprocal of a [Ramanujan theta function](../q-series.html#theta_functions), specifically,
 
 $$ \sum_{n=0}^\infty \overline{p}(n) q^n = \frac{(-q;q)_\infty}{(q;q)_\infty} = \frac{1}{\varphi(-q)}. $$
 
