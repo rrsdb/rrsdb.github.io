@@ -72,5 +72,5 @@ $$ \sum_{n=0}^\infty \overline{p}(n) q^n = \frac{(-q;q)_\infty}{(q;q)_\infty} = 
 
 ## References
 
-- G. E. Andrews (1976) The Theory of Partitions, Encyclopedia of Mathematics and its Applications, vol. 2, Addison—Wesley: Reading, MA. Reissued, Cambridge University Press, 1998. [DOI](https://doi.org/10.1017/CBO9780511608650)
-- S. Corteel and J. Lovejoy (2004) Overpartitions, Trans. Amer. Math. Soc. 356, 1623—1635. [PDF](https://www.ams.org/journals/tran/2004-356-04/S0002-9947-03-03328-2/S0002-9947-03-03328-2.pdf)
+- G. E. Andrews (1976) The Theory of Partitions, Encyclopedia of Mathematics and its Applications, vol. 2, Addison–Wesley: Reading, MA. Reissued, Cambridge University Press, 1998. [DOI](https://doi.org/10.1017/CBO9780511608650)
+- S. Corteel and J. Lovejoy (2004) Overpartitions, Trans. Amer. Math. Soc. 356, 1623–1635. [PDF](https://www.ams.org/journals/tran/2004-356-04/S0002-9947-03-03328-2/S0002-9947-03-03328-2.pdf)
