@@ -22,7 +22,7 @@ Due to Jacobi (1829). See also Andrews (1976, p. 20, Eq. (2.2.8)); there this id
 
 If $ |q|<1 $, 
 
-$$ \sum_{n=0}^\infty \frac{q^{n(n+1)}(a;q)_n}{(q;q)_n}  = \frac{(aq;q^2)_\infty}{(q;q^2)_\infty}. $$
+$$ \sum_{n=0}^\infty \frac{q^{n(n+1)/2}(a;q)_n}{(q;q)_n}  = \frac{(aq;q^2)_\infty}{(q;q^2)_\infty}. $$
 
 Due to V. A. Lebesgue (1840). See also Andrews (1976, p. 21, Cor. 2.7).
 
