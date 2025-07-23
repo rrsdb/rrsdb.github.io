@@ -97,7 +97,7 @@ for positive integers $a > b$, where $\vert q \rvert < 1$.
 
 The **quintuple product identity** has been discovered and re-discovered many times. See Cooper (2006) for a comprehensive history the identity. The first explicit appearance in the literature seems to be Fricke (1916), although Ramanujan independently discovered it around the same time and made use of many special cases. A form that is particularly useful in the context of Rogers—Ramanujan type identities is as follows:
 
-$$ f(-wx^3, -w^2 x^{-3}) + x f(-wx^{-3},-w^2 x^3) = (-w/x, -x, w; w)_\infty (w/x^2, wx^2; w^2)_\infty, $$
+$$ Q(w,x) := f(-wx^3, -w^2 x^{-3}) + x f(-wx^{-3},-w^2 x^3) = (-w/x, -x, w; w)_\infty (w/x^2, wx^2; w^2)_\infty, $$
 
 where $w$ and $x$ are each equal to $ \pm q^{m} $ for some positive integer or half-integer $ m $ and $ |q| < 1 $ to ensure convergence. Another form of the quintuple product identity is
 
