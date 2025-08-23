@@ -47,7 +47,7 @@ $$\begin{aligned}
 ## Principally specialized characters
 
 Given a standard module $L(\lambda)$, its character is an object in the formal power series ring:
-\begin{aligned}$$
+$$\begin{aligned}
 \operatorname{ch}(L(\lambda)) \in e^{\lambda}\mathbb{Z}[[e^{-\alpha_0}, \cdots, e^{-\alpha_r}]].
 \end{aligned}$$
 Principal specialization of the ring $\mathbb{Z}[[e^{-\alpha_0},\cdots,e^{-\alpha_r}]]$ is the homomorphism uniquely determined by
@@ -80,10 +80,6 @@ $$\begin{aligned}
 \label{eqn:lambdamuAC}
 \end{aligned}$$
 Then,
-% \begin{align}
-% \prch(L(\lambda))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{1\leq a\leq n\\0\leq b\leq n}}
-% (q^{j_b+j_{b+1}+\cdots+j_{a+b-1}+a};q^{n+\ell+1})_\infty,
-% \end{align}
 $$\begin{aligned}
 F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a<b\leq n}}
  \theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
@@ -120,28 +116,29 @@ where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not
 
 If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
 
-     |----------|--------------|
-     | $\la{g}$ | $F_{\la{g}}$ |
-     | $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
-     |----------|--------------|
-     | $D_n^{(1)}$ | $(q;q^2)_\infty^{-1}(q^{n-1};q^{2n-2})_\infty^{-1}$ |
-     |----------|--------------|
-     | $E_{6}^{(1)}$ | $\theta(q,q^4,q^5;q^{12})^{-1}$ |
-     |----------|--------------|
-     | $E_{7}^{(1)}$ | $(q^9;q^{18})_\infty^{-1}\theta(q,q^5,q^7;q^{18})^{-1}$ |
-     |----------|--------------|
-     | $E_8^{(1)}$ | $(q^9;q^{30})_\infty^{-1}\theta(q,q^7,q^{11},q^{13};q^{30})^{-1}$ |
-     |----------|--------------|
-     | A_{2n}^{(2)}$ | $\dfrac{(q^{2n+1};q^{2n+1})_\infty}{(q;q^2)_\infty}$ |
-     |----------|--------------|
-     | $A_{2n-1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
-     |----------|--------------|
-     | $D_{n+1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
-     |----------|--------------|
-     | $E_6^{(2)}$ | $\theta(q;q^6)^{-1}$ |
-     |----------|--------------|
-     | $D_4^{(3)}$ | $\theta(q;q^6)^{-1}$ |
-     |----------|--------------|
+|----------|--------------|
+| $\la{g}$ | $F_{\la{g}}$ |
+|----------|--------------|
+| $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
+|----------|--------------|
+| $D_n^{(1)}$ | $(q;q^2)_\infty^{-1}(q^{n-1};q^{2n-2})_\infty^{-1}$ |
+|----------|--------------|
+| $E_{6}^{(1)}$ | $\theta(q,q^4,q^5;q^{12})^{-1}$ |
+|----------|--------------|
+| $E_{7}^{(1)}$ | $(q^9;q^{18})_\infty^{-1}\theta(q,q^5,q^7;q^{18})^{-1}$ |
+|----------|--------------|
+| $E_8^{(1)}$ | $(q^9;q^{30})_\infty^{-1}\theta(q,q^7,q^{11},q^{13};q^{30})^{-1}$ |
+|----------|--------------|
+| A_{2n}^{(2)}$ | $\dfrac{(q^{2n+1};q^{2n+1})_\infty}{(q;q^2)_\infty}$ |
+|----------|--------------|
+| $A_{2n-1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
+|----------|--------------|
+| $D_{n+1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
+|----------|--------------|
+| $E_6^{(2)}$ | $\theta(q;q^6)^{-1}$ |
+|----------|--------------|
+| $D_4^{(3)}$ | $\theta(q;q^6)^{-1}$ |
+|----------|--------------|
 
 
 
