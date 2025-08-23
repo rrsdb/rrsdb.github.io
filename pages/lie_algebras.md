@@ -80,7 +80,7 @@ $$\begin{aligned}
 \end{aligned}$$
 Then,
 $$\begin{aligned}
-F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a<b\leq n}}
+F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a < b\leq n}}
 \theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
 \end{aligned}$$
 This formula can be deduced by combining \cite[Eq.\ 5.2]{AndSchWar} with \cite[Eq.\ 5]{FodWel}.
@@ -92,7 +92,7 @@ $$\begin{aligned}
 F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))&=
 \dfrac{(q^2;q^2)_\infty(q^{\kappa/2};q^{\kappa/2})_\infty(q^\kappa;q^\kappa)^{n-1}_\infty}{(q)_\infty^{n+1}}\\
 &\times\prod_{a=1}^n\theta(q^{\mu_a+n-a+1};q^{\kappa/2})
-\prod_{1\leq a<b\leq n}\theta(q^{\mu_a-\mu_b-a+b};q^{\kappa})
+\prod_{1\leq a < b\leq n}\theta(q^{\mu_a-\mu_b-a+b};q^{\kappa})
 \theta(q^{\mu_a+\mu_b+2n+2-a-b};q^{\kappa}).
 \end{aligned}$$
 This formula can be found as \cite[Eq.\ 3.19]{GriOnoWar}
@@ -115,7 +115,9 @@ where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not
 
 If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
 
+| --- | --- |
 | $\mathfrak{g}$ | $F_{\mathfrak{g}}$ |
+| --- | --- |
 | $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
 | $D_n^{(1)}$ | $(q;q^2)_\infty^{-1}(q^{n-1};q^{2n-2})_\infty^{-1}$ |
 | $E_{6}^{(1)}$ | $\theta(q,q^4,q^5;q^{12})^{-1}$ |
