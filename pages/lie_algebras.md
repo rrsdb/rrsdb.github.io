@@ -77,13 +77,12 @@ We then have:
 1. Type $A_n^{(1)}$. Given $\lambda = j_0\Lambda_0+\cdots+j_n\Lambda_n$ with $j_0,\cdots,j_n\in \mathbb{Z}_{\geq 0}$ and $\ell=j_0+\cdots+j_n$,  consider a sequence of integers $\mu_0,\cdots, \mu_n$ such that:
 $$\begin{aligned}
 \mu_0-\mu_1 = j_0,\,\, \mu_1-\mu_2=j_1,\,\,\cdots,\,\, \mu_n=j_n.
-\label{eqn:lambdamuAC}
 \end{aligned}$$
 Then,
 $$\begin{aligned}
 F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a<b\leq n}}
- \theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
- \end{aligned}$$
+\theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
+\end{aligned}$$
 This formula can be deduced by combining \cite[Eq.\ 5.2]{AndSchWar} with \cite[Eq.\ 5]{FodWel}.
 
 2. Type $C_n^{(1)}$. Given $\lambda = j_0\Lambda_0+\cdots+j_n\Lambda_n$ with $j_0,\cdots,j_n\in \mathbb{Z}_{\geq 0}$, define $\mu$'s as in \eqref{eqn:lambdamuAC}.
@@ -91,7 +90,7 @@ Further define $\kappa = 2n+2\mu_0+2$.
 Then, we have:
 $$\begin{aligned}
 F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))&=
-\dfrac{(q^2;q^2)_\infty(q^{\kappa/2};q^{\kappa/2})_\infty(q^\kappa;q^\kappa)^{n-1}_\infty}{(q)_\infty^{n+1}}\notag\\
+\dfrac{(q^2;q^2)_\infty(q^{\kappa/2};q^{\kappa/2})_\infty(q^\kappa;q^\kappa)^{n-1}_\infty}{(q)_\infty^{n+1}}\\
 &\times\prod_{a=1}^n\theta(q^{\mu_a+n-a+1};q^{\kappa/2})
 \prod_{1\leq a<b\leq n}\theta(q^{\mu_a-\mu_b-a+b};q^{\kappa})
 \theta(q^{\mu_a+\mu_b+2n+2-a-b};q^{\kappa}).
@@ -116,34 +115,17 @@ where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not
 
 If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
 
-|----------|--------------|
-| $\la{g}$ | $F_{\la{g}}$ |
-|----------|--------------|
+| $\mathfrak{g}$ | $F_{\mathfrak{g}}$ |
 | $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
-|----------|--------------|
 | $D_n^{(1)}$ | $(q;q^2)_\infty^{-1}(q^{n-1};q^{2n-2})_\infty^{-1}$ |
-|----------|--------------|
 | $E_{6}^{(1)}$ | $\theta(q,q^4,q^5;q^{12})^{-1}$ |
-|----------|--------------|
 | $E_{7}^{(1)}$ | $(q^9;q^{18})_\infty^{-1}\theta(q,q^5,q^7;q^{18})^{-1}$ |
-|----------|--------------|
 | $E_8^{(1)}$ | $(q^9;q^{30})_\infty^{-1}\theta(q,q^7,q^{11},q^{13};q^{30})^{-1}$ |
-|----------|--------------|
-| A_{2n}^{(2)}$ | $\dfrac{(q^{2n+1};q^{2n+1})_\infty}{(q;q^2)_\infty}$ |
-|----------|--------------|
+| $A_{2n}^{(2)}$ | $\dfrac{(q^{2n+1};q^{2n+1})_\infty}{(q;q^2)_\infty}$ |
 | $A_{2n-1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
-|----------|--------------|
 | $D_{n+1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
-|----------|--------------|
 | $E_6^{(2)}$ | $\theta(q;q^6)^{-1}$ |
-|----------|--------------|
 | $D_4^{(3)}$ | $\theta(q;q^6)^{-1}$ |
-|----------|--------------|
-
-
-
-
-
 
 ## Example
 
@@ -156,3 +138,4 @@ F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(\Omega(\lambda))) &=\dfrac{1}{F_{\m
 =\dfrac{(q^{j_0+1},q^{j_1+1},q^{\ell+2};q^{\ell+2})_\infty}{(q)_\infty}.
 \end{aligned}$$
 
+## References
