@@ -115,7 +115,6 @@ where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not
 
 If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
 
-| --- | --- |
 | $\mathfrak{g}$ | $F_{\mathfrak{g}}$ |
 | --- | --- |
 | $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
