@@ -52,13 +52,13 @@ Given a standard module $L(\lambda)$, its character is an object in the formal p
 \end{aligned}$$
 Principal specialization of the ring $\mathbb{Z}[[e^{-\alpha_0},\cdots,e^{-\alpha_r}]]$ is the homomorphism uniquely determined by
 $$\begin{aligned}
-F_{\mathbbm{1}}: \mathbb{Z}[[e^{-\alpha_0},\cdots,e^{-\alpha_r}]] \rightarrow \mathbb{Z}[[q]] \notag\\
+F_{\mathbb{1}}: \mathbb{Z}[[e^{-\alpha_0},\cdots,e^{-\alpha_r}]] \rightarrow \mathbb{Z}[[q]] \notag\\
 e^{-\alpha_0}\mapsto q, e^{-\alpha_1}\mapsto q,\cdots, e^{-\alpha_r}\mapsto q,\notag
 \end{aligned}$$
 where $q$ is a formal variable.
 
 We will consider principally specialized characters, which we obtain as
-$$F_{\mathbbm{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda))).$$
+$$F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda))).$$
 
 
 Several sources in the literature provide explicit evaluations of principally specialized characters,
@@ -85,7 +85,7 @@ Then,
 % (q^{j_b+j_{b+1}+\cdots+j_{a+b-1}+a};q^{n+\ell+1})_\infty,
 % \end{align}
 $$\begin{aligned}
-F_{\mathbbm{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a<b\leq n}}
+F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a<b\leq n}}
  \theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
  \end{aligned}$$
 This formula can be deduced by combining \cite[Eq.\ 5.2]{AndSchWar} with \cite[Eq.\ 5]{FodWel}.
@@ -94,7 +94,7 @@ This formula can be deduced by combining \cite[Eq.\ 5.2]{AndSchWar} with \cite[E
 Further define $\kappa = 2n+2\mu_0+2$.
 Then, we have:
 $$\begin{aligned}
-F_{\mathbbm{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))&=
+F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))&=
 \dfrac{(q^2;q^2)_\infty(q^{\kappa/2};q^{\kappa/2})_\infty(q^\kappa;q^\kappa)^{n-1}_\infty}{(q)_\infty^{n+1}}\notag\\
 &\times\prod_{a=1}^n\theta(q^{\mu_a+n-a+1};q^{\kappa/2})
 \prod_{1\leq a<b\leq n}\theta(q^{\mu_a-\mu_b-a+b};q^{\kappa})
@@ -114,18 +114,45 @@ Lepowsky and Wilson, building on an earlier work of Lepowsky and Milne showed th
 
 In general, we have 
 $$\begin{aligned}
-F_{\mathbbm{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda))) = F_\mathfrak{g} \cdot F_{\mathbbm{1}} (e^{-\lambda}\operatorname{ch}(\Omega(\lambda))),
+F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda))) = F_\mathfrak{g} \cdot F_{\mathbb{1}} (e^{-\lambda}\operatorname{ch}(\Omega(\lambda))),
 \end{aligned}$$
 where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not the module.
 
 If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
+
+     |----------|--------------|
+     | $\la{g}$ | $F_{\la{g}}$ |
+     | $A_n^{(1)}$ |  $\dfrac{(q^{n+1};q^{n+1})_\infty}{(q;q)_\infty}$ |
+     |----------|--------------|
+     | $D_n^{(1)}$ | $(q;q^2)_\infty^{-1}(q^{n-1};q^{2n-2})_\infty^{-1}$ |
+     |----------|--------------|
+     | $E_{6}^{(1)}$ | $\theta(q,q^4,q^5;q^{12})^{-1}$ |
+     |----------|--------------|
+     | $E_{7}^{(1)}$ | $(q^9;q^{18})_\infty^{-1}\theta(q,q^5,q^7;q^{18})^{-1}$ |
+     |----------|--------------|
+     | $E_8^{(1)}$ | $(q^9;q^{30})_\infty^{-1}\theta(q,q^7,q^{11},q^{13};q^{30})^{-1}$ |
+     |----------|--------------|
+     | A_{2n}^{(2)}$ | $\dfrac{(q^{2n+1};q^{2n+1})_\infty}{(q;q^2)_\infty}$ |
+     |----------|--------------|
+     | $A_{2n-1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
+     |----------|--------------|
+     | $D_{n+1}^{(2)}$ | $(q;q^2)_\infty^{-1}$ |
+     |----------|--------------|
+     | $E_6^{(2)}$ | $\theta(q;q^6)^{-1}$ |
+     |----------|--------------|
+     | $D_4^{(3)}$ | $\theta(q;q^6)^{-1}$ |
+     |----------|--------------|
+
+
+
+
 
 
 ## Example
 
 Let $\lambda=j_0\Lambda_0+j_1\Lambda_1$ be a highest weight of a level $\ell=j_0+j_1$ standard module for $A_1^{(1)}$. Then, we have:
 $$\begin{aligned}
-F_{\mathbbm{1}}(e^{-\lambda}\operatorname{ch}(\Omega(\lambda))) &=\dfrac{1}{F_{\mathfrak{g}}F_{\mathbbm{1}}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))\notag\\
+F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(\Omega(\lambda))) &=\dfrac{1}{F_{\mathfrak{g}}F_{\mathbb{1}}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))\notag\\
 &=\dfrac{(q;q)_\infty}{(q^2;q^2)_\infty}\times
 \dfrac{(q^2;q^2)_\infty(q^{\ell+2};q^{\ell+2})_\infty}{(q)_\infty^{2}}
 \theta(q^{j_1+1};q^{\ell+2})
