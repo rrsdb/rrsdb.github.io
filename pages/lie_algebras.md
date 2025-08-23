@@ -3,24 +3,24 @@
 
 ## Notation
 
-An affine Kac--Moody Lie algebra $\la{g}$ is characterized by its affine Dynkin diagram. Such Dynkin diagrams fall into seven infinite families $A_n^{(1)} (n\geq 1)$, $B_n^{(1)} (n\geq 3)$, $C_n^{(1)} (n\geq 2)$, 
+An affine Kac--Moody Lie algebra $\mathfrak{g}$ is characterized by its affine Dynkin diagram. Such Dynkin diagrams fall into seven infinite families $A_n^{(1)} (n\geq 1)$, $B_n^{(1)} (n\geq 3)$, $C_n^{(1)} (n\geq 2)$, 
 $D_n^{(1)} (n\geq 4)$, $A_{2n}^{(2)} (n\geq 1)$, $A_{2n-1}^{(2)} (n\geq 3)$,  $D_{n+1}^{(1)} (n\geq 2)$, and then we also have seven members
 $E_6^{(1)}, E_7^{(1)}, E_8^{(1)}, F_4^{(1)}, G_2^{(1)}, E_6^{(2)}, D_4^{(3)}$ which do not fall into these families.
 
 
 The nodes of these affine Dynkin diagrams are numbered $0,1,\cdots, r$ as in the given figures (\sk{Todo: add affine Dynkin diagrams}). To each node $i$ in a Dynkin diagram is associated a number called its comark denoted by $c_i$, a simple root $\alpha_i$, and a fundamental weight $\Lambda_i$.
 
-We will be considering characters of standard (i.e., integrable highest-weight modules) for $\la{g}$. These modules are necessarily irreducible. Further, (upto isomorphisms) these modules are characterized by their highest weight $\lambda$ of the form:
+We will be considering characters of standard (i.e., integrable highest-weight modules) for $\mathfrak{g}$. These modules are necessarily irreducible. Further, (upto isomorphisms) these modules are characterized by their highest weight $\lambda$ of the form:
 $$ \begin{aligned}
 \lambda = j_0\Lambda_0 + j_1\Lambda_1+\cdots+j_r\Lambda_r,
-\end{align}
+\end{aligned}$$
 with $j_0,j_1,\cdots, j_r\in\ZZ_{\geq 0}$. We will denote the corresponding standard module by $L(\lambda)$.
 The level of the module $L(\lambda)$ (or the highest weight $\lambda$) is the number
-\begin{align}
+$$\begin{aligned}
     \ell = j_0 c_0 +\cdots j_r c_r,
 \end{aligned}
 $$
-where we recall that $c_0,\cdots, c_r$ are the comarks for $\la{g}$.
+where we recall that $c_0,\cdots, c_r$ are the comarks for $\mathfrak{g}$.
 
 ## Example
 
@@ -35,7 +35,7 @@ $$
 Upto isomorphisms, there are two standard modules for $A_2^{(2)}$ of level $3$, with highest weights given as:
 $$\begin{aligned}
 \Lambda_0+\Lambda_1,\quad 3\Lambda_1.
-\end{align}$$
+\end{aligned}$$
 
 ## Example
 
@@ -110,22 +110,22 @@ This formula can be found as \cite[Eq.\ 3.19]{GriOnoWar}
 
 ## Vacuum spaces
 
-Lepowsky and Wilson, building on an earlier work of Lepowsky and Milne showed that the Rogers--Ramanujan identities reside in a certain substructure of the level $3$ standard modules for $A_1^{(1)}$. In general, this substructure is the vacuum space of $L(\lambda)$ with respect to the principal Heisenberg subalgebra of $\la{g}$.  We denote this by $\Omega(\lambda)$. This vacuum space also has a character which is then principally specialized to obtain infinite periodic products.
+Lepowsky and Wilson, building on an earlier work of Lepowsky and Milne showed that the Rogers--Ramanujan identities reside in a certain substructure of the level $3$ standard modules for $A_1^{(1)}$. In general, this substructure is the vacuum space of $L(\lambda)$ with respect to the principal Heisenberg subalgebra of $\mathfrak{g}$.  We denote this by $\Omega(\lambda)$. This vacuum space also has a character which is then principally specialized to obtain infinite periodic products.
 
 In general, we have 
 $$\begin{aligned}
-\prspec(e^{-\lambda}\ch(L(\lambda))) = F_\la{g} \cdot \prspec(e^{-\lambda}\ch(\Omega(\lambda))),
+\prspec(e^{-\lambda}\ch(L(\lambda))) = F_\mathfrak{g} \cdot \prspec(e^{-\lambda}\ch(\Omega(\lambda))),
 \end{aligned}$$
-where $F_{\la{g}}$ is a factor that depends only on $\la{g}$ and not the module.
+where $F_{\mathfrak{g}}$ is a factor that depends only on $\mathfrak{g}$ and not the module.
 
-If $\la{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\la{g}$. In these cases, we tabulate this factor as below.
+If $\mathfrak{g}$ is of the type $X_n^{(t)}$ where $X\in \{A,D,E\}$ and $t\in \{1,2,3\}$ as appropriate, then principally specialized characters of all the level $1$ standard modules coincide and equal the factor $F_\mathfrak{g}$. In these cases, we tabulate this factor as below.
 
 
 ## Example
 
 Let $\lambda=j_0\Lambda_0+j_1\Lambda_1$ be a highest weight of a level $\ell=j_0+j_1$ standard module for $A_1^{(1)}$. Then, we have:
 $$\begin{aligned}
-\prspec(e^{-\lambda}\ch(\Omega(\lambda))) &=\dfrac{1}{F_{\la{g}}}\prspec(e^{-\lambda}\ch(L(\lambda)))\notag\\
+\prspec(e^{-\lambda}\ch(\Omega(\lambda))) &=\dfrac{1}{F_{\mathfrak{g}}}\prspec(e^{-\lambda}\ch(L(\lambda)))\notag\\
 &=\dfrac{(q;q)_\infty}{(q^2;q^2)_\infty}\times
 \dfrac{(q^2;q^2)_\infty(q^{\ell+2};q^{\ell+2})_\infty}{(q)_\infty^{2}}
 \theta(q^{j_1+1};q^{\ell+2})
