@@ -3,14 +3,14 @@
 
 ## Notation
 
-An affine Kac--Moody Lie algebra $\mathfrak{g}$ is characterized by its affine Dynkin diagram. Such Dynkin diagrams fall into seven infinite families $A_n^{(1)} (n\geq 1)$, $B_n^{(1)} (n\geq 3)$, $C_n^{(1)} (n\geq 2)$, 
+An affine Kac–Moody Lie algebra $\mathfrak{g}$ is characterized by its affine Dynkin diagram. Such Dynkin diagrams fall into seven infinite families $A_n^{(1)} (n\geq 1)$, $B_n^{(1)} (n\geq 3)$, $C_n^{(1)} (n\geq 2)$, 
 $D_n^{(1)} (n\geq 4)$, $A_{2n}^{(2)} (n\geq 1)$, $A_{2n-1}^{(2)} (n\geq 3)$,  $D_{n+1}^{(1)} (n\geq 2)$, and then we also have seven members
 $E_6^{(1)}, E_7^{(1)}, E_8^{(1)}, F_4^{(1)}, G_2^{(1)}, E_6^{(2)}, D_4^{(3)}$ which do not fall into these families.
 
 
 The nodes of these affine Dynkin diagrams are numbered $0,1,\cdots, r$ as in the given figures (\sk{Todo: add affine Dynkin diagrams}). To each node $i$ in a Dynkin diagram is associated a number called its comark denoted by $c_i$, a simple root $\alpha_i$, and a fundamental weight $\Lambda_i$.
 
-We will be considering characters of standard (i.e., integrable highest-weight modules) for $\mathfrak{g}$. These modules are necessarily irreducible. Further, (upto isomorphisms) these modules are characterized by their highest weight $\lambda$ of the form:
+We will be considering characters of standard (i.e., integrable highest-weight modules) for $\mathfrak{g}$. These modules are necessarily irreducible. Further, (up to isomorphisms) these modules are characterized by their highest weight $\lambda$ of the form:
 $$ \begin{aligned}
 \lambda = j_0\Lambda_0 + j_1\Lambda_1+\cdots+j_r\Lambda_r,
 \end{aligned}$$
@@ -24,7 +24,7 @@ where we recall that $c_0,\cdots, c_r$ are the comarks for $\mathfrak{g}$.
 
 ## Example
 
-Upto isomorphisms, there are $\ell+1$ $(\ell\in\mathbb{Z}_{\geq 0})$ standard modules for $A_1^{(1)}$ of level $\ell$, with highest weights given as:
+Up to isomorphisms, there are $\ell+1$ $(\ell\in\mathbb{Z}_{\geq 0})$ standard modules for $A_1^{(1)}$ of level $\ell$, with highest weights given as:
 $$ \begin{aligned}
 a\Lambda_0 + b\Lambda_1,\quad (a+b=\ell, a,b\in\mathbb{Z}_{\geq 0}).
 \end{aligned}
@@ -32,14 +32,14 @@ $$
 
 ## Example
 
-Upto isomorphisms, there are two standard modules for $A_2^{(2)}$ of level $3$, with highest weights given as:
+Up to isomorphisms, there are two standard modules for $A_2^{(2)}$ of level $3$, with highest weights given as:
 $$\begin{aligned}
 \Lambda_0+\Lambda_1,\quad 3\Lambda_1.
 \end{aligned}$$
 
 ## Example
 
-Upto isomorphisms, there are three standard modules for $D_4^{(3)}$ of level $3$, with highest weights given as:
+Up to isomorphisms, there are three standard modules for $D_4^{(3)}$ of level $3$, with highest weights given as:
 $$\begin{aligned}
 3\Lambda_0,\quad \Lambda_0+\Lambda_1,\quad \Lambda_2.
 \end{aligned}$$
