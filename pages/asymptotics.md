@@ -10,7 +10,7 @@ $$ r(n) \sim C n^\kappa \exp\left\{ n^{\alpha/(\alpha+1)} \left( 1 + \frac{1}{\a
 
 where $\zeta(s)$ is the Riemann zeta-function, $\Gamma(s)$ is Euler's gamma function,
 
-$$ C =  e^{D'(0)} (2\pi(1+\alpha))^{-1/2} \left(A\Gamma(\alpha+1)\zeta(\alpha+1) \right)^{(1-2D(0))/(2+2\alpha)} ,$$
+$$ C =  e^{D'(0)} (2\pi(1+\alpha))^{-1/2} \left( A\Gamma(\alpha+1)\zeta(\alpha+1) \right)^{(1-2D(0))/(2+2\alpha)} ,$$
 $$ \kappa =  \frac{2D(0)-2-\alpha}{2(1+\alpha)}, $$
 $$ D(s) = \sum_{n=1}^\infty \frac{a_n}{n^s}, $$
 
