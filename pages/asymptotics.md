@@ -27,7 +27,7 @@ as $n \to \infty$; see Sills (2018, p. 97, Cor. 2.58). Here $\bar{\mathbf{a}} :=
 
 ## References
 
-- G. E. Andrews (1976), The Theory of Partitions, Encyclopedia of Mathematics and its Applications, vol. 2, Addison—Wesley: Reading, MA.  Reissued, Cambridge University Press, 1998. [DOI](https://doi.org/10.1017/CBO9780511608650)
+- G. E. Andrews (1976), The Theory of Partitions, Encyclopedia of Mathematics and its Applications, vol. 2, Addison–Wesley: Reading, MA.  Reissued, Cambridge University Press, 1998. [DOI](https://doi.org/10.1017/CBO9780511608650)
 - G. Meinardus, Asymptotosche aussagen über Partitionen (1954) Math. Z. 59, 388—398. [DOI](https://doi.org/10.1007/BF01180268)
 - A. V. Sills, An Invitation to the Rogers—Ramanujan Identities (2018) CRC Press: Boca Raton, FL. [Publisher's page](https://www.routledge.com/An-Invitation-to-the-Rogers-Ramanujan-Identities/Sills/p/book/9780367657611)
 - H. Todt (2011), Asymptotics of Partition Functions, Ph.D. dissertation, Pennsylvania State University. [PDF](https://etda.libraries.psu.edu/files/final_submissions/2280")
