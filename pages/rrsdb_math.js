@@ -26,12 +26,15 @@ function rrsdb_page_init() {
   });
 
   /* Search the document for the references. This can be done in a better way. */
-  var split1 = document.body.textContent.split("[");
+  var start = document.body.textContent.split("[");
 
-  for (var split2 in split1) {
-    ref = split2.substring(0, split2.indexOf("]")
+  for (var index = 0; index < start.length; ++index) {
+    ref = start[index].substring(0, start[index].indexOf("]"));
+    element = getElementById("rrsdb_bib_" + ref);
 
-    document.getElementById("rrsdb_bib_" + ref).style.display = "block";
+    if (element != null) {
+      element.style.display = "block";
+    }
   }
 }
 
