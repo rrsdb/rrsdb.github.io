@@ -272,3 +272,17 @@ footer a:hover {text-decoration: underline;}
     font-size: 1.8em;
   }
 }
+
+/************
+ Bibliography
+*************/
+
+#bibliography_container {
+  width: 60%;
+  margin-left: 20%;
+}
+
+#bibliography_container > div {
+	display: none;
+}
+
