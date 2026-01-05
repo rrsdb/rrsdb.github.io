@@ -33,8 +33,6 @@ function rrsdb_page_init() {
 
     document.getElementById("rrsdb_bib_" + ref).style.display = "block";
   }
-
-document.body.textContent = part1[0] + part1[1].substring(part1[1].indexOf("\n"));
 }
 
 // Returns the expansion of poly1 * poly2.
