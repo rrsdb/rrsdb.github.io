@@ -100,8 +100,6 @@ class MarkdownPage(RRSDBPage):
     def __build__(self):
         self.sidebar = self.replace_vars(local_path("sidebar.html").read_text(encoding="utf-8"))
         self.header = self.replace_vars(local_path("header.html").read_text(encoding="utf-8"))
-        self.references_start = self.replace_vars("<!-- RRSDB_REFERENCES")
-        self.references_end = self.replace_vars("--> ")
         self.bibliography = self.replace_vars(local_path("bibliography.html").read_text(encoding="utf-8"))
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
