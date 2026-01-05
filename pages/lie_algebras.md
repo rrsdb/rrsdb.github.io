@@ -140,4 +140,5 @@ F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(\Omega(\lambda))) &=\dfrac{1}{F_{\m
 \end{aligned}$$
 
 ## References
-!!references A48,A75
+!!references_start A48,A75 !!references_end
+
