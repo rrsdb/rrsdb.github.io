@@ -24,6 +24,17 @@ function rrsdb_page_init() {
     document.getElementById("sidebar").style.display = "none";
     document.getElementById("main").style.display = "block";
   });
+
+  /* Search the document for the references. This can be done in a better way. */
+  var split1 = document.body.textContent.split("[");
+
+  for (var split2 in split1) {
+    ref = split2.substring(0, split2.indexOf("]")
+
+    document.getElementById("rrsdb_bib_" + ref).style.display = "block";
+  }
+
+document.body.textContent = part1[0] + part1[1].substring(part1[1].indexOf("\n"));
 }
 
 // Returns the expansion of poly1 * poly2.
