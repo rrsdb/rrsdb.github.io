@@ -30,7 +30,7 @@ function rrsdb_page_init() {
 
   for (var index = 0; index < start.length; ++index) {
     ref = start[index].substring(0, start[index].indexOf("]"));
-    element = getElementById("rrsdb_bib_" + ref);
+    element = document.getElementById("rrsdb_bib_" + ref);
 
     if (element != null) {
       element.style.display = "block";
