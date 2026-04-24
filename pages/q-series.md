@@ -47,7 +47,7 @@ A basic hypergeometric series is **balanced** (or Saalschützian in the older li
 
 The **bilateral basic hypergeometric series** with base $q$ is
 
-$$ { {}_{r}\psi_{s} \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r} {b_1, b_2, \dots, b_s} ; {q},{z} \right]} := \sum_{k=0}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k} z^k \left( (-1)^k q^{k(k-1)/2} \right)^{s-r}, $$
+$$ { {}_{r}\psi_{s} \left[ \genfrac{}{}{0pt}{}{a_1, a_2, \dots, a_r} {b_1, b_2, \dots, b_s} ; {q},{z} \right]} := \sum_{k=-\infty}^\infty \frac{(a_1, a_2, \dots, a_r; q)_k }{(b_1, b_2, \dots, b_s;q)_k} z^k \left( (-1)^k q^{k(k-1)/2} \right)^{s-r}, $$
 
 where $r$ and $s$ are nonnegative integers.
 
