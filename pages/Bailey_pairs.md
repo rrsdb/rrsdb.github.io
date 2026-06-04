@@ -103,7 +103,7 @@ $$ \sum_{n=0}^\infty q^{n^2} (-q;q^2)_n \beta_n(1,q^2) = \frac{(-q;q^2)_\infty}{
 
 If$\big(\alpha_n(a,q), \beta_n(a,q)\big)$ form a Bailey pair relative to $a=q$, then
 
-$$ \sum_{n=0}^\infty q^{n^2+2n} \beta_n(q^2,q^2) = \frac{(-q;q^2)_\infty}{(q^4;q^2)_\infty} \sum_{r=0}^\infty \frac{ q^{r^2+2r}}{1+q^{2r+1}} \alpha_r(q^2,q^2). $$
+$$ \sum_{n=0}^\infty q^{n^2+2n} (-q;q^2)_n \beta_n(q^2,q^2) = \frac{(-q;q^2)_\infty}{(q^4;q^2)_\infty} \sum_{r=0}^\infty \frac{ q^{r^2+2r}}{1+q^{2r+1}} \alpha_r(q^2,q^2). $$
 
 
 If $a$ is left unspecialized, we have the **apod-Bailey lemma**:
