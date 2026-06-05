@@ -117,6 +117,14 @@ $$ \frac{(-aq;q^2)_\infty}{(aq^2;q^2)_\infty} = \sum_{n=0}^\infty \sum_{m=0}^\in
 
 where $pod(n,m)$ denotes the number of partitions of $n$ of length $m$ in which no odd part is repeated.
 
+### The second pod-Bailey lemma {#2nd_pod_Bailey_lemma}
+
+The **2nd pod-Bailey lemma** is a limiting case ($\rho_2, n\to\infty, \rho_1 = -q^{3/2}$, with $a$ specialized, then $q$ replaced by $q^2$ throughout) of the [strong Bailey lemma](#strong_Bailey_lemma) and is so named because of the infinite product prefactor on the righthand side is the generating function for $pod(n)$, the number of partitions of $n$ in which no odd part is repeated. 
+
+If $\big(\alpha_n(a,q), \beta_n(a,q)\big)$ form a [Bailey pair](#definition) relative to $a=1$,  then
+
+$$ \sum_{n=0}^\infty q^{n^2-2n} (-q;q^2)_{n+1} \beta_n(1,q^2) = \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{r=0}^\infty q^{r^2-2r} (1-q^{2r-1})(1-q^{2r+1}) \alpha_r(1,q^2). $$
+
 
 ## References
 
