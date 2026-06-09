@@ -78,6 +78,9 @@ $$ \frac{1}{\psi(-q)} =  \frac{(-q;q^2)_\infty}{(q^2;q^2)_\infty} \sum_{n=0}^\in
 
 where $p(n)$ is the number of [unrestricted partitions](partitions.html#integer_partitions) of $n$, $\bar{p}(n)$ is the number of [overpartitions](partitions.html#overpartitions) of $n$, and $pod(n)$ is the number of partitions of $n$ in which no odd part is repeated. 
 
+While not a theta function, Ramanujan also used the symbol $\chi(-q)$ to denote $(q;q^2)_\infty = (-q;q)_\infty^{-1}$.
+It is also common to use $G(q):= (q, q^4; q^5)_\infty^{-1}$ and $H(q) = (q^2,q^3; q^5)_\infty^{-1}$.
+
 
 ## The triple product identity {#triple_product}
 
