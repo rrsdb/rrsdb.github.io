@@ -277,6 +277,10 @@ footer a:hover {text-decoration: underline;}
  Bibliography
 *************/
 
+#bibliography {
+  width: 80%;
+}
+
 #bibliography_container {
   width: 60%;
 }

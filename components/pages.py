@@ -123,6 +123,16 @@ class InfoPage(MarkdownPage):
         self.section = "Definitions and Preliminaries"
 
 
+class BibliographyPage(InfoPage):
+    _path = "pages/bibliography.md"
+
+    def __build__(self):
+        super().__build__()
+
+        # Show the whole bibliography
+        self.content = regex.sub("bibliography_container", "bibliography", self.content)
+
+
 class IdentitiesPage(RRSDBPage):
     _path = "pages/identities_by_product.html"
 
