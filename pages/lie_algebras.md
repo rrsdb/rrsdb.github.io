@@ -62,7 +62,7 @@ $$F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda))).$$
 
 
 Several sources in the literature provide explicit evaluations of principally specialized characters,
-some of which have been compiled in \cite{Sil-book}.
+some of which have been compiled in `\cite{Sil-book}`.
 The following may not be the original sources which give these formulas. 
 
 Recall the standard $q$-series notation:
@@ -83,9 +83,9 @@ $$\begin{aligned}
 F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))=\dfrac{(q^{n+1};q^{n+1})_\infty(q^{n+\ell+1};q^{n+\ell+1})^{n}_{\infty}}{(q)_\infty^{n+1}}\prod_{\substack{0\leq a < b\leq n}}
 \theta(q^{\mu_a-\mu_b-a+b};q^{n+\ell+1}),
 \end{aligned}$$
-This formula can be deduced by combining \cite[Eq.\ 5.2]{AndSchWar} with \cite[Eq.\ 5]{FodWel}.
+This formula can be deduced by combining `\cite[Eq.\ 5.2]{AndSchWar}` with `\cite[Eq.\ 5]{FodWel}`.
 
-2. Type $C_n^{(1)}$. Given $\lambda = j_0\Lambda_0+\cdots+j_n\Lambda_n$ with $j_0,\cdots,j_n\in \mathbb{Z}_{\geq 0}$, define $\mu$'s as in \eqref{eqn:lambdamuAC}.
+2. Type $C_n^{(1)}$. Given $\lambda = j_0\Lambda_0+\cdots+j_n\Lambda_n$ with $j_0,\cdots,j_n\in \mathbb{Z}_{\geq 0}$, define $\mu$'s as in `\eqref{eqn:lambdamuAC}`.
 Further define $\kappa = 2n+2\mu_0+2$.
 Then, we have:
 $$\begin{aligned}
@@ -95,13 +95,13 @@ F_{\mathbb{1}}(e^{-\lambda}\operatorname{ch}(L(\lambda)))&=
 \prod_{1\leq a < b\leq n}\theta(q^{\mu_a-\mu_b-a+b};q^{\kappa})
 \theta(q^{\mu_a+\mu_b+2n+2-a-b};q^{\kappa}).
 \end{aligned}$$
-This formula can be found as \cite[Eq.\ 3.19]{GriOnoWar}
+This formula can be found as `\cite[Eq.\ 3.19]{GriOnoWar}`
 
-3. Type $D_n^{(1)}$. This description is provided in \cite{Sil-book}. Needs to be typed.
+3. Type $D_n^{(1)}$. This description is provided in `\cite{Sil-book}`. Needs to be typed.
 
-4. Type $A_{2n}^{(2)}$. This description could be extracted from \cite{ButKozPri}, but will need a lot more work to figure out and type.
+4. Type $A_{2n}^{(2)}$. This description could be extracted from `\cite{ButKozPri}`, but will need a lot more work to figure out and type.
 
-5. Type $D_{n+1}^{(2)}$. This description could be extracted from \cite{ButKozPri}, but will need a lot more work to figure out and type.
+5. Type $D_{n+1}^{(2)}$. This description could be extracted from `\cite{ButKozPri}`, but will need a lot more work to figure out and type.
 
 ## Vacuum spaces
 
