@@ -81,18 +81,19 @@ class MarkdownPage(RRSDBPage):
         # URL Escaping
         page = regex.sub(r"]\((?P<url>\S+)\)", lambda match: f"]({quote(match['url'], safe=':/#')})", page)
 
-        # Render body
+        # Render body & bibliography
         self.renderer = self._renderer()
-        self.body = mistune.create_markdown(renderer=self.renderer, plugins=PLUGINS)(page)
+        self.body = mistune.create_markdown(renderer=self.renderer, plugins=PLUGINS)(page) + "\n"
+        self.body += self.replace_vars(local_path("bibliography.html").read_text(encoding="utf-8")) + "\n"
         self.body += closing_tags(self.body)
 
         # Layout info
         self.headings = self.renderer.headings
         self.title = self.headings[0].plaintext if self.headings else ""
 
-        # References
+        # Reference extraction (if bibliography ID not used)
         auth = r"[\p{Lu}\p{Lt}]\w+"
-        pattern = rf"(?P<authors>({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|)) \((?P<year>\d{{4}})(?:, (?P<details>(?:\(.*?\)|.)*?))?\)"
+        pattern = rf"(?P<authors>({auth}|(?:{auth}, )*{auth},? (?:and|&) {auth}|)) \((?P<year>\d{{4}}[a-z]?)(?:, (?P<details>(?:\(.*?\)|.)*?))?\)"
         self.references = [*regex.finditer(pattern, page)]
         self.references = [(regex.split(r" and |, and | & |, ", match['authors']), match['year'], match['details'])
                            for match in self.references]
@@ -100,13 +101,17 @@ class MarkdownPage(RRSDBPage):
     def __build__(self):
         self.sidebar = self.replace_vars(local_path("sidebar.html").read_text(encoding="utf-8"))
         self.header = self.replace_vars(local_path("header.html").read_text(encoding="utf-8"))
-        self.bibliography = self.replace_vars(local_path("bibliography.html").read_text(encoding="utf-8"))
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
         self.content = self.replace_vars(local_path(self._template).with_suffix(".html").read_text(encoding="utf-8"))
 
         # Widgets
         self.content = regex.sub(VAR_PATTERN, lambda match: self.replace_vars(build_widget(match['var'])), self.content)
+
+        # Fix reference bullets
+        self.content = regex.sub('class="bibliography_entry">(<p>.*?</p>)',
+                                 lambda match: f'class="bibliography_entry"><ul><li>{match[1]}</li></ul>',
+                                 self.content)
 
 
 class InfoPage(MarkdownPage):
