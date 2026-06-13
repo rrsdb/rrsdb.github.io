@@ -126,6 +126,11 @@ class InfoPage(MarkdownPage):
 class BibliographyPage(InfoPage):
     _path = "pages/bibliography.md"
 
+    def __init__(self, path: Path, page: str):
+        super().__init__(path, page)
+
+        self.section = "Bibliography"
+
     def __build__(self):
         super().__build__()
 
