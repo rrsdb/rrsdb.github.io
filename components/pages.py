@@ -109,8 +109,8 @@ class MarkdownPage(RRSDBPage):
         self.content = regex.sub(VAR_PATTERN, lambda match: self.replace_vars(build_widget(match['var'])), self.content)
 
         # Fix reference bullets
-        self.content = regex.sub('class="bibliography_entry">(<p>.*?</p>)',
-                                 lambda match: f'class="bibliography_entry"><ul><li>{match[1]}</li></ul>',
+        self.content = regex.sub('(?<=class="bibliography_entry">)(<p>.*?</p>)',
+                                 lambda match: f'<ul><li>{match[1]}</li></ul>',
                                  self.content)
 
 
@@ -136,6 +136,11 @@ class BibliographyPage(InfoPage):
 
         # Show the whole bibliography
         self.content = regex.sub("bibliography_container", "bibliography", self.content)
+
+        # Include bib IDs
+        self.content = regex.sub('(?<=<div id="rrsdb_bib_(.*?)" class="bibliography_entry"><ul><li><p>)',
+                                 lambda match: f"<b>[{match[1]}]</b> ",
+                                 self.content)
 
 
 class IdentitiesPage(RRSDBPage):
