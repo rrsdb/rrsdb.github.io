@@ -168,10 +168,10 @@ class IdentityRenderer(RRSDBRenderer):
 
         # Place widgets right after appropriate headings
         match text.lower().strip(), level:
-            case _, 1:
+            case text, 1 if text:
                 rendered += build_widget("graphs")
 
-            case "power series expansion", _:
+            case "power series expansion", level:
                 rendered += build_widget("power_series")
 
         return rendered
