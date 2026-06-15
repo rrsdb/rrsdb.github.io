@@ -190,10 +190,10 @@ class IdentityPage(MarkdownPage):
         # Determine sequence signature
         signature = regex.search(r"(?P<length>\d+)\s*:\s*\((?P<items>.*?)\)", self.title)
         if signature is None:
-            self.signature = "5, [1,0,0,1,0]"
+            self.signature = "5,[1,0,0,1,0]"
 
         else:
-            self.signature = f"{signature['length']}, [{signature['items']}]"
+            self.signature = regex.sub(r"\s+", "", f"{signature['length']},[{signature['items']}]")
 
 
     def __build__(self):
