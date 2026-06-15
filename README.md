@@ -61,13 +61,6 @@ Sentence. [^1]
 <p>HTML</p>
 ```
 
-#### Widgets
-
-Widgets are elements generated using page and identity information after the rest of the page is written to HTML. Widgets are inserted via `!!name`; do not change the location of widgets already provided in the template.
-
-- `!!graphs`: Graph(s) of the function
-- `!!power_series`: Calculator for power series coefficients
-
 ## Other articles
 
 Excepting some pages with embedded code (for the moment), the other informational articles on the site are also written in Markdown. Please feel free to add/correct any details on these pages.

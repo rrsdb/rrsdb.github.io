@@ -1,6 +1,5 @@
 # Article for infinite product with [signature](../product_signature.html) SIGNATURE HERE
 
-!!graphs
 
 $$ F(q) := \sum_{n=0}^\infty r(n)q^n := PRODUCT\;REPRESENTATIONS\;HERE $$
 
@@ -14,7 +13,7 @@ $ \displaystyle r(n) \sim FORMULA\;HERE $ as $ n\to\infty. $
 
 ## Power series expansion
 
-!!power_series
+> COMMENTS ON THE EXPANSION OR DELETE THIS LINE
 
 ## $q$-series representations
 
