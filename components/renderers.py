@@ -1,9 +1,19 @@
 import mistune
+import os
 import regex
 
 from collections import namedtuple
 from mistune.directives import FencedDirective
 from mistune.directives import Image, Figure
+from pathlib import Path
+
+
+def local_path(path: str) -> Path:
+    return Path(os.path.dirname(__file__)).joinpath(path)
+
+
+def build_widget(path: str) -> str:
+    return local_path("widgets").joinpath(path, "template.html").read_text() + "\n"
 
 
 # Close all open HTML tags (really awful)
@@ -152,3 +162,16 @@ class IdentityRenderer(RRSDBRenderer):
               '<div class="main_infobox" id="">',
         "h2": '<div class="identity_container">'
     }
+
+    def heading(self, text: str, level: int, **attrs) -> str:
+        rendered = super().heading(text, level, **attrs) + "\n\n"
+
+        # Place widgets right after appropriate headings
+        match text.lower().strip(), level:
+            case _, 1:
+                rendered += build_widget("graphs")
+
+            case "power series expansion", _:
+                rendered += build_widget("power_series")
+
+        return rendered

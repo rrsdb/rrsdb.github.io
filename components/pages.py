@@ -1,20 +1,8 @@
-import os
-import regex
-
 from .renderers import *
+
 from fnmatch import fnmatch
-from pathlib import Path
 from urllib.parse import quote
 
-
-# Get file relative to CWD
-def local_path(path: str) -> Path:
-    return Path(os.path.dirname(__file__)).joinpath(path)
-
-
-# Get widget content; will eventually use build scripts
-def build_widget(path: str) -> str:
-    return local_path("widgets").joinpath(path, "template.html").read_text()
 
 VAR_PATTERN = r"!!(?P<var>\w+)(!!)?"
 
@@ -67,7 +55,11 @@ class RRSDBPage(metaclass=Built):
 
     # Replace vars in a file (!! shouldn't conflict with other syntax)
     def replace_vars(self, content: str) -> str:
-        return regex.sub(VAR_PATTERN, lambda match: vars(self)[match['var']], content)
+        n = 1
+        while n:
+            content, n = regex.subn(VAR_PATTERN, lambda match: vars(self).get(match['var'], ""), content)
+
+        return content
 
 
 class MarkdownPage(RRSDBPage):
@@ -104,9 +96,6 @@ class MarkdownPage(RRSDBPage):
         self.footer = self.replace_vars(local_path("footer.html").read_text(encoding="utf-8"))
 
         self.content = self.replace_vars(local_path(self._template).with_suffix(".html").read_text(encoding="utf-8"))
-
-        # Widgets
-        self.content = regex.sub(VAR_PATTERN, lambda match: self.replace_vars(build_widget(match['var'])), self.content)
 
         # Fix reference bullets
         self.content = regex.sub('(?<=class="bibliography_entry">)(<p>.*?</p>)',
