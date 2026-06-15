@@ -200,6 +200,6 @@ class IdentityPage(MarkdownPage):
         super().__build__()
 
         # Bailey links
-        self.content = regex.sub(r"(?<!\$\s*)[A-Z]\(\d{,3}\)(?!\s*\$)",
-                                 lambda match: f'<a href="../Bailey_pair_tables.html#{match[0]}">{match[0]}</a>',
+        self.content = regex.sub(r"(?<!\$\s*) ([A-Z]\(\d{,3}\))(?!\s*\$)",
+                                 lambda match: f' <a href="../Bailey_pair_tables.html#{match[1]}">{match[1]}</a>',
                                  self.content)
