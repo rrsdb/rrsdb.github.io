@@ -43,6 +43,13 @@ def plaintext(text: str) -> str:
     return regex.sub(r"<.*?>", "", text, flags=regex.DOTALL)
 
 
+# Comments plugin
+def comment(md):
+    md.block.register('comment', r'<!--.*?-->', lambda block, match, state: match.end() + 1, before='list')
+    if md.renderer and md.renderer.NAME == 'html':
+        md.renderer.register('comment', lambda renderer, text: "")
+
+
 # Math plugin
 def math(md):
     block_pattern = r'^\s*\$\$\s*(?P<math_text>[\s\S]+?)\s*\$\$\s*$'
@@ -76,6 +83,7 @@ PLUGINS = [
     "abbr",
     "mark",
 
+    comment,
     math,
 
     FencedDirective([

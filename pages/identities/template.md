@@ -1,3 +1,4 @@
+<!-- this is a comment-->
 # Article for infinite product with [signature](../product_signature.html) SIGNATURE HERE
 
 
@@ -52,5 +53,3 @@ $ \displaystyle F(q) = OTHER\;FORM\;HERE\;OR\;DELETE\;DIV $
 ## References
 - Ref 1 here
 - Ref 2 here
-
-[comment]: # test to see if this kind of comment works
