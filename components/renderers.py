@@ -51,6 +51,7 @@ def comment(md):
 
 
 # Math plugin
+# Note: mistune's built-in doesn't allow "$ ... $" for inline math, so we'll keep rolling our own
 def math(md):
     block_pattern = r'^\s*\$\$\s*(?P<math_text>[\s\S]+?)\s*\$\$\s*$'
     inline_pattern = r'\$\s*(?P<math_text>.+?)\s*\$'
